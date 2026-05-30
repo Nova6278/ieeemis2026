@@ -1,0 +1,3512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IEEE MTT-S Microwave India Summit (MIS) 2026 — KIIT University</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy:   #040d1a;
+      --navy2:  #0a1628;
+      --navy3:  #0f2040;
+      --green:  #00d4a0;
+      --gold:   #f5c518;
+      --white:  #ffffff;
+      --gray:   #8892a4;
+      --card:   #0a1628;
+      --card2:  #0d1e38;
+      --border: rgba(255,255,255,0.08);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', 'Inter', sans-serif;
+      background: var(--navy);
+      color: var(--white);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+    /* Deep-space atmosphere base */
+    body::before {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 80% 60% at 10% 20%, rgba(0,212,160,0.04) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 90% 80%, rgba(0,80,180,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse 40% 40% at 50% 50%, rgba(10,20,60,0.5) 0%, transparent 70%);
+    }
+    /* Animated SVG circuit-board grid overlay */
+    body::after {
+      content: '';
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      opacity: 0.04;
+      background-image:
+        linear-gradient(rgba(0,212,160,0.6) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,212,160,0.6) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridDrift 20s linear infinite;
+    }
+    @keyframes gridDrift {
+      0%   { background-position: 0 0, 0 0; }
+      100% { background-position: 60px 60px, 60px 60px; }
+    }
+    /* All content above overlay */
+    nav, .page, #scanline { position: relative; z-index: 1; }
+    nav { z-index: 1000; }
+    h1, h2, h3, .bebas { font-family: 'Bebas Neue', sans-serif; letter-spacing: 0.04em; }
+    h4, h5, h6, label, .section-tag, .stat-label, .venue-info-label { font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+    .page { display: none; }
+    .page.active { display: block; }
+
+    /* ===== SCAN-LINE PAGE TRANSITION ===== */
+    #scanline {
+      position: fixed; top: -2px; left: 0; width: 100%; height: 2px;
+      background: #00d4a0;
+      box-shadow: 0 0 12px #00d4a0;
+      z-index: 9999; pointer-events: none;
+      opacity: 0;
+    }
+    #scanline.sweeping {
+      animation: scanSweepV 0.15s linear forwards;
+    }
+    @keyframes scanSweepV {
+      0%   { opacity: 1; top: 0; }
+      100% { opacity: 1; top: 100vh; }
+    }
+
+    /* ===== SECTION WATERMARK ===== */
+    .section { position: relative; overflow: hidden; }
+    .section::after {
+      content: 'MIS 2026';
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-45deg);
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(6rem, 20vw, 16rem);
+      color: rgba(255,255,255,0.015); pointer-events: none; white-space: nowrap;
+      letter-spacing: 0.1em; z-index: 0; user-select: none;
+    }
+    .section-inner { position: relative; z-index: 1; }
+
+    /* ===== NAVBAR ===== */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(4,13,26,0.85);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid rgba(0,212,160,0.15);
+      height: 68px;
+      display: flex; align-items: center;
+      padding: 0 5%;
+      transition: height 0.3s ease, background 0.3s ease, backdrop-filter 0.3s ease;
+    }
+    nav.scrolled {
+      height: 56px;
+      background: rgba(4,13,26,0.96);
+      backdrop-filter: blur(32px) saturate(200%);
+      -webkit-backdrop-filter: blur(32px) saturate(200%);
+      border-bottom-color: rgba(0,212,160,0.25);
+    }
+    .nav-inner {
+      width: 100%; max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 0; cursor: pointer; flex-shrink: 0;
+    }
+    .nav-mis-logo { height: 64px; width: auto; object-fit: contain; flex-shrink: 0; display: block; }
+    .nav-event-name {
+      font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold);
+      letter-spacing: 0.1em; line-height: 1; white-space: nowrap; flex-shrink: 0;
+      margin-left: 8px;
+    }
+    .nav-divider {
+      width: 1px; height: 40px; background: rgba(0,212,160,0.35);
+      margin: 0 18px; flex-shrink: 0;
+    }
+    .nav-partner-logos {
+      display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+    }
+    .nav-partner-logo {
+      height: 24px; width: auto; object-fit: contain; opacity: 1;
+      transition: opacity 0.2s; display: block;
+      filter: brightness(1.15) contrast(1.05);
+    }
+    .nav-partner-logo:hover { opacity: 0.8; }
+    @media (max-width: 900px) {
+      .nav-divider, .nav-partner-logos { display: none; }
+      .nav-mis-logo { height: 44px; }
+      .nav-event-name { font-size: 22px; }
+    }
+    .nav-links {
+      display: flex; align-items: center; gap: 2px; list-style: none;
+    }
+    .nav-links li { position: relative; }
+    /* Active green dot above link */
+    .nav-links li a.active::before {
+      content: ''; position: absolute;
+      top: -2px; left: 50%; transform: translateX(-50%);
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--green);
+      box-shadow: 0 0 6px rgba(0,212,160,0.8);
+    }
+    .nav-links li a {
+      padding: 6px 12px; border-radius: 6px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px; font-weight: 600; color: var(--gray);
+      letter-spacing: 0.06em;
+      transition: color 0.2s, background 0.2s;
+      cursor: pointer; display: block; position: relative;
+    }
+    .nav-links li a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-links li a.active { color: var(--green); }
+    .nav-cta {
+      background: var(--gold); color: var(--navy);
+      padding: 8px 18px; border-radius: 6px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 14px; font-weight: 700;
+      letter-spacing: 0.06em;
+      transition: transform 0.2s, box-shadow 0.2s;
+      cursor: pointer; white-space: nowrap; flex-shrink: 0;
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(245,197,24,0.45);
+    }
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--white); border-radius: 2px; transition: 0.3s;
+    }
+
+    @media (max-width: 1080px) {
+      .hamburger { display: flex; }
+      .nav-links {
+        display: none; flex-direction: column; gap: 4px;
+        position: absolute; top: 68px; left: 0; right: 0;
+        background: rgba(4,13,26,0.98);
+        backdrop-filter: blur(20px);
+        padding: 16px 5% 20px;
+        border-bottom: 1px solid rgba(0,212,160,0.15);
+      }
+      nav.scrolled + * .nav-links, .nav-links { top: var(--nav-h, 68px); }
+      .nav-links.open { display: flex; }
+      .nav-links li { width: 100%; }
+      .nav-links li a { padding: 10px 14px; font-size: 15px; width: 100%; }
+      .nav-cta { display: none; }
+    }
+
+    /* ===== SECTION WRAPPER ===== */
+    .section { padding: 90px 5%; }
+    .section-inner { max-width: 1280px; margin: 0 auto; }
+    .section-tag {
+      display: inline-block;
+      background: rgba(0,212,160,0.1); color: var(--green);
+      font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; padding: 5px 14px; border-radius: 20px;
+      border: 1px solid rgba(0,212,160,0.35);
+      margin-bottom: 16px;
+      box-shadow: 0 0 12px rgba(0,212,160,0.12);
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3rem);
+      color: var(--white); line-height: 1.1; margin-bottom: 16px;
+      position: relative;
+    }
+    .section-sub {
+      font-size: 16px; color: var(--gray); line-height: 1.7;
+      max-width: 640px;
+    }
+    .divider {
+      width: 60px; height: 4px;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      border-radius: 2px; margin: 20px 0 40px;
+      box-shadow: 0 0 16px rgba(0,212,160,0.5), 0 0 40px rgba(0,212,160,0.15);
+      position: relative;
+    }
+    .divider.visible, .reveal.visible .divider {
+      animation: dividerGrow 0.6s cubic-bezier(0.2,0.8,0.4,1) both;
+    }
+    @keyframes dividerGrow {
+      from { width: 0; opacity: 0; }
+      to   { width: 60px; opacity: 1; }
+    }
+
+    /* Nav animated underline */
+    .nav-links li a { position: relative; }
+    .nav-links li a::after {
+      content: ''; position: absolute; bottom: 0; left: 50%; right: 50%;
+      height: 2px; background: var(--green);
+      border-radius: 1px; transition: left 0.25s ease, right 0.25s ease;
+    }
+    .nav-links li a:hover::after, .nav-links li a.active::after {
+      left: 8px; right: 8px;
+    }
+
+    /* ===== HERO ===== */
+    #hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse 70% 80% at 20% 50%, #0d2847 0%, transparent 60%),
+        radial-gradient(ellipse 60% 60% at 80% 20%, #091e3a 0%, transparent 55%),
+        radial-gradient(ellipse 50% 40% at 60% 80%, rgba(0,60,40,0.3) 0%, transparent 50%),
+        linear-gradient(180deg, #040d1a 0%, #07142a 100%);
+      padding-top: 68px;
+    }
+    /* Glowing orb blobs in hero corners */
+    #hero::before {
+      content: ''; position: absolute;
+      width: 500px; height: 500px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,212,160,0.08) 0%, transparent 70%);
+      top: -100px; left: -100px; animation: orbFloat 8s ease-in-out infinite;
+      pointer-events: none;
+    }
+    #hero::after {
+      content: ''; position: absolute;
+      width: 400px; height: 400px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(0,80,200,0.07) 0%, transparent 70%);
+      bottom: -80px; right: -80px; animation: orbFloat 10s ease-in-out infinite reverse;
+      pointer-events: none;
+    }
+    @keyframes orbFloat {
+      0%,100% { transform: translate(0,0) scale(1); }
+      33%      { transform: translate(30px,-20px) scale(1.05); }
+      66%      { transform: translate(-20px,30px) scale(0.95); }
+    }
+    #particle-canvas {
+      position: absolute; inset: 0; z-index: 0; opacity: 0.85;
+    }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center;
+      padding: 40px 5%;
+      max-width: 960px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(0,212,160,0.1); border: 1px solid rgba(0,212,160,0.3);
+      color: var(--green); font-size: 13px; font-weight: 600;
+      padding: 7px 18px; border-radius: 30px; margin-bottom: 30px;
+      letter-spacing: 0.06em;
+      animation: fadeInDown 0.8s ease both;
+    }
+    .hero-badge::before {
+      content: ''; width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green); animation: pulse 1.5s infinite;
+    }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 9vw, 7.5rem);
+      line-height: 0.92; letter-spacing: 0.02em;
+      animation: fadeInUp 0.9s ease 0.2s both;
+      text-shadow: 0 0 40px rgba(0,212,160,0.25), 0 0 80px rgba(0,212,160,0.1);
+    }
+    .hero-title .highlight {
+      color: var(--green);
+      text-shadow: 0 0 40px rgba(0,212,160,0.5), 0 0 80px rgba(0,212,160,0.25);
+    }
+    .hero-title .gold {
+      color: var(--gold);
+      text-shadow: 0 0 40px rgba(245,197,24,0.4), 0 0 80px rgba(245,197,24,0.2);
+    }
+    .hero-meta {
+      margin: 28px 0 40px;
+      display: flex; align-items: center; justify-content: center;
+      gap: 24px; flex-wrap: wrap;
+      animation: fadeInUp 0.9s ease 0.4s both;
+    }
+    .hero-meta-item {
+      display: flex; align-items: center; gap: 8px;
+      font-size: 15px; color: var(--gray);
+    }
+    .hero-meta-item svg { color: var(--green); flex-shrink: 0; }
+    .hero-meta-sep { width: 1px; height: 20px; background: var(--border); }
+    .hero-btns {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      animation: fadeInUp 0.9s ease 0.65s both;
+    }
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--gold); color: var(--navy);
+      padding: 14px 32px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.03em;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaGlow 2.5s ease-in-out infinite;
+      overflow: hidden; position: relative;
+    }
+    .btn-primary::after {
+      content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.35), transparent);
+      transition: left 0.4s ease;
+    }
+    .btn-primary:hover::after { left: 150%; }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 40px rgba(245,197,24,0.6), 0 0 80px rgba(245,197,24,0.2);
+      animation: none;
+    }
+    @keyframes ctaGlow {
+      0%,100% { box-shadow: 0 4px 20px rgba(245,197,24,0.2); }
+      50%      { box-shadow: 0 4px 28px rgba(245,197,24,0.5), 0 0 40px rgba(245,197,24,0.15); }
+    }
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 2px solid rgba(0,212,160,0.35); color: var(--white);
+      padding: 13px 30px; border-radius: 8px;
+      font-size: 15px; font-weight: 600;
+      transition: border-color 0.2s, background 0.2s, transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .btn-outline::after {
+      content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0,212,160,0.15), transparent);
+      transition: left 0.4s ease;
+    }
+    .btn-outline:hover::after { left: 150%; }
+    .btn-outline:hover {
+      border-color: var(--green); background: rgba(0,212,160,0.08);
+      transform: translateY(-3px);
+      box-shadow: 0 0 20px rgba(0,212,160,0.2);
+    }
+    .hero-scroll {
+      position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%);
+      display: flex; flex-direction: column; align-items: center; gap: 8px;
+      color: var(--gray); font-size: 12px; letter-spacing: 0.1em;
+      animation: fadeIn 1s ease 1.2s both;
+    }
+    .hero-scroll::after {
+      content: ''; width: 1px; height: 40px;
+      background: linear-gradient(var(--green), transparent);
+      animation: scrollLine 1.5s ease infinite;
+    }
+    @keyframes scrollLine { 0%{opacity:0;transform:scaleY(0);transform-origin:top} 50%{opacity:1;transform:scaleY(1)} 100%{opacity:0;transform:scaleY(1);transform-origin:bottom} }
+    @keyframes fadeInDown { from{opacity:0;transform:translateY(-20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeInUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn { from{opacity:0} to{opacity:1} }
+
+    /* ===== HERO SUBTITLE, COUNTDOWN, TRUST BADGES ===== */
+    .hero-subtitle {
+      font-size: 15px; color: rgba(136,146,164,0.9);
+      letter-spacing: 0.04em; margin: 16px 0 28px;
+      animation: fadeInUp 0.9s ease 0.35s both;
+    }
+    .countdown-wrap {
+      display: flex; align-items: center; justify-content: center;
+      gap: 8px; margin: 0 0 36px;
+      animation: fadeInUp 0.9s ease 0.5s both;
+    }
+    .countdown-block {
+      background: rgba(10,22,40,0.8); border: 1px solid rgba(0,212,160,0.2);
+      border-radius: 12px; padding: 16px 20px; min-width: 80px; text-align: center;
+      box-shadow: 0 0 20px rgba(0,212,160,0.06), inset 0 1px 0 rgba(0,212,160,0.08);
+      backdrop-filter: blur(10px);
+    }
+    .countdown-num {
+      font-family: 'Bebas Neue', sans-serif; font-size: 48px; line-height: 1;
+      color: var(--green);
+      text-shadow: 0 0 20px rgba(0,212,160,0.5);
+    }
+    .countdown-label {
+      font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 600;
+      color: var(--gray); letter-spacing: 0.14em; text-transform: uppercase;
+      margin-top: 4px;
+    }
+    .countdown-sep {
+      font-family: 'Bebas Neue', sans-serif; font-size: 40px;
+      color: rgba(0,212,160,0.4); line-height: 1; margin-top: -16px;
+    }
+    @media (max-width: 500px) {
+      .countdown-block { min-width: 62px; padding: 12px 10px; }
+      .countdown-num { font-size: 36px; }
+      .countdown-sep { font-size: 28px; }
+    }
+    .trust-badges {
+      display: flex; align-items: center; justify-content: center;
+      gap: 10px; flex-wrap: wrap;
+      margin-top: 28px;
+      animation: fadeInUp 0.9s ease 0.75s both;
+    }
+    .trust-pill {
+      background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px; padding: 5px 14px;
+      font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 600;
+      color: rgba(255,255,255,0.6); letter-spacing: 0.06em;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .trust-pill:hover { border-color: rgba(0,212,160,0.3); color: var(--white); }
+
+    /* stats strip */
+    .stats-strip {
+      background: rgba(10,22,40,0.7);
+      border-top: 1px solid rgba(0,212,160,0.1);
+      border-bottom: 1px solid rgba(0,212,160,0.1);
+      backdrop-filter: blur(10px);
+      padding: 32px 5%;
+    }
+    .stats-inner {
+      max-width: 1280px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-around;
+    }
+    .stat-item { text-align: center; flex: 1; }
+    .stat-divider {
+      width: 1px; height: 48px; flex-shrink: 0;
+      background: linear-gradient(180deg, transparent, rgba(0,212,160,0.4), transparent);
+      box-shadow: 0 0 8px rgba(0,212,160,0.2);
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem; color: var(--green); line-height: 1;
+      text-shadow: 0 0 20px rgba(0,212,160,0.4);
+    }
+    .stat-label { font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 600; color: var(--gray); margin-top: 4px; letter-spacing: 0.12em; text-transform: uppercase; }
+    @media (max-width: 600px) {
+      .stats-inner { flex-wrap: wrap; }
+      .stat-divider { display: none; }
+      .stat-item { min-width: 45%; }
+    }
+
+    /* ===== ABOUT MIS 2026 ===== */
+    #about-mtts { background: transparent; }
+
+    /* Focus areas — 3×2 animated cards */
+    .focus-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px;
+      margin: 40px 0 32px;
+    }
+    .focus-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-top: 2px solid var(--green);
+      border-radius: 12px; padding: 24px 20px;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+      transition: transform 0.3s, box-shadow 0.3s, border-top-color 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .focus-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,212,160,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .focus-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.4), 0 0 20px rgba(0,212,160,0.12);
+      border-top-color: var(--gold);
+    }
+    .focus-icon {
+      width: 40px; height: 40px; color: var(--gold);
+      flex-shrink: 0;
+    }
+    .focus-icon svg { width: 100%; height: 100%; }
+    .focus-label {
+      font-size: 14px; font-weight: 600; color: var(--white);
+      line-height: 1.4;
+    }
+    @media (max-width: 768px) { .focus-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 480px) { .focus-grid { grid-template-columns: 1fr; } }
+
+    /* Representative badges */
+    .rep-badges {
+      display: flex; align-items: center; gap: 10px; flex-wrap: wrap;
+      margin-top: 8px; padding: 20px 24px;
+      background: rgba(245,197,24,0.04); border: 1px solid rgba(245,197,24,0.15);
+      border-radius: 10px;
+    }
+    .rep-label {
+      font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 700;
+      color: var(--gold); letter-spacing: 0.1em; text-transform: uppercase;
+      margin-right: 4px;
+    }
+    .rep-pill {
+      background: rgba(245,197,24,0.08); border: 1px solid rgba(245,197,24,0.2);
+      border-radius: 20px; padding: 4px 14px;
+      font-size: 13px; font-weight: 600; color: rgba(255,255,255,0.75);
+      transition: background 0.2s, color 0.2s;
+    }
+    .rep-pill:hover { background: rgba(245,197,24,0.15); color: var(--white); }
+
+    /* ===== ABOUT KIIT ===== */
+    #about-kiit { background: rgba(10,22,40,0.5); }
+    .kiit-card {
+      background: var(--card2); border: 1px solid var(--border);
+      border-radius: 16px; padding: 48px;
+      display: flex; gap: 48px; align-items: flex-start;
+    }
+    .kiit-card-premium {
+      border-color: rgba(245,197,24,0.25);
+      box-shadow: 0 0 0 1px rgba(245,197,24,0.08), 0 20px 60px rgba(0,0,0,0.3);
+      background: linear-gradient(135deg, rgba(245,197,24,0.03) 0%, var(--card2) 40%);
+      position: relative; overflow: hidden;
+    }
+    .kiit-card-premium::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--gold), rgba(245,197,24,0.5), transparent);
+    }
+    .kiit-logo-box {
+      flex-shrink: 0; width: 100px; height: 100px;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .kiit-logo-box img { width: 100%; height: 100%; object-fit: contain; display: block; }
+    .kiit-text p { font-size: 16px; color: var(--gray); line-height: 1.8; margin-bottom: 16px; }
+    .kiit-tags { display: flex; gap: 10px; flex-wrap: wrap; }
+    .kiit-tag {
+      background: rgba(245,197,24,0.08); color: var(--gold);
+      border: 1px solid rgba(245,197,24,0.2);
+      padding: 5px 14px; border-radius: 20px; font-size: 12px; font-weight: 600;
+      font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em;
+      transition: background 0.2s, box-shadow 0.2s;
+    }
+    .kiit-tag:hover { background: rgba(245,197,24,0.14); box-shadow: 0 0 10px rgba(245,197,24,0.1); }
+    @media (max-width: 640px) { .kiit-card { flex-direction: column; padding: 28px; gap: 24px; } }
+
+    /* ===== VENUE INFO STRIP ===== */
+    .venue-info-strip {
+      margin-top: 28px;
+      background: rgba(10,22,40,0.7); border: 1px solid rgba(0,212,160,0.12);
+      border-radius: 12px; padding: 20px 28px;
+      display: flex; flex-wrap: wrap; align-items: flex-start; gap: 0;
+      backdrop-filter: blur(10px);
+    }
+    .vis-item {
+      display: flex; align-items: flex-start; gap: 10px;
+      flex: 1; min-width: 200px;
+      font-size: 13px; color: var(--gray); line-height: 1.5;
+      padding: 8px 16px 8px 0;
+    }
+    .vis-icon { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
+    .vis-sep {
+      width: 1px; align-self: stretch; min-height: 40px;
+      background: linear-gradient(180deg, transparent, rgba(0,212,160,0.2), transparent);
+      margin: 0 8px;
+    }
+    @media (max-width: 900px) { .vis-sep { display: none; } .vis-item { min-width: 100%; padding: 6px 0; border-bottom: 1px solid var(--border); } .vis-item:last-child { border-bottom: none; } }
+
+    /* ===== VENUE ===== */
+    #venue { background: transparent; }
+    .venue-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .venue-info-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 32px;
+    }
+    .venue-info-row {
+      display: flex; gap: 14px; padding: 16px 0; border-bottom: 1px solid var(--border);
+    }
+    .venue-info-row:last-child { border-bottom: none; }
+    .venue-icon {
+      flex-shrink: 0; width: 40px; height: 40px; border-radius: 8px;
+      background: rgba(0,212,160,0.1); border: 1px solid rgba(0,212,160,0.2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--green);
+    }
+    .venue-info-label { font-size: 12px; color: var(--gray); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .venue-info-val { font-size: 15px; color: var(--white); font-weight: 500; }
+    .map-wrap {
+      border-radius: 12px; overflow: hidden; border: 1px solid var(--border);
+      height: 400px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; }
+    @media (max-width: 768px) { .venue-grid { grid-template-columns: 1fr; } }
+
+    /* ===== HERITAGE ===== */
+    #heritage { background: rgba(8,16,34,0.6); }
+    .heritage-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    }
+    .heritage-card {
+      border-radius: 12px; overflow: hidden;
+      height: 320px; position: relative; cursor: pointer;
+    }
+    /* Gold corner accent */
+    .heritage-card::after {
+      content: ''; position: absolute; top: 0; right: 0; z-index: 4;
+      width: 0; height: 0;
+      border-style: solid;
+      border-width: 0 28px 28px 0;
+      border-color: transparent var(--gold) transparent transparent;
+    }
+    /* Photo */
+    .heritage-photo {
+      position: absolute; inset: 0; width: 100%; height: 100%;
+      object-fit: cover; z-index: 1; border-radius: 0;
+      transition: transform 0.5s ease;
+    }
+    .heritage-card:hover .heritage-photo { transform: scale(1.08); }
+    /* Permanent bottom gradient + name */
+    .heritage-name-bar {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+      background: linear-gradient(0deg, rgba(4,13,26,0.85) 0%, transparent 100%);
+      padding: 48px 16px 14px;
+      transition: opacity 0.3s ease;
+    }
+    .heritage-card:hover .heritage-name-bar { opacity: 0; }
+    .heritage-name-bar-text {
+      font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--white);
+      letter-spacing: 0.04em; display: flex; align-items: center; gap: 6px;
+    }
+    /* Hover overlay — slides up */
+    .heritage-overlay {
+      position: absolute; bottom: 0; left: 0; right: 0; z-index: 3;
+      height: 0; overflow: hidden;
+      background: rgba(4,13,26,0.92);
+      transition: height 0.4s ease;
+      display: flex; flex-direction: column; justify-content: space-between;
+      padding: 0;
+    }
+    .heritage-card:hover .heritage-overlay { height: 100%; padding: 16px; }
+    /* Location pill at top of overlay */
+    .heritage-loc-pill {
+      display: inline-block;
+      background: rgba(245,197,24,0.15); border: 1px solid rgba(245,197,24,0.4);
+      color: var(--gold); font-family: 'Rajdhani', sans-serif;
+      font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 10px;
+      opacity: 0; transform: translateY(-10px);
+      transition: opacity 0.3s ease 0.15s, transform 0.3s ease 0.15s;
+      align-self: flex-start;
+    }
+    .heritage-card:hover .heritage-loc-pill { opacity: 1; transform: translateY(0); }
+    /* Overlay body */
+    .heritage-overlay-body {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.3s ease 0.2s, transform 0.3s ease 0.2s;
+    }
+    .heritage-card:hover .heritage-overlay-body { opacity: 1; transform: translateY(0); }
+    .heritage-overlay-line {
+      width: 0; height: 2px; background: var(--green);
+      margin-bottom: 10px;
+      transition: width 0.2s ease 0.18s;
+    }
+    .heritage-card:hover .heritage-overlay-line { width: 50px; }
+    .heritage-overlay-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: 20px;
+      color: var(--white); letter-spacing: 0.04em; margin-bottom: 8px;
+    }
+    .heritage-overlay-desc {
+      font-size: 12px; color: rgba(255,255,255,0.75); line-height: 1.6;
+    }
+    /* Distance badge */
+    .heritage-dist {
+      font-size: 11px; color: rgba(255,255,255,0.45);
+      margin-top: 10px; display: block;
+    }
+    @media (max-width: 900px) { .heritage-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 480px) { .heritage-grid { grid-template-columns: 1fr; } }
+    @media (prefers-reduced-motion: reduce) {
+      .heritage-photo { transition: none; }
+      .heritage-card:hover .heritage-photo { transform: none; }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: #060e1c; border-top: 1px solid var(--border);
+      padding: 48px 5% 24px;
+    }
+    .footer-inner { max-width: 1280px; margin: 0 auto; }
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 48px; margin-bottom: 40px;
+    }
+    .footer-brand p { color: var(--gray); font-size: 14px; line-height: 1.7; margin: 16px 0; }
+    .footer-social { display: flex; gap: 12px; }
+    .social-btn {
+      width: 36px; height: 36px; border-radius: 8px;
+      background: var(--navy2); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray); font-size: 16px; transition: 0.2s;
+    }
+    .social-btn:hover { background: var(--green); color: var(--white); border-color: var(--green); }
+    .footer-col h4 { font-size: 14px; font-weight: 600; color: var(--white); margin-bottom: 16px; letter-spacing: 0.06em; }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a { font-size: 14px; color: var(--gray); transition: color 0.2s; cursor: pointer; }
+    .footer-col ul li a:hover { color: var(--green); }
+    .footer-bottom {
+      border-top: 1px solid var(--border); padding-top: 24px;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+      font-size: 13px; color: var(--gray);
+    }
+    .footer-bottom a { color: var(--green); }
+    @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 500px) { .footer-grid { grid-template-columns: 1fr; gap: 28px; } }
+
+    /* ===== PAGE HEADER (inner pages) ===== */
+    .page-header h1 {
+      font-size: clamp(2.5rem, 6vw, 5rem); position: relative;
+    }
+    .page-header p { color: var(--gray); font-size: 16px; margin-top: 12px; position: relative; }
+
+    /* ===== SPEAKERS PAGE ===== */
+    #page-speakers { background: transparent; }
+    .speakers-section {
+      max-width: 1280px; margin: 0 auto; padding: 56px 5% 24px;
+    }
+    .speakers-section-heading {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem;
+      letter-spacing: 0.06em; margin-bottom: 4px; color: var(--white);
+    }
+    .speakers-section-heading .hl-green { color: var(--green); }
+    .speakers-section-heading .hl-gold  { color: var(--gold); }
+    .ssec-bar {
+      height: 3px; width: 50px; border-radius: 2px; margin-bottom: 36px;
+      box-shadow: 0 0 12px rgba(0,212,160,0.4);
+    }
+    .ssec-bar-green { background: var(--green); }
+    .ssec-bar-gold  { background: var(--gold); box-shadow: 0 0 12px rgba(245,197,24,0.4); }
+    .speakers-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 20px;
+    }
+    .panel-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 20px;
+    }
+    .speaker-card {
+      background: #0d1f38; border: 1px solid var(--border);
+      border-radius: 14px; padding: 24px 18px 20px; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .speaker-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: linear-gradient(90deg, transparent, var(--green), transparent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .speaker-card:hover::before { transform: scaleX(1); }
+    .speaker-card.panel-card::before { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .speaker-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5), 0 0 22px rgba(0,212,160,0.15);
+      border-color: rgba(0,212,160,0.3);
+    }
+    .speaker-card.panel-card:hover {
+      box-shadow: 0 20px 48px rgba(0,0,0,0.5), 0 0 22px rgba(245,197,24,0.15);
+      border-color: rgba(245,197,24,0.3);
+    }
+    /* Number badge */
+    .speaker-num {
+      position: absolute; top: 12px; right: 12px;
+      background: rgba(245,197,24,0.12); border: 1px solid rgba(245,197,24,0.3);
+      color: var(--gold); font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      padding: 2px 8px; border-radius: 10px;
+    }
+    /* Photo circle */
+    .speaker-photo-wrap {
+      width: 120px; height: 120px; border-radius: 50%;
+      margin: 0 auto 16px; position: relative;
+      border: 3px solid rgba(0,212,160,0.25);
+      background: linear-gradient(135deg, #12274a, #1a3a6b);
+      transition: border-color 0.3s;
+      overflow: hidden; flex-shrink: 0;
+    }
+    .speaker-card:hover .speaker-photo-wrap { border-color: rgba(245,197,24,0.6); }
+    .panel-card .speaker-photo-wrap { border-color: rgba(245,197,24,0.2); }
+    .speaker-img {
+      width: 100%; height: 100%; object-fit: cover; border-radius: 50%;
+    }
+    .speaker-initials {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 36px;
+      color: var(--gold); letter-spacing: 0.04em;
+    }
+    .speaker-name {
+      font-size: 15px; font-weight: 700; color: var(--white);
+      margin-bottom: 6px; line-height: 1.3;
+    }
+    .speaker-title {
+      font-size: 12px; color: var(--green); font-weight: 500;
+      line-height: 1.5; margin-bottom: 12px; flex: 1;
+      display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+    }
+    .panel-card .speaker-title { color: var(--gold); }
+    .speaker-org {
+      display: inline-block;
+      background: rgba(0,212,160,0.08); border: 1px solid rgba(0,212,160,0.2);
+      color: var(--green); font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 700; letter-spacing: 0.1em;
+      padding: 3px 12px; border-radius: 12px; margin-top: auto;
+      text-transform: uppercase;
+    }
+    .panel-card .speaker-org {
+      background: rgba(245,197,24,0.08); border-color: rgba(245,197,24,0.2);
+      color: var(--gold);
+    }
+    @media (max-width: 1100px) { .speakers-grid { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width: 900px) { .speakers-grid { grid-template-columns: repeat(2,1fr); } .panel-grid { grid-template-columns: repeat(2,1fr); } }
+    @media (max-width: 480px) { .speakers-grid { grid-template-columns: 1fr; } .panel-grid { grid-template-columns: 1fr; } }
+
+    /* ===== SCHEDULE PAGE ===== */
+    #page-schedule { background: transparent; }
+    .schedule-tabs-wrap {
+      max-width: 960px; margin: 0 auto; padding: 40px 5% 0;
+      display: flex; gap: 12px;
+    }
+    .sched-tab {
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      color: var(--gray); font-family: 'Rajdhani', sans-serif;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.06em;
+      padding: 10px 28px; border-radius: 30px; cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+    }
+    .sched-tab:hover { background: rgba(255,255,255,0.08); color: var(--white); }
+    .sched-tab.active {
+      background: rgba(0,212,160,0.12); border-color: rgba(0,212,160,0.4);
+      color: var(--green); box-shadow: 0 0 16px rgba(0,212,160,0.12);
+    }
+    .sched-day { display: none; }
+    .sched-day.active { display: block; }
+    .schedule-content { max-width: 960px; margin: 0 auto; padding: 32px 5% 64px; }
+    .schedule-day-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--white);
+      letter-spacing: 0.06em; display: flex; align-items: center; gap: 14px;
+      margin-bottom: 6px; flex-wrap: wrap;
+    }
+    .day-badge {
+      background: var(--green); color: var(--navy);
+      padding: 3px 14px; border-radius: 20px;
+      font-size: 0.9rem; font-family: 'Rajdhani', sans-serif;
+      font-weight: 700; letter-spacing: 0.04em;
+    }
+    .day-badge-gold { background: var(--gold); }
+    .schedule-day-venue {
+      font-size: 13px; color: var(--gray); margin-bottom: 24px; padding-left: 2px;
+    }
+    .sched-table { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    /* Standard row */
+    .srow2 {
+      display: grid; grid-template-columns: 140px 1fr auto;
+      border-bottom: 1px solid var(--border);
+      align-items: center; min-height: 52px;
+      transition: background 0.15s;
+    }
+    .srow2:last-child { border-bottom: none; }
+    .srow2:hover { background: rgba(255,255,255,0.02); }
+    .srow2-time {
+      padding: 12px 16px; font-family: 'DM Mono', 'Courier New', monospace;
+      font-size: 12px; font-weight: 600; color: var(--gold);
+      border-right: 1px solid var(--border);
+      align-self: stretch; display: flex; align-items: center;
+      white-space: nowrap;
+    }
+    .srow2-event { padding: 12px 18px; }
+    .srow2-title { font-size: 14px; color: var(--white); line-height: 1.4; font-weight: 500; }
+    .srow2-subtitle { font-size: 12px; color: var(--green); margin-top: 3px; }
+    .srow2-badge-wrap { padding: 12px 16px; display: flex; align-items: center; }
+    .srow2-badge {
+      font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 700;
+      letter-spacing: 0.08em; padding: 3px 10px; border-radius: 10px;
+      white-space: nowrap;
+    }
+    .badge-keynote { background: rgba(0,212,160,0.12); color: var(--green); border: 1px solid rgba(0,212,160,0.25); }
+    .badge-panel   { background: rgba(245,197,24,0.12); color: var(--gold);  border: 1px solid rgba(245,197,24,0.25); }
+    .badge-break   { background: rgba(136,146,164,0.1); color: var(--gray);  border: 1px solid rgba(136,146,164,0.2); }
+    .badge-special { background: rgba(50,150,255,0.12); color: #60a5fa;       border: 1px solid rgba(50,150,255,0.25); }
+    .badge-social  { background: rgba(160,80,255,0.12); color: #c084fc;       border: 1px solid rgba(160,80,255,0.25); }
+    /* Break row — full width centered */
+    .srow2-break {
+      display: flex; align-items: center; justify-content: center;
+      padding: 12px 20px; border-bottom: 1px solid var(--border);
+      background: rgba(136,146,164,0.04);
+      font-size: 13px; color: var(--gray); letter-spacing: 0.04em;
+      font-weight: 600; gap: 10px;
+    }
+    .srow2-break:last-child { border-bottom: none; }
+    .srow2-break .break-time { font-family: 'DM Mono', 'Courier New', monospace; font-size: 12px; color: rgba(136,146,164,0.7); }
+    @media (max-width: 600px) {
+      .srow2 { grid-template-columns: 1fr; }
+      .srow2-time { border-right: none; border-bottom: 1px solid var(--border); }
+      .srow2-badge-wrap { padding-top: 0; padding-bottom: 12px; }
+    }
+
+    /* ===== COMMITTEE ===== */
+    #page-committee { background: transparent; }
+    .oc-section { max-width: 1280px; margin: 0 auto; padding: 52px 5% 0; }
+    .oc-section:last-of-type { padding-bottom: 80px; }
+    .oc-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem; letter-spacing: 0.08em; color: var(--gold);
+      margin-bottom: 6px; text-align: center;
+    }
+    .oc-bar { width: 50px; height: 3px; border-radius: 2px; margin: 0 auto 32px; }
+    .oc-bar-gold   { background: var(--gold);  box-shadow: 0 0 12px rgba(245,197,24,0.4); }
+    .oc-bar-silver { background: #a0aec0; }
+    .oc-bar-teal   { background: var(--green); box-shadow: 0 0 12px rgba(0,212,160,0.4); }
+    .oc-bar-green  { background: #00c864; }
+    .oc-bar-blue   { background: #4a9eff;  box-shadow: 0 0 12px rgba(74,158,255,0.3); }
+
+    /* Grid layouts */
+    .oc-grid-1c  { display: flex; justify-content: center; }
+    .oc-grid-3   { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; }
+    .oc-grid-2   { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; max-width: 680px; margin: 0 auto; }
+    .oc-grid-2x2 { display: grid; grid-template-columns: repeat(2,1fr); gap: 20px; max-width: 800px; margin: 0 auto; }
+    .oc-grid-3c  { display: grid; grid-template-columns: repeat(3,1fr); gap: 20px; max-width: 900px; margin: 0 auto; }
+
+    /* Base card */
+    .oc-card {
+      background: #0d1f38; border: 1px solid var(--border);
+      border-radius: 14px; padding: 26px 18px 20px; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative; overflow: hidden;
+      display: flex; flex-direction: column; align-items: center;
+    }
+    .oc-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .oc-card:hover::before { transform: scaleX(1); }
+    .oc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 20px rgba(245,197,24,0.1);
+      border-color: rgba(245,197,24,0.3);
+    }
+
+    /* Chief Patron — wider, gold border always-on */
+    .oc-card-chief {
+      max-width: 380px; width: 100%;
+      border-color: rgba(245,197,24,0.4);
+      box-shadow: 0 0 30px rgba(245,197,24,0.08);
+    }
+    .oc-card-chief::before {
+      background: linear-gradient(90deg, transparent, var(--gold), rgba(245,197,24,0.5), transparent);
+      transform: scaleX(1);
+    }
+
+    /* Photo wrap */
+    .oc-photo-wrap {
+      width: 90px; height: 90px; border-radius: 50%;
+      margin: 0 auto 14px; position: relative;
+      border: 3px solid rgba(245,197,24,0.2);
+      overflow: hidden; flex-shrink: 0;
+      background: linear-gradient(135deg, #1e3a5f, #2a5298);
+    }
+    .oc-card-chief .oc-photo-wrap {
+      width: 108px; height: 108px;
+      border-color: rgba(245,197,24,0.5);
+    }
+    .oc-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .oc-initials {
+      position: absolute; inset: 0;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif; font-size: 30px;
+      color: var(--gold); letter-spacing: 0.04em;
+    }
+    .oc-card-chief .oc-initials { font-size: 36px; }
+
+    /* Role pill */
+    .oc-pill {
+      display: inline-block;
+      font-family: 'Rajdhani', sans-serif; font-weight: 600;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 10px; margin-bottom: 10px;
+    }
+    .pill-gold   { background: rgba(245,197,24,0.12); border: 1px solid rgba(245,197,24,0.35); color: var(--gold); }
+    .pill-silver { background: rgba(160,174,192,0.12); border: 1px solid rgba(160,174,192,0.35); color: #a0aec0; }
+    .pill-teal   { background: rgba(0,212,160,0.10); border: 1px solid rgba(0,212,160,0.35); color: var(--green); }
+    .pill-green  { background: rgba(0,200,100,0.10); border: 1px solid rgba(0,200,100,0.35); color: #00c864; }
+    .pill-blue   { background: rgba(74,158,255,0.10); border: 1px solid rgba(74,158,255,0.35); color: #4a9eff; }
+
+    .oc-name { font-size: 15px; font-weight: 700; color: var(--white); margin-bottom: 6px; line-height: 1.3; }
+    .oc-card-chief .oc-name { font-size: 17px; }
+    .oc-desc { font-size: 13px; color: var(--green); line-height: 1.5; flex: 1; }
+
+    .oc-grid-4 { display: grid; grid-template-columns: repeat(4,1fr); gap: 20px; }
+    @media (max-width: 900px) {
+      .oc-grid-3, .oc-grid-3c { grid-template-columns: repeat(2,1fr); }
+      .oc-grid-4 { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (max-width: 600px) {
+      .oc-grid-3, .oc-grid-2, .oc-grid-2x2, .oc-grid-3c, .oc-grid-4 { grid-template-columns: 1fr; }
+      .oc-grid-2 { max-width: 100%; }
+      .oc-grid-2x2 { max-width: 100%; }
+      .oc-grid-3c { max-width: 100%; }
+    }
+    /* Committee tab sub-pages */
+    .oc-tabs-wrap {
+      max-width: 900px; margin: 0 auto; padding: 32px 5% 0;
+      display: flex; gap: 12px;
+    }
+    .oc-subpage { display: none; }
+    .oc-subpage.active { display: block; }
+
+    /* ===== SPONSORS ===== */
+    #page-sponsors { background: transparent; }
+    .sponsors-content { max-width: 1100px; margin: 0 auto; padding: 64px 5%; }
+    .tier-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 28px; margin-bottom: 32px; }
+    .tier-card {
+      border-radius: 16px; padding: 36px 28px;
+      border: 1px solid;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .tier-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px;
+      transform: scaleX(0); transform-origin: left;
+      transition: transform 0.35s ease;
+    }
+    .tier-gold::before { background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+    .tier-silver::before { background: linear-gradient(90deg, transparent, #a0aec0, transparent); }
+    .tier-card:hover::before { transform: scaleX(1); }
+    .tier-card:hover { transform: translateY(-8px); }
+    .tier-signature {
+      background: linear-gradient(180deg, rgba(0,212,160,0.12) 0%, var(--card) 100%);
+      border-color: rgba(0,212,160,0.5);
+    }
+    .tier-signature:hover { box-shadow: 0 24px 48px rgba(0,212,160,0.2); }
+    .tier-gold {
+      background: linear-gradient(180deg, rgba(245,197,24,0.1) 0%, var(--card) 100%);
+      border-color: rgba(245,197,24,0.4);
+    }
+    .tier-gold:hover { box-shadow: 0 24px 48px rgba(245,197,24,0.2), 0 0 40px rgba(245,197,24,0.08); }
+    .tier-silver {
+      background: linear-gradient(180deg, rgba(160,174,192,0.1) 0%, var(--card) 100%);
+      border-color: rgba(160,174,192,0.35);
+    }
+    .tier-silver:hover { box-shadow: 0 24px 48px rgba(160,174,192,0.15), 0 0 30px rgba(160,174,192,0.06); }
+    .tier-bronze {
+      background: linear-gradient(180deg, rgba(205,127,50,0.1) 0%, var(--card) 100%);
+      border-color: rgba(205,127,50,0.35);
+    }
+    .tier-bronze::before { background: linear-gradient(90deg, transparent, #cd7f32, transparent); }
+    .tier-bronze:hover { box-shadow: 0 24px 48px rgba(205,127,50,0.2), 0 0 30px rgba(205,127,50,0.06); }
+    .tier-startup-wrap { margin-bottom: 56px; }
+    .tier-startup-card {
+      border-radius: 16px; padding: 32px 28px;
+      background: linear-gradient(135deg, rgba(80,40,160,0.12) 0%, var(--card) 100%);
+      border: 1px solid rgba(150,100,255,0.35);
+      display: grid; grid-template-columns: 1fr 2fr auto;
+      gap: 32px; align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .tier-startup-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(150,100,255,0.15); }
+    .startup-label .tier-medal { font-size: 36px; margin-bottom: 6px; }
+    .startup-label .tier-name { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #b088ff; letter-spacing: 0.06em; }
+    .startup-label .tier-price { font-size: 18px; font-weight: 700; color: var(--white); margin-top: 4px; }
+    .startup-benefits { list-style: none; }
+    .startup-benefits li {
+      padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 14px; color: var(--gray);
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .startup-benefits li::before {
+      content: '✓'; flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(150,100,255,0.15); color: #b088ff;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; margin-top: 1px;
+    }
+    .startup-btn-wrap { display: flex; align-items: center; }
+    .startup-btn {
+      display: block; text-align: center;
+      padding: 13px 28px; border-radius: 8px; font-weight: 700; font-size: 14px;
+      letter-spacing: 0.04em; background: #7c4dff; color: var(--white);
+      transition: 0.2s; cursor: pointer; border: none; white-space: nowrap;
+    }
+    .startup-btn:hover { opacity: 0.85; }
+    @media (max-width: 700px) { .tier-startup-card { grid-template-columns: 1fr; gap: 20px; } .startup-btn-wrap { justify-content: flex-start; } }
+    .tier-medal { font-size: 40px; margin-bottom: 8px; }
+    .tier-name {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .tier-signature .tier-name { color: var(--green); }
+    .tier-gold .tier-name { color: var(--gold); }
+    .tier-silver .tier-name { color: #a0aec0; }
+    .tier-bronze .tier-name { color: #cd7f32; }
+    .tier-price { font-size: 19px; font-weight: 700; margin-bottom: 24px; color: var(--white); }
+    .tier-benefits { list-style: none; flex: 1; margin-bottom: 28px; }
+    .tier-benefits li {
+      padding: 9px 0; border-bottom: 1px solid rgba(255,255,255,0.06);
+      font-size: 14px; color: var(--gray);
+      display: flex; align-items: flex-start; gap: 10px;
+    }
+    .tier-benefits li::before {
+      content: '✓'; flex-shrink: 0;
+      width: 20px; height: 20px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900; margin-top: 1px;
+    }
+    .tier-signature .tier-benefits li::before { background: rgba(0,212,160,0.15); color: var(--green); }
+    .tier-gold .tier-benefits li::before { background: rgba(245,197,24,0.15); color: var(--gold); }
+    .tier-silver .tier-benefits li::before { background: rgba(160,174,192,0.15); color: #a0aec0; }
+    .tier-bronze .tier-benefits li::before { background: rgba(205,127,50,0.15); color: #cd7f32; }
+    .tier-btn {
+      display: block; text-align: center;
+      padding: 13px; border-radius: 8px; font-weight: 700; font-size: 14px;
+      letter-spacing: 0.04em; transition: 0.2s; cursor: pointer; border: none;
+    }
+    .tier-signature .tier-btn { background: var(--green); color: var(--navy); }
+    .tier-gold .tier-btn { background: var(--gold); color: var(--navy); }
+    .tier-silver .tier-btn { background: #a0aec0; color: var(--navy); }
+    .tier-bronze .tier-btn { background: #cd7f32; color: var(--white); }
+    .tier-btn:hover { opacity: 0.85; }
+    .current-sponsors h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem;
+      color: var(--white); margin-bottom: 8px;
+    }
+    .cs-divider { width: 50px; height: 3px; background: var(--green); border-radius: 2px; margin-bottom: 32px; }
+    .sponsor-logos {
+      display: grid; grid-template-columns: repeat(7,1fr); gap: 14px; margin-bottom: 48px;
+    }
+    .sponsor-logo-box {
+      height: 68px; border-radius: 10px;
+      background: var(--card); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray); font-size: 11px; font-weight: 600;
+      letter-spacing: 0.03em; text-align: center; padding: 6px;
+      transition: border-color 0.2s, background 0.2s;
+      line-height: 1.3;
+    }
+    .sponsor-logo-box:hover { border-color: rgba(0,212,160,0.3); background: rgba(0,212,160,0.05); color: var(--white); }
+    .sponsor-contact {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 12px; padding: 32px; text-align: center;
+    }
+    .sponsor-contact h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; margin-bottom: 8px; }
+    .sponsor-contact p { color: var(--gray); margin-bottom: 16px; }
+    .sponsor-contact a { color: var(--green); font-weight: 600; }
+    @media (max-width: 900px) { .tier-grid { grid-template-columns: 1fr; } .sponsor-logos { grid-template-columns: repeat(3,1fr); } }
+    @media (max-width: 500px) { .sponsor-logos { grid-template-columns: repeat(2,1fr); } }
+
+    /* ===== SCHEDULE PAGE ===== */
+    #page-schedule { background: transparent; }
+    .schedule-content { max-width: 960px; margin: 0 auto; padding: 64px 5%; }
+    .schedule-day-block { margin-bottom: 60px; }
+    .schedule-day-title {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem;
+      color: var(--white); letter-spacing: 0.06em;
+      display: flex; align-items: center; gap: 16px; margin-bottom: 8px; flex-wrap: wrap;
+    }
+    .day-badge {
+      background: var(--green); color: var(--navy);
+      padding: 4px 14px; border-radius: 20px;
+      font-size: 1rem; font-family: 'Inter', sans-serif;
+      font-weight: 700; letter-spacing: 0.02em;
+    }
+    .schedule-day-venue {
+      font-size: 13px; color: var(--gray); margin-bottom: 20px;
+    }
+    .schedule-table-wrap {
+      border: 1px solid var(--border); border-radius: 12px; overflow: hidden;
+    }
+    .srow {
+      display: grid; grid-template-columns: 190px 1fr;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .srow:last-child { border-bottom: none; }
+    .srow:hover { background: rgba(255,255,255,0.02); }
+    .srow-break { background: rgba(245,197,24,0.05); }
+    .srow-break:hover { background: rgba(245,197,24,0.08); }
+    .srow-panel { background: rgba(245,197,24,0.03); border-left: 3px solid var(--gold); }
+    .srow-panel:hover { background: rgba(245,197,24,0.06); }
+    .srow-special { background: rgba(0,212,160,0.04); border-left: 3px solid var(--green); }
+    .srow-special:hover { background: rgba(0,212,160,0.07); }
+    .stime {
+      padding: 15px 18px; font-size: 12px; font-weight: 600;
+      color: var(--gray); border-right: 1px solid var(--border);
+      display: flex; align-items: center;
+      white-space: nowrap;
+    }
+    .srow-break .stime { color: rgba(245,197,24,0.8); }
+    .srow-panel .stime { color: var(--gold); }
+    .srow-special .stime { color: var(--green); }
+    .sevent {
+      padding: 15px 20px; font-size: 14px; color: var(--white);
+      display: flex; align-items: center; line-height: 1.4;
+    }
+    .srow-break .sevent { color: rgba(245,197,24,0.9); font-weight: 600; }
+    .srow-panel .sevent { font-weight: 600; color: rgba(255,255,255,0.95); }
+    .srow-special .sevent { color: rgba(0,212,160,0.95); font-weight: 600; }
+    @media (max-width: 600px) {
+      .srow { grid-template-columns: 1fr; }
+      .stime { border-right: none; border-bottom: 1px solid var(--border); padding: 10px 14px; }
+      .sevent { padding: 10px 14px; }
+    }
+
+    /* ===== REGISTRATION PAGE ===== */
+    #page-registration { background: transparent; }
+    .reg-content { max-width: 960px; margin: 0 auto; padding: 56px 5%; }
+    /* Premium grid table */
+    .reg-table-new { border: 1px solid var(--border); border-radius: 14px; overflow: hidden; margin-bottom: 24px; }
+    .reg-thead {
+      display: grid; grid-template-columns: 2.5fr 1fr 72px 72px;
+      background: linear-gradient(135deg, rgba(245,197,24,0.18), rgba(245,197,24,0.06));
+      padding: 13px 22px; border-bottom: 1px solid rgba(245,197,24,0.25);
+    }
+    .reg-thead span {
+      font-family: 'Rajdhani', sans-serif; font-size: 12px; font-weight: 800;
+      color: var(--gold); text-transform: uppercase; letter-spacing: 0.14em;
+    }
+    .reg-thead span:nth-child(3), .reg-thead span:nth-child(4) { text-align: center; }
+    .reg-trow {
+      display: grid; grid-template-columns: 2.5fr 1fr 72px 72px;
+      padding: 13px 22px; border-bottom: 1px solid var(--border);
+      border-left: 3px solid transparent;
+      transition: background 0.15s, border-left-color 0.15s;
+      align-items: center;
+    }
+    .reg-trow:last-child { border-bottom: none; }
+    .reg-trow.row-kiit { border-left-color: #8b5cf6; background: rgba(139,92,246,0.03); }
+    .reg-trow.row-student { border-left-color: rgba(0,212,160,0.5); }
+    .reg-trow.row-student:nth-of-type(even) { background: rgba(0,212,160,0.015); }
+    .reg-trow.row-pro { border-left-color: rgba(96,165,250,0.5); }
+    .reg-trow.row-pro:nth-of-type(even) { background: rgba(96,165,250,0.015); }
+    .reg-trow:hover { background: rgba(255,255,255,0.04) !important; }
+    .reg-tcat { font-size: 14px; color: var(--white); }
+    .reg-tfee { font-size: 14px; font-weight: 700; }
+    .reg-tfee.fee-free { color: var(--gold); }
+    .reg-tfee.fee-paid { color: var(--green); }
+    .reg-tcheck { display: flex; align-items: center; justify-content: center; }
+    .chk-yes { width: 20px; height: 20px; color: var(--green); }
+    .chk-no  { width: 18px; height: 18px; color: rgba(255,80,80,0.7); }
+    /* Stat pills */
+    .reg-stats { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 24px; }
+    .reg-stat-pill {
+      background: rgba(0,212,160,0.08); border: 1px solid rgba(0,212,160,0.2);
+      border-radius: 20px; padding: 7px 18px;
+      font-family: 'Rajdhani', sans-serif; font-size: 13px; font-weight: 700;
+      color: var(--white); letter-spacing: 0.04em;
+    }
+    .reg-stat-pill strong { color: var(--green); }
+    /* Note box */
+    .reg-note-new {
+      background: rgba(245,197,24,0.05); border: 1px solid rgba(245,197,24,0.2);
+      border-radius: 10px; padding: 18px 22px; margin-bottom: 36px;
+      font-size: 14px; color: var(--gray); line-height: 1.7;
+    }
+    .reg-note-new strong { color: var(--gold); }
+    /* CTA card */
+    .reg-cta-card {
+      background: linear-gradient(135deg, rgba(0,212,160,0.06) 0%, var(--card2) 60%);
+      border: 1px solid rgba(0,212,160,0.2); border-radius: 16px;
+      padding: 44px 40px; text-align: center; position: relative; overflow: hidden;
+    }
+    .reg-cta-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: linear-gradient(90deg, transparent, var(--green), transparent);
+    }
+    .reg-cta-card h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: var(--white);
+      letter-spacing: 0.06em; margin-bottom: 12px;
+    }
+    .reg-cta-card p { color: var(--gray); font-size: 15px; line-height: 1.7; max-width: 500px; margin: 0 auto 8px; }
+    .reg-cta-card .reg-contact { color: var(--gray); font-size: 13px; margin-top: 16px; }
+    .reg-cta-card .reg-contact a { color: var(--green); font-weight: 600; }
+    @media (max-width: 600px) {
+      .reg-thead, .reg-trow { grid-template-columns: 1.6fr 1fr 56px 56px; padding: 11px 12px; }
+      .reg-tcat { font-size: 13px; }
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal {
+      opacity: 0; transform: translateY(50px) rotateX(8deg);
+      transition: opacity 0.75s cubic-bezier(0.2,0.8,0.4,1), transform 0.75s cubic-bezier(0.2,0.8,0.4,1);
+      transform-origin: top center; perspective: 800px;
+    }
+    .reveal.visible { opacity: 1; transform: translateY(0) rotateX(0deg); }
+
+    /* ===== PAGE TRANSITIONS ===== */
+    .page-exit {
+      display: block !important;
+      animation: pageExit 0.2s ease-in forwards;
+      pointer-events: none;
+    }
+    .page-enter {
+      animation: pageEnter 0.25s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+    }
+    @keyframes pageExit {
+      from { opacity: 1; transform: translateX(0); }
+      to   { opacity: 0; transform: translateX(-40px); }
+    }
+    @keyframes pageEnter {
+      from { opacity: 0; transform: translateX(40px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .mini-footer {
+      background: #060e1c; border-top: 1px solid var(--border);
+      padding: 28px 5%;
+    }
+    .mini-footer-inner {
+      max-width: 1280px; margin: 0 auto;
+      border-top: none; padding-top: 0;
+      text-align: center; color: var(--gray); font-size: 13px;
+    }
+    .mini-footer-inner a { color: var(--green); }
+
+    /* ===== HERO DECORATIVE SHAPES ===== */
+    .hero-deco {
+      position: absolute; pointer-events: none;
+    }
+    .hero-deco-1 {
+      width: 300px; height: 300px;
+      bottom: 10%; left: 5%;
+      animation: geoDrift 12s ease-in-out infinite;
+    }
+    .hero-deco-2 {
+      width: 220px; height: 220px;
+      top: 15%; right: 8%;
+      animation: geoDrift 15s ease-in-out infinite reverse;
+    }
+    .hero-deco-3 {
+      width: 160px; height: 160px;
+      top: 50%; left: 50%; transform: translate(-50%,-50%);
+      animation: geoSpin 40s linear infinite;
+    }
+    @keyframes geoDrift {
+      0%,100% { transform: translateY(0) rotate(0deg); }
+      33%      { transform: translateY(-18px) rotate(8deg); }
+      66%      { transform: translateY(12px) rotate(-5deg); }
+    }
+    @keyframes geoSpin {
+      from { transform: translate(-50%,-50%) rotate(0deg); }
+      to   { transform: translate(-50%,-50%) rotate(360deg); }
+    }
+
+    /* ===== ANTENNA DECORATIVES ===== */
+    .antenna-deco { position: absolute; pointer-events: none; }
+
+    /* Yagi-Uda — bottom right */
+    .antenna-yagi {
+      width: 340px; height: 130px;
+      bottom: 12%; right: 4%;
+      opacity: 0.09;
+      animation: antennaFloat 14s ease-in-out infinite;
+      transform-origin: center;
+    }
+    /* Parabolic dish — top left */
+    .antenna-dish {
+      width: 160px; height: 200px;
+      top: 18%; left: 3%;
+      opacity: 0.07;
+      animation: antennaFloat 18s ease-in-out infinite reverse;
+    }
+    /* Radar signal rings — center-right */
+    .antenna-radar {
+      width: 320px; height: 320px;
+      top: 28%; right: 22%;
+      opacity: 0.06;
+      animation: radarPulse 6s ease-out infinite;
+    }
+    /* Small dipole — mid-left */
+    .antenna-dipole {
+      width: 100px; height: 160px;
+      top: 40%; left: 14%;
+      opacity: 0.08;
+      animation: antennaFloat 10s ease-in-out infinite 2s;
+    }
+    @keyframes antennaFloat {
+      0%,100% { transform: translateY(0); }
+      40%      { transform: translateY(-14px); }
+      70%      { transform: translateY(8px); }
+    }
+    @keyframes radarPulse {
+      0%   { opacity: 0.06; transform: scale(0.92); }
+      50%  { opacity: 0.1;  transform: scale(1.04); }
+      100% { opacity: 0.06; transform: scale(0.92); }
+    }
+
+    /* ===== PAGE HEADER ENHANCED ===== */
+    .page-header {
+      padding: 140px 5% 80px;
+      background: linear-gradient(180deg, rgba(4,13,26,0.97) 0%, rgba(10,22,40,0.9) 100%);
+      position: relative; overflow: hidden; text-align: center;
+    }
+    .page-header::before {
+      content: ''; position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 0%, rgba(0,212,160,0.12) 0%, transparent 60%);
+    }
+    .page-header::after {
+      content: attr(data-title);
+      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%) rotate(-45deg);
+      font-family: 'Bebas Neue', sans-serif; font-size: clamp(5rem, 15vw, 12rem);
+      color: rgba(255,255,255,0.012); pointer-events: none; white-space: nowrap;
+      letter-spacing: 0.1em; user-select: none;
+    }
+
+    /* ===== AVATAR FALLBACK ===== */
+    .avatar-fallback {
+      position: absolute; inset: 0; border-radius: 50%;
+      background: #0d1f38;
+      align-items: center; justify-content: center;
+    }
+    .avatar-fallback svg { width: 72%; height: 72%; }
+
+    /* ===== PREFERS-REDUCED-MOTION ===== */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+      .marquee-inner, .marquee-inner-rev { animation: none; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .page { animation: none; }
+      .page-exit, .page-enter { animation: none !important; opacity: 1 !important; transform: none !important; }
+      #scanline { display: none; }
+      .countdown-num { transition: none; }
+      .btn-primary, .btn-green-pulse { animation: none; }
+      .hero-deco-1, .hero-deco-2, .hero-deco-3 { animation: none; }
+      body::after { animation: none; }
+      #hero::before, #hero::after { animation: none; }
+      .hero-badge::before { animation: none; }
+    }
+
+    /* ===== MARQUEE TOUCH DEVICE FIX ===== */
+    @media (hover: none) {
+      .exhibitor-chip:hover { transform: none !important; box-shadow: none !important; }
+      .marquee-inner:hover, .marquee-inner-rev:hover { animation-play-state: running !important; }
+    }
+
+    /* ===== GRADIENT SECTION DIVIDER ===== */
+    .section-glow-divider {
+      height: 1px; margin: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(0,212,160,0.3) 30%, rgba(245,197,24,0.3) 70%, transparent 100%);
+      box-shadow: 0 0 20px rgba(0,212,160,0.1);
+    }
+
+    /* ===== SPONSORS PAGE OVERRIDES ===== */
+    .sponsors-wrap { max-width: 1200px; margin: 0 auto; padding: 56px 5%; }
+
+    /* 4-column tier grid */
+    .tier-grid-4 {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 18px; margin-bottom: 20px;
+    }
+    @media (max-width: 900px) { .tier-grid-4 { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .tier-grid-4 { grid-template-columns: 1fr; } }
+
+    /* Signature tier — extra prominent */
+    .tier-signature-new {
+      background: linear-gradient(160deg, rgba(0,212,160,0.1) 0%, rgba(0,212,160,0.03) 50%, var(--card2) 100%);
+      border: 1px solid rgba(0,212,160,0.45);
+      box-shadow: 0 0 0 1px rgba(0,212,160,0.06), 0 8px 32px rgba(0,212,160,0.08);
+    }
+    .tier-signature-new:hover { box-shadow: 0 20px 56px rgba(0,212,160,0.25), 0 0 40px rgba(0,212,160,0.1); }
+    .tier-signature-new::before { background: linear-gradient(90deg, transparent, var(--green), transparent); }
+    .tier-signature-new .tier-name { color: var(--green); }
+    .tier-signature-new .tier-btn { background: var(--green); color: var(--navy); }
+    .tier-signature-new .tier-benefits li::before { background: rgba(0,212,160,0.15); color: var(--green); }
+
+    /* Signature premium badge */
+    .tier-badge-sig {
+      display: inline-block; margin-bottom: 10px;
+      background: linear-gradient(135deg, rgba(0,212,160,0.2), rgba(0,212,160,0.05));
+      border: 1px solid rgba(0,212,160,0.4);
+      color: var(--green); font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.18em;
+      padding: 3px 12px; border-radius: 12px; text-transform: uppercase;
+      box-shadow: 0 0 10px rgba(0,212,160,0.2);
+    }
+    .tier-badge-gold {
+      display: inline-block; margin-bottom: 10px;
+      background: rgba(245,197,24,0.1); border: 1px solid rgba(245,197,24,0.3);
+      color: var(--gold); font-family: 'Rajdhani', sans-serif;
+      font-size: 11px; font-weight: 800; letter-spacing: 0.18em;
+      padding: 3px 12px; border-radius: 12px; text-transform: uppercase;
+    }
+
+    /* Tier detail rows */
+    .tier-detail-rows { list-style: none; flex: 1; margin-bottom: 24px; }
+    .tier-detail-rows li {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 13px;
+    }
+    .tier-detail-rows li:last-child { border-bottom: none; }
+    .tdr-key { color: var(--gray); }
+    .tdr-val { color: var(--white); font-weight: 600; text-align: right; }
+    .tdr-val.yes { color: var(--green); }
+    .tdr-val.no  { color: rgba(136,146,164,0.5); }
+
+    /* Startup card */
+    .startup-card-new {
+      margin-bottom: 56px;
+      background: linear-gradient(135deg, rgba(0,180,180,0.08) 0%, var(--card2) 60%);
+      border: 1px solid rgba(0,200,200,0.3);
+      border-radius: 16px; padding: 36px;
+      display: grid; grid-template-columns: auto 1fr auto;
+      gap: 36px; align-items: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+      position: relative; overflow: hidden;
+    }
+    .startup-card-new::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: linear-gradient(90deg, transparent, #00cccc, rgba(0,200,200,0.5), transparent);
+    }
+    .startup-card-new:hover { transform: translateY(-4px); box-shadow: 0 16px 48px rgba(0,180,180,0.15); }
+    .startup-label-new .startup-name {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2rem; color: #00cccc;
+      letter-spacing: 0.06em; line-height: 1;
+    }
+    .startup-label-new .startup-tagline {
+      font-size: 12px; color: rgba(0,200,200,0.6); font-family: 'Rajdhani', sans-serif;
+      letter-spacing: 0.08em; margin-top: 4px;
+    }
+    .startup-label-new .startup-price {
+      font-size: 20px; font-weight: 700; color: var(--white); margin-top: 8px;
+    }
+    .startup-features { list-style: none; }
+    .startup-features li {
+      padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05);
+      font-size: 14px; color: var(--gray);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .startup-features li::before {
+      content: '✓'; flex-shrink: 0; width: 20px; height: 20px; border-radius: 50%;
+      background: rgba(0,180,180,0.12); color: #00cccc;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 11px; font-weight: 900;
+    }
+    .startup-stalls {
+      font-size: 13px; color: rgba(0,200,200,0.7); margin-top: 10px;
+      font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em;
+    }
+    .startup-btn-new {
+      display: block; text-align: center;
+      background: rgba(0,180,180,0.15); border: 1px solid rgba(0,200,200,0.4);
+      color: #00cccc; font-family: 'Rajdhani', sans-serif;
+      font-size: 14px; font-weight: 700; letter-spacing: 0.06em;
+      padding: 13px 28px; border-radius: 8px;
+      transition: background 0.2s, box-shadow 0.2s;
+      white-space: nowrap; text-decoration: none;
+    }
+    .startup-btn-new:hover { background: rgba(0,180,180,0.25); box-shadow: 0 0 20px rgba(0,180,180,0.2); color: #00cccc; }
+    @media (max-width: 820px) { .startup-card-new { grid-template-columns: 1fr; gap: 20px; } }
+
+    /* ===== MARQUEE ===== */
+    .marquee-section { margin: 56px 0; }
+    .marquee-heading {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; color: var(--white);
+      letter-spacing: 0.06em; margin-bottom: 4px; text-align: center;
+    }
+    .marquee-sub { text-align: center; font-size: 14px; color: var(--gray); margin-bottom: 28px; }
+    .marquee-track {
+      overflow: hidden; padding: 8px 0; position: relative;
+    }
+    /* Fade edges */
+    .marquee-track::before, .marquee-track::after {
+      content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+      pointer-events: none;
+    }
+    .marquee-track::before { left: 0; background: linear-gradient(90deg, var(--navy), transparent); }
+    .marquee-track::after  { right: 0; background: linear-gradient(-90deg, var(--navy), transparent); }
+    .marquee-inner {
+      display: flex; gap: 12px;
+      width: max-content;
+      animation: marqueeLeft 35s linear infinite;
+    }
+    .marquee-inner-rev {
+      animation: marqueeRight 45s linear infinite;
+      margin-top: 12px;
+    }
+    .marquee-inner:hover, .marquee-inner-rev:hover {
+      animation-play-state: paused;
+    }
+    @keyframes marqueeLeft {
+      from { transform: translateX(0); }
+      to   { transform: translateX(calc(-100% / 3)); }
+    }
+    @keyframes marqueeRight {
+      from { transform: translateX(calc(-100% / 3)); }
+      to   { transform: translateX(0); }
+    }
+    .exhibitor-chip {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--card2); border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: 8px; padding: 10px 18px;
+      white-space: nowrap;
+      transition: transform 0.2s, box-shadow 0.2s, border-left-color 0.2s;
+      cursor: default; flex-shrink: 0;
+    }
+    .exhibitor-chip:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(0,212,160,0.15);
+      border-left-color: var(--gold);
+    }
+    .exhibitor-chip::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--gold); flex-shrink: 0;
+    }
+    .exhibitor-chip span {
+      font-family: 'Rajdhani', sans-serif; font-size: 15px; font-weight: 700;
+      color: var(--white); letter-spacing: 0.04em;
+    }
+    .marquee-note {
+      text-align: center; font-size: 12px; color: rgba(136,146,164,0.6);
+      margin-top: 20px; font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em;
+    }
+
+    /* Sponsor CTA card */
+    .sponsor-cta-card {
+      background: linear-gradient(135deg, rgba(0,212,160,0.06) 0%, var(--card2) 60%);
+      border: 1px solid rgba(0,212,160,0.2); border-radius: 16px;
+      padding: 48px 40px; text-align: center; position: relative; overflow: hidden;
+    }
+    .sponsor-cta-card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0;
+      height: 2px; background: linear-gradient(90deg, transparent, var(--green), transparent);
+    }
+    .sponsor-cta-card h2 {
+      font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem;
+      color: var(--white); letter-spacing: 0.06em; margin-bottom: 12px;
+    }
+    .sponsor-cta-card p { color: var(--gray); font-size: 16px; line-height: 1.7; max-width: 560px; margin: 0 auto 28px; }
+    .btn-green-pulse {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--green); color: var(--navy);
+      padding: 14px 36px; border-radius: 8px;
+      font-size: 15px; font-weight: 700; letter-spacing: 0.04em;
+      transition: transform 0.2s, box-shadow 0.2s;
+      animation: ctaGlow 2.5s ease-in-out infinite;
+      position: relative; overflow: hidden; text-decoration: none;
+    }
+    .btn-green-pulse::after {
+      content: ''; position: absolute; top: 0; left: -100%; width: 60%; height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.4s ease;
+    }
+    .btn-green-pulse:hover::after { left: 150%; }
+    .btn-green-pulse:hover { transform: translateY(-3px); box-shadow: 0 10px 40px rgba(0,212,160,0.5); animation: none; }
+    @keyframes ctaGreenGlow {
+      0%,100% { box-shadow: 0 4px 20px rgba(0,212,160,0.2); }
+      50%      { box-shadow: 0 4px 28px rgba(0,212,160,0.5), 0 0 40px rgba(0,212,160,0.15); }
+    }
+  </style>
+</head>
+<body>
+
+<div id="scanline"></div>
+
+<!-- =============== NAVBAR =============== -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo" onclick="showPage('home')">
+      <img src="images/logos/MIS.png" alt="MIS 2026 Logo" class="nav-mis-logo">
+      <span class="nav-event-name">MIS 2026</span>
+      <div class="nav-divider"></div>
+      <div class="nav-partner-logos">
+        <img src="images/logos/IEEE.png" alt="IEEE" class="nav-partner-logo">
+        <img src="images/logos/MTTS.png" alt="IEEE MTT-S" class="nav-partner-logo">
+        <img src="images/logos/APS-MTTS%20BBSR.png" alt="AP-MTT-S Bhubaneswar Section" class="nav-partner-logo">
+        <img src="images/logos/IEEE%20BBSR.png" alt="IEEE Bhubaneswar Section" class="nav-partner-logo">
+        <img src="images/logos/KIIT.png" alt="KIIT University" class="nav-partner-logo">
+      </div>
+      <div class="nav-divider"></div>
+    </div>
+
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#" class="active" data-page="home" onclick="showPage('home');return false;">Home</a></li>
+      <li><a href="#" data-page="speakers" onclick="showPage('speakers');return false;">Speakers</a></li>
+      <li><a href="#" data-page="schedule" onclick="showPage('schedule');return false;">Schedule</a></li>
+      <li><a href="#" data-page="committee" onclick="showPage('committee');return false;">Committee</a></li>
+      <li><a href="#" data-page="sponsors" onclick="showPage('sponsors');return false;">Sponsors</a></li>
+      <li><a href="#" data-page="registration" onclick="showPage('registration');return false;">Register</a></li>
+    </ul>
+
+    <div style="display:flex;align-items:center;gap:16px;">
+      <!-- REGISTRATION LINK: Replace REGISTRATION_FORM_LINK_HERE with Google Form / Konfhub / EventBrite link when ready -->
+      <a href="REGISTRATION_FORM_LINK_HERE" target="_blank" rel="noopener" class="nav-cta">Register Now</a>
+      <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- ===================================================== -->
+<!--                    PAGE: HOME                         -->
+<!-- ===================================================== -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section id="hero">
+    <canvas id="particle-canvas"></canvas>
+    <!-- Decorative geometric shapes -->
+    <svg class="hero-deco hero-deco-1" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="50,5 95,75 5,75" fill="none" stroke="rgba(0,212,160,0.12)" stroke-width="1.5"/>
+    </svg>
+    <svg class="hero-deco hero-deco-2" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="50,0 93.3,25 93.3,75 50,100 6.7,75 6.7,25" fill="none" stroke="rgba(245,197,24,0.08)" stroke-width="1.5"/>
+    </svg>
+    <svg class="hero-deco hero-deco-3" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <polygon points="50,5 95,75 5,75" fill="none" stroke="rgba(0,100,255,0.07)" stroke-width="1"/>
+    </svg>
+
+    <!-- Antenna: Yagi-Uda (bottom-right) -->
+    <svg class="antenna-deco antenna-yagi" viewBox="0 0 340 130" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Boom -->
+      <line x1="20" y1="65" x2="320" y2="65" stroke="#00d4a0" stroke-width="2.5"/>
+      <!-- Mast -->
+      <line x1="20" y1="65" x2="20" y2="130" stroke="#00d4a0" stroke-width="2"/>
+      <!-- Reflector (longest) -->
+      <line x1="50" y1="10" x2="50" y2="120" stroke="#f5c518" stroke-width="2"/>
+      <!-- Driven element (folded dipole) -->
+      <rect x="88" y="20" width="8" height="90" rx="3" fill="none" stroke="#00d4a0" stroke-width="2"/>
+      <!-- Feed line -->
+      <line x1="92" y1="110" x2="92" y2="130" stroke="#00d4a0" stroke-width="1.5" stroke-dasharray="4,3"/>
+      <!-- Directors (progressively shorter) -->
+      <line x1="140" y1="24" x2="140" y2="106" stroke="#00d4a0" stroke-width="1.8"/>
+      <line x1="188" y1="28" x2="188" y2="102" stroke="#00d4a0" stroke-width="1.8"/>
+      <line x1="233" y1="31" x2="233" y2="99" stroke="#00d4a0" stroke-width="1.6"/>
+      <line x1="275" y1="34" x2="275" y2="96" stroke="#00d4a0" stroke-width="1.4"/>
+      <line x1="312" y1="37" x2="312" y2="93" stroke="#00d4a0" stroke-width="1.2"/>
+      <!-- Signal arrows from driven element -->
+      <path d="M110,50 Q130,42 150,50" fill="none" stroke="#f5c518" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+      <path d="M110,80 Q130,88 150,80" fill="none" stroke="#f5c518" stroke-width="1" stroke-dasharray="3,3" opacity="0.6"/>
+    </svg>
+
+    <!-- Antenna: Parabolic Dish (top-left) -->
+    <svg class="antenna-deco antenna-dish" viewBox="0 0 160 200" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Dish parabola -->
+      <path d="M140,20 Q30,100 140,180" fill="none" stroke="#00d4a0" stroke-width="2.5"/>
+      <!-- Dish interior lines -->
+      <path d="M140,40 Q60,100 140,160" fill="none" stroke="#00d4a0" stroke-width="1" opacity="0.5"/>
+      <path d="M140,60 Q80,100 140,140" fill="none" stroke="#00d4a0" stroke-width="0.8" opacity="0.3"/>
+      <!-- Feed arm -->
+      <line x1="140" y1="100" x2="80" y2="100" stroke="#f5c518" stroke-width="2"/>
+      <!-- Feed horn -->
+      <path d="M80,91 L70,100 L80,109" fill="none" stroke="#f5c518" stroke-width="2"/>
+      <!-- Support struts -->
+      <line x1="140" y1="25" x2="80" y2="100" stroke="#00d4a0" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+      <line x1="140" y1="175" x2="80" y2="100" stroke="#00d4a0" stroke-width="1" stroke-dasharray="4,3" opacity="0.6"/>
+      <!-- Mast -->
+      <line x1="140" y1="180" x2="140" y2="200" stroke="#00d4a0" stroke-width="2.5"/>
+      <line x1="120" y1="200" x2="160" y2="200" stroke="#00d4a0" stroke-width="2"/>
+      <!-- Signal arcs from feed -->
+      <path d="M55,84 Q40,100 55,116" fill="none" stroke="#f5c518" stroke-width="1.2" stroke-dasharray="3,3" opacity="0.7"/>
+      <path d="M42,74 Q20,100 42,126" fill="none" stroke="#f5c518" stroke-width="1" stroke-dasharray="3,4" opacity="0.4"/>
+      <path d="M30,64 Q5,100 30,136" fill="none" stroke="#f5c518" stroke-width="0.8" stroke-dasharray="2,5" opacity="0.25"/>
+    </svg>
+
+    <!-- Antenna: Radar rings (center-right) -->
+    <svg class="antenna-deco antenna-radar" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="160" cy="160" r="20" fill="none" stroke="#00d4a0" stroke-width="1.5"/>
+      <circle cx="160" cy="160" r="50" fill="none" stroke="#00d4a0" stroke-width="1.2" stroke-dasharray="6,4"/>
+      <circle cx="160" cy="160" r="85" fill="none" stroke="#00d4a0" stroke-width="1" stroke-dasharray="5,6"/>
+      <circle cx="160" cy="160" r="122" fill="none" stroke="#f5c518" stroke-width="0.8" stroke-dasharray="4,7"/>
+      <circle cx="160" cy="160" r="155" fill="none" stroke="#00d4a0" stroke-width="0.6" stroke-dasharray="3,9"/>
+      <!-- Center dot + cross -->
+      <circle cx="160" cy="160" r="5" fill="#00d4a0" opacity="0.6"/>
+      <line x1="145" y1="160" x2="175" y2="160" stroke="#00d4a0" stroke-width="1" opacity="0.5"/>
+      <line x1="160" y1="145" x2="160" y2="175" stroke="#00d4a0" stroke-width="1" opacity="0.5"/>
+      <!-- Sweep line (static angle, looks like radar sweep) -->
+      <line x1="160" y1="160" x2="278" y2="90" stroke="#f5c518" stroke-width="1" opacity="0.4"/>
+    </svg>
+
+    <!-- Antenna: Dipole (mid-left) -->
+    <svg class="antenna-deco antenna-dipole" viewBox="0 0 100 160" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <!-- Mast -->
+      <line x1="50" y1="160" x2="50" y2="90" stroke="#00d4a0" stroke-width="2"/>
+      <!-- Feed point gap -->
+      <rect x="44" y="72" width="12" height="16" rx="2" fill="none" stroke="#f5c518" stroke-width="1.5"/>
+      <!-- Upper arm -->
+      <line x1="50" y1="72" x2="50" y2="5" stroke="#00d4a0" stroke-width="2.5"/>
+      <!-- Lower arm -->
+      <line x1="50" y1="88" x2="50" y2="140" stroke="#00d4a0" stroke-width="2.5" opacity="0.6"/>
+      <!-- Radiation lobes (side arcs) -->
+      <path d="M50,40 Q75,40 85,80 Q75,120 50,120" fill="none" stroke="#00d4a0" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+      <path d="M50,40 Q25,40 15,80 Q25,120 50,120" fill="none" stroke="#00d4a0" stroke-width="1" stroke-dasharray="4,3" opacity="0.5"/>
+      <path d="M50,20 Q90,30 98,80 Q90,130 50,140" fill="none" stroke="#f5c518" stroke-width="0.8" stroke-dasharray="3,5" opacity="0.3"/>
+      <path d="M50,20 Q10,30 2,80 Q10,130 50,140" fill="none" stroke="#f5c518" stroke-width="0.8" stroke-dasharray="3,5" opacity="0.3"/>
+    </svg>
+    <div class="hero-content">
+      <div class="hero-badge">BHUBANESWAR · ODISHA · INDIA</div>
+
+      <h1 class="hero-title">
+        IEEE MTT-S<br/>
+        <span class="highlight">MICROWAVE INDIA</span><br/>
+        <span class="gold">SUMMIT</span> 2026
+      </h1>
+
+      <p class="hero-subtitle">8th &amp; 9th August 2026 · KIIT Convention Centre, Bhubaneswar</p>
+
+      <!-- COUNTDOWN TIMER -->
+      <div class="countdown-wrap">
+        <div class="countdown-block">
+          <div class="countdown-num" id="cd-days">--</div>
+          <div class="countdown-label">Days</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block">
+          <div class="countdown-num" id="cd-hours">--</div>
+          <div class="countdown-label">Hours</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block">
+          <div class="countdown-num" id="cd-mins">--</div>
+          <div class="countdown-label">Minutes</div>
+        </div>
+        <div class="countdown-sep">:</div>
+        <div class="countdown-block">
+          <div class="countdown-num" id="cd-secs">--</div>
+          <div class="countdown-label">Seconds</div>
+        </div>
+      </div>
+
+      <div class="hero-btns">
+        <!-- BROCHURE LINK: Replace BROCHURE_LINK_HERE with the actual PDF/Drive link when ready -->
+        <a href="BROCHURE_LINK_HERE" target="_blank" rel="noopener" class="btn-outline">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
+          Download Brochure
+        </a>
+        <!-- REGISTRATION LINK: Replace REGISTRATION_FORM_LINK_HERE with Google Form / Konfhub / EventBrite link when ready -->
+        <a href="REGISTRATION_FORM_LINK_HERE" target="_blank" rel="noopener" class="btn-primary">
+          Register Now
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+      </div>
+
+      <!-- TRUST BADGES -->
+      <div class="trust-badges">
+        <span class="trust-pill">🎖 IEEE MTT-S Sanctioned</span>
+        <span class="trust-pill">🏛 KIIT University</span>
+        <span class="trust-pill">🇮🇳 Bhubaneswar, India</span>
+        <span class="trust-pill">📅 Aug 8–9, 2026</span>
+      </div>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+  <!-- STATS STRIP -->
+  <div class="stats-strip">
+    <div class="stats-inner">
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="400" data-suffix="+">0</div>
+        <div class="stat-label">Expected Participants</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="16" data-suffix="+">0</div>
+        <div class="stat-label">Distinguished Speakers</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="2" data-suffix="">0</div>
+        <div class="stat-label">Conference Days</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item reveal">
+        <div class="stat-num" data-target="20" data-suffix="+">0</div>
+        <div class="stat-label">Industry Exhibitors</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-glow-divider"></div>
+
+  <!-- ABOUT MIS 2026 -->
+  <section id="about-mtts" class="section">
+    <div class="section-inner">
+      <span class="section-tag reveal">About</span>
+      <h2 class="section-title reveal">About MIS 2026</h2>
+      <div class="divider reveal"></div>
+      <p class="section-sub reveal">
+        The IEEE MTT-S Microwave India Summit (MIS) 2026 is a landmark high-impact event bringing together visionaries from industry, academia, defense, and research to advance India's RF and microwave ecosystem.
+      </p>
+      <p class="section-sub reveal" style="margin-top:14px;max-width:760px;">
+        Hosted at the iconic KIIT Convention Centre in Bhubaneswar, Odisha, this two-day summit serves as India's premier platform for microwave and RF technology exchange, featuring 16+ distinguished keynote speakers, 3 expert panel discussions, and 20+ industry exhibition stalls.
+      </p>
+
+      <!-- FOCUS AREAS GRID -->
+      <div class="focus-grid">
+        <div class="focus-card reveal">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
+          </div>
+          <div class="focus-label">Industry–Academia Collaboration</div>
+        </div>
+        <div class="focus-card reveal">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
+          </div>
+          <div class="focus-label">Emerging RF &amp; Microwave Technologies</div>
+        </div>
+        <div class="focus-card reveal">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="focus-label">Defense, Space &amp; Aerospace Innovation</div>
+        </div>
+        <div class="focus-card reveal">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
+          </div>
+          <div class="focus-label">Indigenous Semiconductor Ecosystem</div>
+        </div>
+        <div class="focus-card reveal">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+          </div>
+          <div class="focus-label">Startup &amp; Manufacturing Opportunities</div>
+        </div>
+        <div class="focus-card reveal">
+          <div class="focus-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <div class="focus-label">Future Workforce Development</div>
+        </div>
+      </div>
+
+      <!-- REPRESENTATIVE PILL BADGES -->
+      <div class="rep-badges reveal">
+        <span class="rep-label">Representatives from:</span>
+        <span class="rep-pill">DRDO</span>
+        <span class="rep-pill">ISRO</span>
+        <span class="rep-pill">SAMEER</span>
+        <span class="rep-pill">Leading Academia</span>
+        <span class="rep-pill">Startups</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-glow-divider"></div>
+
+  <!-- ABOUT KIIT -->
+  <section id="about-kiit" class="section">
+    <div class="section-inner">
+      <span class="section-tag reveal">Venue Host</span>
+      <h2 class="section-title reveal">About KIIT University</h2>
+      <div class="divider reveal"></div>
+      <div class="kiit-card kiit-card-premium reveal">
+        <div class="kiit-logo-box"><img src="images/logos/KIIT.png" alt="KIIT University"></div>
+        <div class="kiit-text">
+          <p>
+            Kalinga Institute of Industrial Technology (KIIT) is a Deemed-to-be University located in Bhubaneswar, Odisha, India. Established in 1992 by Dr. Achyuta Samanta, KIIT has grown into one of India's premier technical and research institutions, recognized by NAAC with an 'A++' grade and ranked consistently among the top engineering universities in India.
+          </p>
+          <p>
+            With state-of-the-art infrastructure, over 30,000 students, and a strong focus on research and innovation, KIIT provides an ideal setting for international academic conferences. The KIIT Convention Centre offers world-class facilities for hosting MIS 2026, supported by the university's School of Electronics Engineering — a hub of research in embedded systems, signal processing, and communication technologies.
+          </p>
+          <div class="kiit-tags">
+            <span class="kiit-tag">🏆 NAAC A++</span>
+            <span class="kiit-tag">🎓 Deemed University</span>
+            <span class="kiit-tag">📅 Est. 1992</span>
+            <span class="kiit-tag">📍 Bhubaneswar, Odisha</span>
+            <span class="kiit-tag">👥 30,000+ Students</span>
+            <span class="kiit-tag">🏛 Convention Centre Venue</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-glow-divider"></div>
+
+  <!-- VENUE -->
+  <section id="venue" class="section">
+    <div class="section-inner">
+      <span class="section-tag reveal">Location</span>
+      <h2 class="section-title reveal">Conference Venue</h2>
+      <div class="divider reveal"></div>
+      <div class="venue-grid">
+        <div class="venue-info-card reveal">
+          <div class="venue-info-row">
+            <div class="venue-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0H5m14 0v-3a2 2 0 00-2-2H7a2 2 0 00-2 2v3"/></svg>
+            </div>
+            <div>
+              <div class="venue-info-label">Venue</div>
+              <div class="venue-info-val">KIIT Convention Centre, KIIT University</div>
+            </div>
+          </div>
+          <div class="venue-info-row">
+            <div class="venue-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <div>
+              <div class="venue-info-label">Address</div>
+              <div class="venue-info-val">Patia, Bhubaneswar, Odisha 751024, India</div>
+            </div>
+          </div>
+          <div class="venue-info-row">
+            <div class="venue-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            </div>
+            <div>
+              <div class="venue-info-label">Conference Dates</div>
+              <div class="venue-info-val">8th &amp; 9th August 2026 (Saturday &amp; Sunday)</div>
+            </div>
+          </div>
+          <div class="venue-info-row">
+            <div class="venue-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            </div>
+            <div>
+              <div class="venue-info-label">Nearest Airport</div>
+              <div class="venue-info-val">Biju Patnaik International Airport (~8 km)</div>
+            </div>
+          </div>
+          <div class="venue-info-row">
+            <div class="venue-icon">
+              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>
+            </div>
+            <div>
+              <div class="venue-info-label">Nearest Railway Station</div>
+              <div class="venue-info-val">Bhubaneswar Railway Station (~5 km)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="map-wrap reveal">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3742.3!2d85.8143!3d20.3526!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a190900463fe301%3A0x8b4954eee72f6aa7!2sKIIT%20University!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="KIIT University Bhubaneswar Map">
+          </iframe>
+        </div>
+      </div>
+
+      <!-- VENUE INFO STRIP -->
+      <div class="venue-info-strip reveal">
+        <div class="vis-item">
+          <span class="vis-icon">📍</span>
+          <span>KIIT Convention Centre, KIIT University, Bhubaneswar, Odisha 751024</span>
+        </div>
+        <div class="vis-sep"></div>
+        <div class="vis-item">
+          <span class="vis-icon">📅</span>
+          <span>August 8–9, 2026 (Saturday &amp; Sunday)</span>
+        </div>
+        <div class="vis-sep"></div>
+        <div class="vis-item">
+          <span class="vis-icon">🎤</span>
+          <span>Inauguration &amp; Technical Sessions: Main Auditorium</span>
+        </div>
+        <div class="vis-sep"></div>
+        <div class="vis-item">
+          <span class="vis-icon">🏢</span>
+          <span>Exhibition: Open Space around Main Auditorium</span>
+        </div>
+        <div class="vis-sep"></div>
+        <div class="vis-item">
+          <span class="vis-icon">🗣</span>
+          <span>Panel Discussions: Conference Halls within the Centre</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-glow-divider"></div>
+
+  <!-- HERITAGE PLACES -->
+  <section id="heritage" class="section">
+    <div class="section-inner">
+      <span class="section-tag reveal">Tourism</span>
+      <h2 class="section-title reveal">Explore Bhubaneswar</h2>
+      <div class="divider reveal"></div>
+      <p class="section-sub reveal" style="margin-bottom:40px;">
+        Discover the cultural heritage of Odisha — just minutes from the venue.
+      </p>
+      <div class="heritage-grid">
+
+        <!-- Lingaraj Temple -->
+        <div class="heritage-card reveal">
+          <img src="images/heritage/lingaraj-temple.jpg" alt="Lingaraj Temple" class="heritage-photo">
+          <div class="heritage-name-bar">
+            <div class="heritage-name-bar-text">📍 Lingaraj Temple</div>
+          </div>
+          <div class="heritage-overlay">
+            <span class="heritage-loc-pill">Bhubaneswar, Odisha</span>
+            <div class="heritage-overlay-body">
+              <div class="heritage-overlay-line"></div>
+              <div class="heritage-overlay-title">Lingaraj Temple</div>
+              <div class="heritage-overlay-desc">An 11th-century masterpiece of Kalinga architecture, this sacred Shaivite temple is the spiritual heart of Bhubaneswar. Its towering shikhara rises 55 metres, adorned with intricate stone carvings of timeless beauty.</div>
+              <span class="heritage-dist">🚗 ~8 km from venue</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Udayagiri & Khandagiri -->
+        <div class="heritage-card reveal">
+          <img src="images/heritage/udayagiri-khandagiri.jpg" alt="Udayagiri &amp; Khandagiri Caves" class="heritage-photo">
+          <div class="heritage-name-bar">
+            <div class="heritage-name-bar-text">📍 Udayagiri &amp; Khandagiri</div>
+          </div>
+          <div class="heritage-overlay">
+            <span class="heritage-loc-pill">Bhubaneswar, Odisha</span>
+            <div class="heritage-overlay-body">
+              <div class="heritage-overlay-line"></div>
+              <div class="heritage-overlay-title">Udayagiri &amp; Khandagiri Caves</div>
+              <div class="heritage-overlay-desc">Ancient Jain rock-cut caves carved into twin hills in the 2nd century BCE, commissioned by King Kharavela. A fascinating window into Odisha's earliest royal and religious heritage.</div>
+              <span class="heritage-dist">🚗 ~10 km from venue</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Dhauli Peace Pagoda -->
+        <div class="heritage-card reveal">
+          <img src="images/heritage/dhauli-pagoda.jpg" alt="Dhauli Peace Pagoda" class="heritage-photo">
+          <div class="heritage-name-bar">
+            <div class="heritage-name-bar-text">📍 Dhauli Peace Pagoda</div>
+          </div>
+          <div class="heritage-overlay">
+            <span class="heritage-loc-pill">Bhubaneswar, Odisha</span>
+            <div class="heritage-overlay-body">
+              <div class="heritage-overlay-line"></div>
+              <div class="heritage-overlay-title">Dhauli Peace Pagoda</div>
+              <div class="heritage-overlay-desc">The site of the historic Kalinga War where Emperor Ashoka renounced violence and embraced Buddhism. A serene Japanese-built Shanti Stupa now overlooks the peaceful Daya River plains.</div>
+              <span class="heritage-dist">🚗 ~12 km from venue</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nandankanan -->
+        <div class="heritage-card reveal">
+          <img src="images/heritage/nandankanan.jpg" alt="Nandankanan Zoological Park" class="heritage-photo">
+          <div class="heritage-name-bar">
+            <div class="heritage-name-bar-text">📍 Nandankanan</div>
+          </div>
+          <div class="heritage-overlay">
+            <span class="heritage-loc-pill">Bhubaneswar, Odisha</span>
+            <div class="heritage-overlay-body">
+              <div class="heritage-overlay-line"></div>
+              <div class="heritage-overlay-title">Nandankanan Zoological Park</div>
+              <div class="heritage-overlay-desc">Odisha's premier wildlife sanctuary set amid the lush Chandaka forest, famous worldwide for its white tigers and gharials. A must-visit escape into nature just outside the city.</div>
+              <span class="heritage-dist">🚗 ~20 km from venue</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Konark Sun Temple -->
+        <div class="heritage-card reveal">
+          <img src="images/heritage/konark-sun-temple.jpg" alt="Konark Sun Temple" class="heritage-photo">
+          <div class="heritage-name-bar">
+            <div class="heritage-name-bar-text">📍 Konark Sun Temple</div>
+          </div>
+          <div class="heritage-overlay">
+            <span class="heritage-loc-pill">Konark, Odisha</span>
+            <div class="heritage-overlay-body">
+              <div class="heritage-overlay-line"></div>
+              <div class="heritage-overlay-title">Konark Sun Temple</div>
+              <div class="heritage-overlay-desc">A 13th-century UNESCO World Heritage Site — the magnificent Kalingan chariot temple dedicated to the Sun God. One of humanity's greatest architectural achievements, sculpted in breathtaking detail.</div>
+              <span class="heritage-dist">🚗 ~65 km from venue</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Puri -->
+        <div class="heritage-card reveal">
+          <img src="images/heritage/puri-sea-beach.png" alt="Puri Sea Beach" class="heritage-photo">
+          <div class="heritage-name-bar">
+            <div class="heritage-name-bar-text">📍 Puri</div>
+          </div>
+          <div class="heritage-overlay">
+            <span class="heritage-loc-pill">Puri, Odisha</span>
+            <div class="heritage-overlay-body">
+              <div class="heritage-overlay-line"></div>
+              <div class="heritage-overlay-title">Puri Sea Beach &amp; Jagannath Temple</div>
+              <div class="heritage-overlay-desc">Sacred coastal city on the Bay of Bengal, home to the revered Lord Jagannath Temple — one of the four sacred dhams of India — and golden beaches stretching endlessly along the sea.</div>
+              <span class="heritage-dist">🚗 ~60 km from venue</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="cursor:default;">
+            <img src="images/logos/MIS.png" alt="MIS 2026 Logo" class="nav-mis-logo" style="height:44px;">
+            <span class="nav-event-name" style="font-size:22px;">MIS 2026</span>
+          </div>
+          <p style="margin-top:16px;">
+            IEEE MTT-S Microwave India Summit (MIS) 2026 — bringing together the global RF and microwave community with India's defence, space, and industrial ecosystem for knowledge exchange and innovation.
+          </p>
+          <div class="footer-social">
+            <a href="https://www.instagram.com/mtts.global/" target="_blank" rel="noopener" class="social-btn" title="Instagram">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/company/ieeemtt/" target="_blank" rel="noopener" class="social-btn" title="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            </a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a onclick="showPage('home')">Home</a></li>
+            <li><a onclick="showPage('speakers')">Keynote Speakers</a></li>
+            <li><a onclick="showPage('schedule')">Program Schedule</a></li>
+            <li><a onclick="showPage('committee')">Committee</a></li>
+            <li><a onclick="showPage('sponsors')">Sponsorship</a></li>
+            <li><a onclick="showPage('registration')">Register</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="mailto:ieeemis2026@gmail.com" style="color:var(--green);">📧 ieeemis2026@gmail.com</a></li>
+          </ul>
+          <p style="color:var(--gray);font-size:13px;margin-top:12px;line-height:1.6;">
+            KIIT Convention Centre<br/>KIIT University, Patia<br/>Bhubaneswar, Odisha 751024<br/>India
+          </p>
+        </div>
+      </div>
+      <div class="footer-bottom" style="flex-direction:column;align-items:flex-start;gap:6px;">
+        <div style="display:flex;justify-content:space-between;width:100%;flex-wrap:wrap;gap:8px;">
+          <span>© 2026 IEEE MTT-S MIS 2026. All rights reserved.</span>
+          <span>Hosted by <a href="https://kiit.ac.in" target="_blank" rel="noopener">KIIT University</a>, Bhubaneswar, Odisha, India</span>
+        </div>
+        <div style="font-size:12px;color:rgba(136,146,164,0.6);">
+          Website designed &amp; developed by <strong style="color:rgba(136,146,164,0.85);">Rajdeep Dey</strong> — Digital Coordinator, IEEE MTT-S MIS 2026
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-home -->
+
+
+<!-- ===================================================== -->
+<!--                   PAGE: SPEAKERS                      -->
+<!-- ===================================================== -->
+<div id="page-speakers" class="page">
+  <div class="page-header">
+    <span class="section-tag">IEEE MTT-S MIS 2026</span>
+    <h1>Distinguished <span style="color:var(--green);">Speakers</span></h1>
+    <p>IEEE MTT-S Microwave India Summit 2026</p>
+  </div>
+
+  <!-- KEYNOTE SPEAKERS -->
+  <div class="speakers-section">
+    <div class="speakers-section-heading">Keynote <span class="hl-green">Speakers</span></div>
+    <div class="ssec-bar ssec-bar-green"></div>
+    <div class="speakers-grid">
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/BK_Das.png" alt="Dr. B.K. Das" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. B.K. Das</div>
+        <div class="speaker-title">DS &amp; DG (ECS), DRDO</div>
+        <span class="speaker-org">DRDO</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/k-suchendar.jpg" alt="Dr. K. Suchendar" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. K. Suchendar</div>
+        <div class="speaker-title">Director, Integrated Test Range (ITR), DRDO</div>
+        <span class="speaker-org">DRDO</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/SK_Nayak.png" alt="Dr. S.K. Nayak" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. S.K. Nayak</div>
+        <div class="speaker-title">Director, Proof &amp; Experimental Establishment (PXE), DRDO</div>
+        <span class="speaker-org">DRDO</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Anding.png" alt="Prof. Anding Zhu" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Prof. Anding Zhu</div>
+        <div class="speaker-title">2026 President, IEEE MTT-S · Professor, University College Dublin, Ireland</div>
+        <span class="speaker-org">IEEE MTT-S</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Goutam.png" alt="Dr. Goutam Chattopadhyay" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. Goutam Chattopadhyay</div>
+        <div class="speaker-title">2025 President, IEEE MTT-S · Senior Scientist, NASA-JPL, USA</div>
+        <span class="speaker-org">NASA-JPL</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/CJ_Reddy.png" alt="Dr. C.J. Reddy" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. C.J. Reddy</div>
+        <div class="speaker-title">2026 President, IEEE AP-S · Siemens Fellow, USA</div>
+        <span class="speaker-org">IEEE AP-S</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Chinmoy.png" alt="Prof. Chinmoy Saha" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Prof. Chinmoy Saha</div>
+        <div class="speaker-title">MGA Vice-Chair/R10 Coordinator/SIGHT Chair, IEEE MTT-S · Professor, IIST Thiruvananthapuram</div>
+        <span class="speaker-org">IIST</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Jasmin.png" alt="Prof. Jasmin Grosinger" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Prof. Jasmin Grosinger</div>
+        <div class="speaker-title">MGA Chair, IEEE MTT-S · Professor, University of Siegen, Germany</div>
+        <span class="speaker-org">IEEE MTT-S</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Ashutosh.png" alt="Dr. Ashutosh Kedar" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. Ashutosh Kedar</div>
+        <div class="speaker-title">Chair IBC, IEEE AP/MTT Bangalore · Scientist G &amp; PD, LRDE, DRDO</div>
+        <span class="speaker-org">DRDO</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/AjitKumar.png" alt="Dr. Ajit Kumar Panda" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. Ajit Kumar Panda</div>
+        <div class="speaker-title">VP &amp; Director (RF), VVDN Technologies</div>
+        <span class="speaker-org">VVDN</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/madhumita-chakravrti.jpg" alt="Dr. Madhumita Chakravrti" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. Madhumita Chakravrti</div>
+        <div class="speaker-title">Director (Retd.), CMSDS, DRDO</div>
+        <span class="speaker-org">DRDO</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Satyajit.png" alt="Dr. Satyajit Chakrabarti" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. Satyajit Chakrabarti</div>
+        <div class="speaker-title">Scientist F &amp; Head Electromagnetics, SAMEER Kolkata</div>
+        <span class="speaker-org">SAMEER</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Tapas.png" alt="Dr. Tapas Chakravarty" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. Tapas Chakravarty</div>
+        <div class="speaker-title">Chief Scientist (Retd.), TCS Research, Kolkata</div>
+        <span class="speaker-org">TCS</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/ShobhaSundar.png" alt="Prof. Shobha Sundar Ram" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Prof. Shobha Sundar Ram</div>
+        <div class="speaker-title">YP Chair, IEEE MTT-S · Professor, IIIT Delhi</div>
+        <span class="speaker-org">IIIT Delhi</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Sujith.png" alt="Dr. Sujith Tennyson" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. Sujith Tennyson</div>
+        <div class="speaker-title">CEO, Icon Electromatics · Member, MTT-S IBC</div>
+        <span class="speaker-org">Icon</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Chandrakanta.png" alt="Dr. Chandrakanta Kumar" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Dr. Chandrakanta Kumar</div>
+        <div class="speaker-title">Scientist G &amp; PD, URSC, ISRO</div>
+        <span class="speaker-org">ISRO</span>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PANEL SPEAKERS -->
+  <div class="speakers-section" style="padding-top:48px;">
+    <div class="speakers-section-heading">Panel <span class="hl-gold">Speakers</span></div>
+    <div class="ssec-bar ssec-bar-gold"></div>
+    <div class="panel-grid">
+
+      <div class="speaker-card panel-card reveal">
+        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
+          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">TBD</div>
+        <div class="speaker-title">To Be Announced</div>
+        <span class="speaker-org">DRDO</span>
+      </div>
+
+      <div class="speaker-card panel-card reveal">
+        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
+          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">TBD</div>
+        <div class="speaker-title">To Be Announced</div>
+        <span class="speaker-org">ISRO</span>
+      </div>
+
+      <div class="speaker-card panel-card reveal">
+        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
+          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">TBD</div>
+        <div class="speaker-title">To Be Announced</div>
+        <span class="speaker-org">KIIT</span>
+      </div>
+
+      <div class="speaker-card panel-card reveal">
+        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
+          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">TBD</div>
+        <div class="speaker-title">To Be Announced</div>
+        <span class="speaker-org">Sponsor Company</span>
+      </div>
+
+      <div class="speaker-card panel-card reveal">
+        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
+          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">TBD</div>
+        <div class="speaker-title">To Be Announced</div>
+        <span class="speaker-org">Sponsor Company</span>
+      </div>
+
+      <div class="speaker-card panel-card reveal">
+        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
+          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">TBD</div>
+        <div class="speaker-title">To Be Announced</div>
+        <span class="speaker-org">Sponsor Company</span>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="mini-footer" style="margin-top:40px;">
+    <div class="mini-footer-inner">
+      © 2026 IEEE MTT-S MIS 2026. All rights reserved. — Hosted by <a href="https://kiit.ac.in" target="_blank" rel="noopener">KIIT University</a>, Bhubaneswar, Odisha, India
+    </div>
+  </div>
+</div><!-- /page-speakers -->
+
+
+<!-- ===================================================== -->
+<!--                   PAGE: SCHEDULE                      -->
+<!-- ===================================================== -->
+<div id="page-schedule" class="page">
+  <div class="page-header">
+    <span class="section-tag">IEEE MTT-S MIS 2026</span>
+    <h1>Program <span style="color:var(--green);">Schedule</span></h1>
+    <p>IEEE MTT-S MIS 2026 — August 8–9, Bhubaneswar</p>
+  </div>
+
+  <!-- DAY TABS -->
+  <div class="schedule-tabs-wrap">
+    <button class="sched-tab active" onclick="switchDay(1)">Day 1 — Aug 8</button>
+    <button class="sched-tab" onclick="switchDay(2)">Day 2 — Aug 9</button>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="sched-day active" id="sched-day1">
+    <div class="schedule-content">
+      <div class="schedule-day-title">
+        <span class="day-badge">Day 1</span>
+        August 8, 2026 — Saturday
+      </div>
+      <div class="schedule-day-venue">📍 Auditorium, KIIT Convention Centre</div>
+      <div class="sched-table">
+
+        <div class="srow2">
+          <div class="srow2-time">08:30 – 09:30</div>
+          <div class="srow2-event"><div class="srow2-title">Grand Inauguration</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-special">Special</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">09:30 – 10:00</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 1</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">10:00 – 10:30</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 2</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">10:30 – 11:00</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 3</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2-break">☕ TEA BREAK <span class="break-time">11:00 – 11:15</span></div>
+        <div class="srow2">
+          <div class="srow2-time">11:15 – 11:45</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 4</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">11:45 – 12:15</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 5</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">12:15 – 12:45</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 6</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">12:45 – 01:30</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Panel Discussion 1</div>
+            <div class="srow2-subtitle">"RF &amp; Microwave in Space &amp; Defence Technologies"</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-panel">Panel</span></div>
+        </div>
+        <div class="srow2-break">🍽️ LUNCH BREAK <span class="break-time">01:30 – 02:30</span></div>
+        <div class="srow2">
+          <div class="srow2-time">02:30 – 03:00</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 7</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">03:00 – 03:30</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 8</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">03:30 – 04:00</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 9</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">04:00 – 04:30</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 10</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">04:30 – 05:15</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Panel Discussion 2</div>
+            <div class="srow2-subtitle">"Microwave Semiconductor Technologies"</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-panel">Panel</span></div>
+        </div>
+        <div class="srow2-break">☕ TEA BREAK <span class="break-time">05:15 – 05:30</span></div>
+        <div class="srow2">
+          <div class="srow2-time">05:30 – 07:00</div>
+          <div class="srow2-event"><div class="srow2-title">Campus Tour of KIIT &amp; KIMS</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-social">Social</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">07:00 PM+</div>
+          <div class="srow2-event"><div class="srow2-title">🎉 Gala Dinner</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-social">Social</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="sched-day" id="sched-day2">
+    <div class="schedule-content">
+      <div class="schedule-day-title">
+        <span class="day-badge day-badge-gold">Day 2</span>
+        August 9, 2026 — Sunday
+      </div>
+      <div class="schedule-day-venue">📍 Convention Hall, KIIT Convention Centre</div>
+      <div class="sched-table">
+
+        <div class="srow2">
+          <div class="srow2-time">08:30 – 09:00</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 11</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">09:00 – 09:30</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 12</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">09:30 – 10:00</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 13</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">10:00 – 10:30</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 14</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">10:30 – 11:00</div>
+          <div class="srow2-event"><div class="srow2-title">Keynote Session 15</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2-break">☕ TEA BREAK <span class="break-time">11:00 – 11:15</span></div>
+        <div class="srow2">
+          <div class="srow2-time">11:15 – 12:00</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Panel Discussion 3</div>
+            <div class="srow2-subtitle">"AI Advances in RF &amp; Microwave"</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-panel">Panel</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">12:00 – 12:30</div>
+          <div class="srow2-event"><div class="srow2-title">Valedictory Session</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-special">Special</span></div>
+        </div>
+        <div class="srow2-break">🍽️ LUNCH BREAK <span class="break-time">12:30 – 01:00</span></div>
+        <div class="srow2">
+          <div class="srow2-time">12:30 PM+</div>
+          <div class="srow2-event"><div class="srow2-title">Visit to Konark Sun Temple &amp; Chandrabhaga Sea Beach</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-social">Social</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">04:00 PM+</div>
+          <div class="srow2-event"><div class="srow2-title">Visit to Puri Sea Beach</div></div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-social">Social</span></div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div style="max-width:960px;margin:0 auto;padding:0 5% 40px;display:flex;gap:16px;flex-wrap:wrap;">
+    <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:0.06em;"><span class="srow2-badge badge-keynote" style="font-size:10px;">Keynote</span></span>
+    <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:0.06em;"><span class="srow2-badge badge-panel" style="font-size:10px;">Panel</span></span>
+    <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:0.06em;"><span class="srow2-badge badge-special" style="font-size:10px;">Special</span></span>
+    <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:0.06em;"><span class="srow2-badge badge-social" style="font-size:10px;">Social</span></span>
+    <span style="display:flex;align-items:center;gap:6px;font-size:12px;color:var(--gray);font-family:'Rajdhani',sans-serif;font-weight:600;letter-spacing:0.06em;"><span class="srow2-badge badge-break" style="font-size:10px;">Break</span></span>
+  </div>
+
+  <div class="mini-footer">
+    <div class="mini-footer-inner">
+      © 2026 IEEE MTT-S MIS 2026. All rights reserved. — Hosted by <a href="https://kiit.ac.in" target="_blank" rel="noopener">KIIT University</a>, Bhubaneswar, Odisha, India
+    </div>
+  </div>
+</div><!-- /page-schedule -->
+
+
+<!-- ===================================================== -->
+<!--                 PAGE: COMMITTEE                       -->
+<!-- ===================================================== -->
+<div id="page-committee" class="page">
+  <div class="page-header">
+    <span class="section-tag">IEEE MTT-S MIS 2026</span>
+    <h1>Organizing <span style="color:var(--gold);">Committee</span></h1>
+    <p>The dedicated professionals steering the IEEE MTT-S Microwave India Summit 2026.</p>
+  </div>
+
+  <!-- COMMITTEE TABS -->
+  <div class="oc-tabs-wrap">
+    <button class="sched-tab active" onclick="switchOcTab(1)">Patrons &amp; Advisors</button>
+    <button class="sched-tab" onclick="switchOcTab(2)">Organizing Team</button>
+  </div>
+
+  <!-- TAB 1: LEADERSHIP & PATRONS -->
+  <div id="oc-tab-1" class="oc-subpage active">
+
+    <!-- CHIEF PATRON -->
+    <div class="oc-section">
+      <div class="oc-heading">Chief Patron</div>
+      <div class="oc-bar oc-bar-gold"></div>
+      <div class="oc-grid-2">
+        <div class="oc-card oc-card-chief reveal">
+          <span class="oc-pill pill-gold">Chief Patron</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/Achyuta.png" alt="Achyuta Samanta" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Achyuta Samanta</div>
+          <div class="oc-desc">Founder, KIIT &amp; KISS University</div>
+        </div>
+        <div class="oc-card oc-card-chief reveal">
+          <span class="oc-pill pill-gold">Chief Patron</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/Anding.png" alt="Prof. Anding Zhu" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Prof. Anding Zhu</div>
+          <div class="oc-desc">2026 President, IEEE MTT-S · Professor, University College Dublin</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CO-PATRONS -->
+    <div class="oc-section" style="padding-top:44px;">
+      <div class="oc-heading">Co-Patrons</div>
+      <div class="oc-bar oc-bar-silver"></div>
+      <div class="oc-grid-4">
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-silver">Co-Patron</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/Saranjit.png" alt="Saranjit Singh" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Saranjit Singh</div>
+          <div class="oc-desc">Vice Chancellor, KIIT DU</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-silver">Co-Patron</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/JR-Mohanty.png" alt="J.R. Mohanty" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">J.R. Mohanty</div>
+          <div class="oc-desc">Registrar, KIIT DU</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-silver">Co-Patron</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/Suprava.png" alt="Suprava Pattnaik" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Suprava Pattnaik</div>
+          <div class="oc-desc">Dean, School of Electronics Engineering, KIIT DU</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-silver">Co-Patron</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/Samantaray.png" alt="S.R. Samantaray" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">S.R. Samantaray</div>
+          <div class="oc-desc">Chair, IEEE Bhubaneswar Section · Professor, IIT Bhubaneswar</div>
+        </div>
+
+      </div>
+    </div>
+
+
+  </div><!-- /oc-tab-1 -->
+
+  <!-- TAB 2: ORGANIZING TEAM -->
+  <div id="oc-tab-2" class="oc-subpage">
+
+    <!-- HONORARY CHAIRS -->
+    <div class="oc-section">
+      <div class="oc-heading">Honorary Chairs</div>
+      <div class="oc-bar oc-bar-teal"></div>
+      <div class="oc-grid-2">
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-teal">Honorary Chair</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(0,212,160,0.35);">
+            <img src="images/speakers/Chinmoy.png" alt="Prof. Chinmoy Saha" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Prof. Chinmoy Saha</div>
+          <div class="oc-desc">MGA Vice-Chair/R10 Coordinator, IEEE MTT-S · Professor, IIST Thiruvananthapuram</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-teal">Honorary Chair</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(0,212,160,0.35);">
+            <img src="images/speakers/Ashutosh.png" alt="Dr. Ashutosh Kedar" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Dr. Ashutosh Kedar</div>
+          <div class="oc-desc">Chair IBC, IEEE AP/MTT Bangalore · Scientist G &amp; PD, LRDE, DRDO</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- CHAIRS 2×2 -->
+    <div class="oc-section">
+      <div class="oc-heading">Chairs</div>
+      <div class="oc-bar oc-bar-green"></div>
+      <div class="oc-grid-2x2">
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-green">General Chair</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
+            <img src="images/oc/Sudhakar.png" alt="Sudhakar Sahu" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Sudhakar Sahu</div>
+          <div class="oc-desc">Chair, IEEE AP-S/MTT-S Jt. Chapter, Bhubaneswar Section</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-green">Finance Chair</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
+            <img src="images/oc/JR-Panda.png" alt="J.R. Panda" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">J.R. Panda</div>
+          <div class="oc-desc">Secretary, IEEE AP-S/MTT-S Jt. Chapter, Bhubaneswar Section</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-green">Publicity Chair</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
+            <img src="images/oc/Rasmita.png" alt="Rasmita Lenka" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Rasmita Lenka</div>
+          <div class="oc-desc">Assistant Professor, KIIT DU</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-green">Organizing Secretary</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
+            <img src="images/oc/Arunya.png" alt="Arunya Paul" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Arunya Paul</div>
+          <div class="oc-desc">Chair, Digital Affairs, MTT-S Region-10 · Member, MGA Committee R-10, IEEE MTT-S</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- STUDENT COORDINATORS -->
+    <div class="oc-section" style="padding-top:44px;">
+      <div class="oc-heading">Student Coordinators</div>
+      <div class="oc-bar oc-bar-blue"></div>
+      <div class="oc-grid-2">
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-blue">Student Coordinator</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(74,158,255,0.3);">
+            <img src="images/oc/Himadri.png" alt="Himadri Ghosh" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Himadri Ghosh</div>
+          <div class="oc-desc">IEEE MTT-S</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-blue">Student Coordinator</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(74,158,255,0.3);">
+            <img src="images/oc/Chiranjeet.png" alt="Chiranjeet Bhattacharjee" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Chiranjeet Bhattacharjee</div>
+          <div class="oc-desc">IEEE MTT-S</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- DIGITAL COORDINATOR -->
+    <div class="oc-section" style="padding-top:44px;">
+      <div class="oc-heading">Digital Coordinator</div>
+      <div class="oc-bar oc-bar-blue"></div>
+      <div class="oc-grid-1c">
+        <div class="oc-card reveal" style="max-width:280px;width:100%;">
+          <span class="oc-pill pill-blue">Digital Coordinator</span>
+          <div class="oc-photo-wrap" style="border-color:rgba(74,158,255,0.3);">
+            <img src="images/oc/Rajdeep.png" alt="Rajdeep Dey" class="oc-img" onerror="this.style.display='none'">
+          </div>
+          <div class="oc-name">Rajdeep Dey</div>
+          <div class="oc-desc">IEEE MTT-S</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /oc-tab-2 -->
+
+  <div class="mini-footer" style="margin-top:60px;">
+    <div class="mini-footer-inner">
+      © 2026 IEEE MTT-S MIS 2026. All rights reserved. — Hosted by <a href="https://kiit.ac.in" target="_blank" rel="noopener">KIIT University</a>, Bhubaneswar, Odisha, India
+    </div>
+  </div>
+</div><!-- /page-committee -->
+
+
+<!-- ===================================================== -->
+<!--                  PAGE: SPONSORS                       -->
+<!-- ===================================================== -->
+<div id="page-sponsors" class="page">
+  <div class="page-header">
+    <span class="section-tag">Partner With Us</span>
+    <h1>Sponsorship <span style="color:var(--gold);">Opportunities</span></h1>
+    <p>Partner with India's Premier RF &amp; Microwave Summit</p>
+  </div>
+
+  <div class="sponsors-wrap">
+
+    <!-- 5A: 4-TIER GRID -->
+    <div class="tier-grid-4">
+
+      <!-- SIGNATURE -->
+      <div class="tier-card tier-signature-new reveal">
+        <span class="tier-badge-sig">Signature</span>
+        <div class="tier-name" style="color:var(--green);">Signature</div>
+        <div class="tier-price">₹1,25,000 &nbsp;/&nbsp; USD 1,200</div>
+        <ul class="tier-detail-rows">
+          <li><span class="tdr-key">Booth</span><span class="tdr-val">6m × 3m (18 m²)</span></li>
+          <li><span class="tdr-key">Registrations</span><span class="tdr-val">5</span></li>
+          <li><span class="tdr-key">30-min Presentation</span><span class="tdr-val yes">✓</span></li>
+          <li><span class="tdr-key">Sponsor Panel</span><span class="tdr-val yes">✓</span></li>
+          <li><span class="tdr-key">Panel Speakers</span><span class="tdr-val">2 Slots</span></li>
+          <li><span class="tdr-key">Delegate Kit</span><span class="tdr-val">Brochure</span></li>
+          <li><span class="tdr-key">Acknowledgement</span><span class="tdr-val">Throughout Event</span></li>
+        </ul>
+        <a href="https://mail.google.com/mail/?view=cm&to=ieeemis2026@gmail.com&su=Sponsorship%20Enquiry%20%E2%80%94%20IEEE%20MIS%202026&body=Dear%20Organizing%20Committee%2C%0A%0AI%20am%20interested%20in%20exploring%20sponsorship%20opportunities%20for%20IEEE%20MTT-S%20Microwave%20India%20Summit%20(MIS)%202026.%0A%0AOrganization%3A%20%0AContact%20Person%3A%20%0APhone%3A%20%0A%0ALooking%20forward%20to%20your%20response." class="tier-btn" target="_blank" rel="noopener">Mail Us!</a>
+      </div>
+
+      <!-- GOLD -->
+      <div class="tier-card tier-gold reveal">
+        <span class="tier-badge-gold">Gold</span>
+        <div class="tier-name" style="color:var(--gold);">Gold</div>
+        <div class="tier-price">₹75,000 &nbsp;/&nbsp; USD 800</div>
+        <ul class="tier-detail-rows">
+          <li><span class="tdr-key">Booth</span><span class="tdr-val">4m × 3m (12 m²)</span></li>
+          <li><span class="tdr-key">Registrations</span><span class="tdr-val">4</span></li>
+          <li><span class="tdr-key">30-min Presentation</span><span class="tdr-val no">—</span></li>
+          <li><span class="tdr-key">Sponsor Panel</span><span class="tdr-val yes">✓</span></li>
+          <li><span class="tdr-key">Panel Speakers</span><span class="tdr-val">1 Slot</span></li>
+          <li><span class="tdr-key">Delegate Kit</span><span class="tdr-val">2-Page Flyer</span></li>
+          <li><span class="tdr-key">Acknowledgement</span><span class="tdr-val">Throughout Event</span></li>
+        </ul>
+        <a href="https://mail.google.com/mail/?view=cm&to=ieeemis2026@gmail.com&su=Sponsorship%20Enquiry%20%E2%80%94%20IEEE%20MIS%202026&body=Dear%20Organizing%20Committee%2C%0A%0AI%20am%20interested%20in%20exploring%20sponsorship%20opportunities%20for%20IEEE%20MTT-S%20Microwave%20India%20Summit%20(MIS)%202026.%0A%0AOrganization%3A%20%0AContact%20Person%3A%20%0APhone%3A%20%0A%0ALooking%20forward%20to%20your%20response." class="tier-btn" target="_blank" rel="noopener">Mail Us!</a>
+      </div>
+
+      <!-- SILVER -->
+      <div class="tier-card tier-silver reveal">
+        <div class="tier-name" style="color:#a0aec0;">Silver</div>
+        <div class="tier-price">₹60,000 &nbsp;/&nbsp; USD 600</div>
+        <ul class="tier-detail-rows">
+          <li><span class="tdr-key">Booth</span><span class="tdr-val">3m × 3m (9 m²)</span></li>
+          <li><span class="tdr-key">Registrations</span><span class="tdr-val">2</span></li>
+          <li><span class="tdr-key">30-min Presentation</span><span class="tdr-val no">—</span></li>
+          <li><span class="tdr-key">Sponsor Panel</span><span class="tdr-val yes">✓</span></li>
+          <li><span class="tdr-key">Panel Speakers</span><span class="tdr-val no">—</span></li>
+          <li><span class="tdr-key">Delegate Kit</span><span class="tdr-val">1 A4 Flyer</span></li>
+          <li><span class="tdr-key">Acknowledgement</span><span class="tdr-val">Inaugural &amp; Valedictory</span></li>
+        </ul>
+        <a href="https://mail.google.com/mail/?view=cm&to=ieeemis2026@gmail.com&su=Sponsorship%20Enquiry%20%E2%80%94%20IEEE%20MIS%202026&body=Dear%20Organizing%20Committee%2C%0A%0AI%20am%20interested%20in%20exploring%20sponsorship%20opportunities%20for%20IEEE%20MTT-S%20Microwave%20India%20Summit%20(MIS)%202026.%0A%0AOrganization%3A%20%0AContact%20Person%3A%20%0APhone%3A%20%0A%0ALooking%20forward%20to%20your%20response." class="tier-btn" target="_blank" rel="noopener">Mail Us!</a>
+      </div>
+
+      <!-- BRONZE -->
+      <div class="tier-card tier-bronze reveal">
+        <div class="tier-name" style="color:#cd7f32;">Bronze</div>
+        <div class="tier-price">₹45,000 &nbsp;/&nbsp; USD 400</div>
+        <ul class="tier-detail-rows">
+          <li><span class="tdr-key">Booth</span><span class="tdr-val">2m × 2m (4 m²)</span></li>
+          <li><span class="tdr-key">Registrations</span><span class="tdr-val">1</span></li>
+          <li><span class="tdr-key">30-min Presentation</span><span class="tdr-val no">—</span></li>
+          <li><span class="tdr-key">Sponsor Panel</span><span class="tdr-val yes">✓</span></li>
+          <li><span class="tdr-key">Panel Speakers</span><span class="tdr-val no">—</span></li>
+          <li><span class="tdr-key">Delegate Kit</span><span class="tdr-val no">—</span></li>
+          <li><span class="tdr-key">Acknowledgement</span><span class="tdr-val">Inaugural &amp; Valedictory</span></li>
+        </ul>
+        <a href="https://mail.google.com/mail/?view=cm&to=ieeemis2026@gmail.com&su=Sponsorship%20Enquiry%20%E2%80%94%20IEEE%20MIS%202026&body=Dear%20Organizing%20Committee%2C%0A%0AI%20am%20interested%20in%20exploring%20sponsorship%20opportunities%20for%20IEEE%20MTT-S%20Microwave%20India%20Summit%20(MIS)%202026.%0A%0AOrganization%3A%20%0AContact%20Person%3A%20%0APhone%3A%20%0A%0ALooking%20forward%20to%20your%20response." class="tier-btn" target="_blank" rel="noopener">Mail Us!</a>
+      </div>
+
+    </div>
+
+    <!-- STARTUP CARD -->
+    <div class="startup-card-new reveal">
+      <div class="startup-label-new">
+        <div style="font-size:32px;margin-bottom:6px;">🚀</div>
+        <div class="startup-name">Startup Exhibitor</div>
+        <div class="startup-tagline">Designed for technical vendors &amp; engineering startups</div>
+        <div class="startup-price">₹30,000 / USD 400</div>
+      </div>
+      <div>
+        <ul class="startup-features">
+          <li>2m × 2m standard exhibition stall</li>
+          <li>Standard electrical power outlets</li>
+          <li>1 display table &amp; 2 chairs</li>
+          <li>Basic fascia branding</li>
+        </ul>
+        <div class="startup-stalls">📊 Total expected stalls: 25–30</div>
+      </div>
+      <div>
+        <a href="https://mail.google.com/mail/?view=cm&to=ieeemis2026@gmail.com&su=Sponsorship%20Enquiry%20%E2%80%94%20IEEE%20MIS%202026&body=Dear%20Organizing%20Committee%2C%0A%0AI%20am%20interested%20in%20exploring%20sponsorship%20opportunities%20for%20IEEE%20MTT-S%20Microwave%20India%20Summit%20(MIS)%202026.%0A%0AOrganization%3A%20%0AContact%20Person%3A%20%0APhone%3A%20%0A%0ALooking%20forward%20to%20your%20response." class="startup-btn-new" target="_blank" rel="noopener">Mail Us!</a>
+      </div>
+    </div>
+
+    <!-- 5B: MARQUEE TICKER -->
+    <div class="marquee-section reveal">
+      <div class="marquee-heading">Proposed Industry <span style="color:var(--green);">Exhibitors</span></div>
+      <div class="marquee-sub">21 leading organizations in RF, microwave, defense &amp; semiconductor ecosystem</div>
+
+      <!-- Row 1 — scrolls LEFT (11 items × 3 copies) -->
+      <div class="marquee-track">
+        <div class="marquee-inner">
+          <!-- copy 1 -->
+          <div class="exhibitor-chip"><span>Astra Microwave</span></div>
+          <div class="exhibitor-chip"><span>DRDO</span></div>
+          <div class="exhibitor-chip"><span>ISRO</span></div>
+          <div class="exhibitor-chip"><span>JV Micronics</span></div>
+          <div class="exhibitor-chip"><span>ICON Electromatics</span></div>
+          <div class="exhibitor-chip"><span>APC Technologies</span></div>
+          <div class="exhibitor-chip"><span>VVDN Technologies</span></div>
+          <div class="exhibitor-chip"><span>Centum Electronics</span></div>
+          <div class="exhibitor-chip"><span>Paras AntiDrone</span></div>
+          <div class="exhibitor-chip"><span>TYMTK</span></div>
+          <div class="exhibitor-chip"><span>Bharat Forge</span></div>
+          <!-- copy 2 -->
+          <div class="exhibitor-chip"><span>Astra Microwave</span></div>
+          <div class="exhibitor-chip"><span>DRDO</span></div>
+          <div class="exhibitor-chip"><span>ISRO</span></div>
+          <div class="exhibitor-chip"><span>JV Micronics</span></div>
+          <div class="exhibitor-chip"><span>ICON Electromatics</span></div>
+          <div class="exhibitor-chip"><span>APC Technologies</span></div>
+          <div class="exhibitor-chip"><span>VVDN Technologies</span></div>
+          <div class="exhibitor-chip"><span>Centum Electronics</span></div>
+          <div class="exhibitor-chip"><span>Paras AntiDrone</span></div>
+          <div class="exhibitor-chip"><span>TYMTK</span></div>
+          <div class="exhibitor-chip"><span>Bharat Forge</span></div>
+          <!-- copy 3 -->
+          <div class="exhibitor-chip"><span>Astra Microwave</span></div>
+          <div class="exhibitor-chip"><span>DRDO</span></div>
+          <div class="exhibitor-chip"><span>ISRO</span></div>
+          <div class="exhibitor-chip"><span>JV Micronics</span></div>
+          <div class="exhibitor-chip"><span>ICON Electromatics</span></div>
+          <div class="exhibitor-chip"><span>APC Technologies</span></div>
+          <div class="exhibitor-chip"><span>VVDN Technologies</span></div>
+          <div class="exhibitor-chip"><span>Centum Electronics</span></div>
+          <div class="exhibitor-chip"><span>Paras AntiDrone</span></div>
+          <div class="exhibitor-chip"><span>TYMTK</span></div>
+          <div class="exhibitor-chip"><span>Bharat Forge</span></div>
+        </div>
+      </div>
+
+      <!-- Row 2 — scrolls RIGHT (10 items × 3 copies) -->
+      <div class="marquee-track" style="margin-top:12px;">
+        <div class="marquee-inner marquee-inner-rev">
+          <!-- copy 1 -->
+          <div class="exhibitor-chip"><span>MVG</span></div>
+          <div class="exhibitor-chip"><span>Rohde &amp; Schwarz</span></div>
+          <div class="exhibitor-chip"><span>RFMW</span></div>
+          <div class="exhibitor-chip"><span>SAMEER</span></div>
+          <div class="exhibitor-chip"><span>Lotus Microwave</span></div>
+          <div class="exhibitor-chip"><span>Atharv Cloud</span></div>
+          <div class="exhibitor-chip"><span>CADFEM</span></div>
+          <div class="exhibitor-chip"><span>Keysight Technologies</span></div>
+          <div class="exhibitor-chip"><span>Synopsys–Ansys</span></div>
+          <div class="exhibitor-chip"><span>Infinipoint</span></div>
+          <!-- copy 2 -->
+          <div class="exhibitor-chip"><span>MVG</span></div>
+          <div class="exhibitor-chip"><span>Rohde &amp; Schwarz</span></div>
+          <div class="exhibitor-chip"><span>RFMW</span></div>
+          <div class="exhibitor-chip"><span>SAMEER</span></div>
+          <div class="exhibitor-chip"><span>Lotus Microwave</span></div>
+          <div class="exhibitor-chip"><span>Atharv Cloud</span></div>
+          <div class="exhibitor-chip"><span>CADFEM</span></div>
+          <div class="exhibitor-chip"><span>Keysight Technologies</span></div>
+          <div class="exhibitor-chip"><span>Synopsys–Ansys</span></div>
+          <div class="exhibitor-chip"><span>Infinipoint</span></div>
+          <!-- copy 3 -->
+          <div class="exhibitor-chip"><span>MVG</span></div>
+          <div class="exhibitor-chip"><span>Rohde &amp; Schwarz</span></div>
+          <div class="exhibitor-chip"><span>RFMW</span></div>
+          <div class="exhibitor-chip"><span>SAMEER</span></div>
+          <div class="exhibitor-chip"><span>Lotus Microwave</span></div>
+          <div class="exhibitor-chip"><span>Atharv Cloud</span></div>
+          <div class="exhibitor-chip"><span>CADFEM</span></div>
+          <div class="exhibitor-chip"><span>Keysight Technologies</span></div>
+          <div class="exhibitor-chip"><span>Synopsys–Ansys</span></div>
+          <div class="exhibitor-chip"><span>Infinipoint</span></div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 5C: CTA CARD -->
+    <div class="sponsor-cta-card reveal">
+      <h2>Interested in Sponsoring?</h2>
+      <p>Contact the organizing committee to discuss sponsorship packages and exhibitor opportunities.</p>
+      <a href="https://mail.google.com/mail/?view=cm&to=ieeemis2026@gmail.com&su=Sponsorship%20Enquiry%20%E2%80%94%20IEEE%20MIS%202026&body=Dear%20Organizing%20Committee%2C%0A%0AI%20am%20interested%20in%20exploring%20sponsorship%20opportunities%20for%20IEEE%20MTT-S%20Microwave%20India%20Summit%20(MIS)%202026.%0A%0AOrganization%3A%20%0AContact%20Person%3A%20%0APhone%3A%20%0A%0ALooking%20forward%20to%20your%20response." class="btn-green-pulse" target="_blank" rel="noopener">
+        <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Mail Us!
+      </a>
+    </div>
+
+  </div>
+
+  <div class="mini-footer" style="margin-top:40px;">
+    <div class="mini-footer-inner">
+      © 2026 IEEE MTT-S MIS 2026. All rights reserved. — Hosted by <a href="https://kiit.ac.in" target="_blank" rel="noopener">KIIT University</a>, Bhubaneswar, Odisha, India
+    </div>
+  </div>
+</div><!-- /page-sponsors -->
+
+
+<!-- ===================================================== -->
+<!--                PAGE: REGISTRATION                     -->
+<!-- ===================================================== -->
+<div id="page-registration" class="page">
+  <div class="page-header">
+    <span class="section-tag">IEEE MTT-S MIS 2026</span>
+    <h1>Registration <span style="color:var(--green);">Fees</span></h1>
+    <p>IEEE MTT-S MIS 2026 — August 8–9, 2026 · Bhubaneswar</p>
+  </div>
+
+  <div class="reg-content">
+
+    <!-- 6A: PREMIUM GRID TABLE -->
+    <div class="reg-table-new reveal">
+      <div class="reg-thead">
+        <span>Delegate Category</span>
+        <span>Registration Fee</span>
+        <span style="text-align:center;">Kit</span>
+        <span style="text-align:center;">Lunch</span>
+      </div>
+
+      <div class="reg-trow row-kiit">
+        <div class="reg-tcat">KIIT Institutional Delegate <span style="font-size:12px;color:var(--gray);">(Students / Faculty)</span></div>
+        <div class="reg-tfee fee-free">Free <span style="font-size:11px;font-weight:400;color:var(--gray);">(Capped to 50)</span></div>
+        <div class="reg-tcheck"><svg class="chk-no" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></div>
+        <div class="reg-tcheck"><svg class="chk-no" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"/></svg></div>
+      </div>
+
+      <div class="reg-trow row-student">
+        <div class="reg-tcat">Student Delegate <span style="font-size:12px;color:var(--gray);">(MTT-S Member)</span></div>
+        <div class="reg-tfee fee-free">Free <span style="font-size:11px;font-weight:400;color:var(--gray);">(Capped to 50)</span></div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+      </div>
+
+      <div class="reg-trow row-student">
+        <div class="reg-tcat">Student Delegate <span style="font-size:12px;color:var(--gray);">(IEEE Member)</span></div>
+        <div class="reg-tfee fee-paid">₹300</div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+      </div>
+
+      <div class="reg-trow row-student">
+        <div class="reg-tcat">Student Delegate <span style="font-size:12px;color:var(--gray);">(Non-IEEE)</span></div>
+        <div class="reg-tfee fee-paid">₹500</div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+      </div>
+
+      <div class="reg-trow row-pro">
+        <div class="reg-tcat">Professional Delegate <span style="font-size:12px;color:var(--gray);">(MTT-S Member)</span></div>
+        <div class="reg-tfee fee-paid">₹1,000</div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+      </div>
+
+      <div class="reg-trow row-pro">
+        <div class="reg-tcat">Professional Delegate <span style="font-size:12px;color:var(--gray);">(IEEE Member)</span></div>
+        <div class="reg-tfee fee-paid">₹1,500</div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+      </div>
+
+      <div class="reg-trow row-pro">
+        <div class="reg-tcat">Professional Delegate <span style="font-size:12px;color:var(--gray);">(Non-IEEE)</span></div>
+        <div class="reg-tfee fee-paid">₹2,000</div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+        <div class="reg-tcheck"><svg class="chk-yes" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg></div>
+      </div>
+
+    </div>
+
+    <!-- STAT PILLS -->
+    <div class="reg-stats reveal">
+      <div class="reg-stat-pill">Expected Paid Registrations: <strong>300</strong></div>
+      <div class="reg-stat-pill">Expected Total Participants: <strong>400+</strong></div>
+    </div>
+
+    <!-- NOTE BOX -->
+    <div class="reg-note-new reveal">
+      <strong>☕ Tea, Coffee &amp; Snacks</strong> will be provided to ALL attendees — including KIIT free-registration delegates. Delegate kit and lunch are provided to all paid and complimentary (MTT-S free-capped) registrations as indicated. Free registrations are subject to availability and early cut-off.
+    </div>
+
+
+  </div>
+
+  <div class="mini-footer">
+    <div class="mini-footer-inner">
+      © 2026 IEEE MTT-S MIS 2026. All rights reserved. — Hosted by <a href="https://kiit.ac.in" target="_blank" rel="noopener">KIIT University</a>, Bhubaneswar
+    </div>
+  </div>
+</div><!-- /page-registration -->
+
+
+<!-- ===================================================== -->
+<!--                  JAVASCRIPT                           -->
+<!-- ===================================================== -->
+<script>
+  /* ===== NAVBAR SCROLL SHRINK ===== */
+  (function initNavScroll() {
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    }, { passive: true });
+  })();
+
+  /* ===== COUNTDOWN TIMER ===== */
+  (function initCountdown() {
+    // Target: August 8, 2026, 08:00 AM IST (UTC+5:30 = UTC+330 min)
+    const target = new Date('2026-08-08T02:30:00Z').getTime(); // 08:00 IST = 02:30 UTC
+    function pad(n) { return String(n).padStart(2, '0'); }
+    function tick() {
+      const now = Date.now();
+      const diff = target - now;
+      if (diff <= 0) {
+        const wrap = document.querySelector('.countdown-wrap');
+        if (wrap) {
+          wrap.innerHTML = '<div style="font-family:\'Bebas Neue\',sans-serif;font-size:2rem;color:var(--green);letter-spacing:0.08em;text-shadow:0 0 20px rgba(0,212,160,0.5);padding:12px 0;">🎙 Event In Progress!</div>';
+        }
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000) / 60000);
+      const s = Math.floor((diff % 60000) / 1000);
+      document.getElementById('cd-days').textContent  = pad(d);
+      document.getElementById('cd-hours').textContent = pad(h);
+      document.getElementById('cd-mins').textContent  = pad(m);
+      document.getElementById('cd-secs').textContent  = pad(s);
+    }
+    tick();
+    setInterval(tick, 1000);
+  })();
+
+  /* ===== COUNT-UP ANIMATION ===== */
+  function animateCountUp(el) {
+    const target = parseInt(el.dataset.target, 10);
+    const suffix = el.dataset.suffix || '';
+    const duration = 1600;
+    const start = performance.now();
+    function step(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+
+  /* ===== REVEAL OBSERVER ===== */
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        // Trigger count-up for stat numbers inside revealed items
+        e.target.querySelectorAll('.stat-num[data-target]').forEach(animateCountUp);
+        revealObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  function observeRevealElements() {
+    document.querySelectorAll('.page.active .reveal:not(.visible)').forEach(el => {
+      revealObserver.observe(el);
+    });
+  }
+
+  /* ===== PAGE SWITCHING WITH SCANLINE ===== */
+  function showPage(name) {
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const current = document.querySelector('.page.active');
+    const next = document.getElementById('page-' + name);
+    if (!next) return;
+
+    function activateNext() {
+      document.querySelectorAll('.page').forEach(p => {
+        if (p !== next && p.classList.contains('active')) {
+          p.querySelectorAll('.reveal:not(.visible)').forEach(el => revealObserver.unobserve(el));
+        }
+        if (p !== next) p.classList.remove('active', 'page-exit');
+      });
+      next.classList.add('active');
+      document.querySelectorAll('.nav-links a').forEach(a => {
+        a.classList.toggle('active', a.dataset.page === name);
+      });
+      window.scrollTo({ top: 0, behavior: 'instant' });
+      closeMenu();
+      requestAnimationFrame(observeRevealElements);
+    }
+
+    if (prefersReduced) {
+      activateNext();
+      return;
+    }
+
+    // 1. Exit current page (200ms slide-left fade)
+    if (current && current !== next) current.classList.add('page-exit');
+
+    // 2. After exit: show scanline, then enter new page
+    setTimeout(() => {
+      activateNext();
+
+      const scanline = document.getElementById('scanline');
+      scanline.classList.remove('sweeping');
+      void scanline.offsetWidth;
+      scanline.classList.add('sweeping');
+
+      // 3. After scan (150ms): enter animation
+      next.classList.add('page-enter');
+      next.offsetHeight;
+      setTimeout(() => next.classList.remove('page-enter'), 260);
+    }, 200);
+  }
+
+  function toggleMenu() {
+    document.getElementById('nav-links').classList.toggle('open');
+  }
+  function closeMenu() {
+    document.getElementById('nav-links').classList.remove('open');
+  }
+
+  /* ===== ENHANCED PARTICLE SYSTEM WITH SHOOTING STARS ===== */
+  (function initParticles() {
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, particles, stars, animId;
+
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+
+    function createParticles(count) {
+      particles = [];
+      for (let i = 0; i < count; i++) {
+        particles.push({
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 1.2,
+          vy: (Math.random() - 0.5) * 1.2,
+          r: Math.random() * 2.5 + 0.5,
+          a: Math.random() * 0.7 + 0.3,
+          color: Math.random() > 0.85 ? '245,197,24' : '0,212,160'
+        });
+      }
+      stars = [];
+    }
+
+    function spawnStar() {
+      stars.push({
+        x: Math.random() * W * 0.6,
+        y: Math.random() * H * 0.5,
+        vx: (Math.random() * 6 + 4),
+        vy: (Math.random() * 3 + 1),
+        len: Math.random() * 120 + 60,
+        a: 1,
+        fade: Math.random() * 0.015 + 0.008
+      });
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+      const count = particles.length;
+
+      // Particles
+      for (let i = 0; i < count; i++) {
+        const p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0) p.x = W; if (p.x > W) p.x = 0;
+        if (p.y < 0) p.y = H; if (p.y > H) p.y = 0;
+
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(${p.color}, ${p.a})`;
+        ctx.fill();
+
+        for (let j = i + 1; j < count; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+          if (dist < 120) {
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.strokeStyle = `rgba(0, 212, 160, ${0.18 * (1 - dist / 120)})`;
+            ctx.lineWidth = 0.6;
+            ctx.stroke();
+          }
+        }
+      }
+
+      // Shooting stars
+      if (Math.random() < 0.004) spawnStar();
+      for (let i = stars.length - 1; i >= 0; i--) {
+        const s = stars[i];
+        s.x += s.vx; s.y += s.vy; s.a -= s.fade;
+        if (s.a <= 0 || s.x > W + 200) { stars.splice(i, 1); continue; }
+        const grad = ctx.createLinearGradient(s.x - s.len, s.y - s.len * 0.4, s.x, s.y);
+        grad.addColorStop(0, `rgba(0,212,160,0)`);
+        grad.addColorStop(1, `rgba(0,212,160,${s.a * 0.9})`);
+        ctx.beginPath();
+        ctx.moveTo(s.x - s.len, s.y - s.len * 0.4);
+        ctx.lineTo(s.x, s.y);
+        ctx.strokeStyle = grad;
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+        // Bright tip
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255,255,255,${s.a})`;
+        ctx.fill();
+      }
+
+      animId = requestAnimationFrame(draw);
+    }
+
+    resize();
+    createParticles(90);
+    draw();
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(animId);
+      resize();
+      createParticles(90);
+      draw();
+    });
+  })();
+
+  /* ===== SCHEDULE DAY TABS ===== */
+  function switchDay(n) {
+    document.querySelectorAll('.sched-day').forEach(d => d.classList.remove('active'));
+    document.querySelectorAll('.sched-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('sched-day' + n).classList.add('active');
+    document.querySelectorAll('.sched-tab')[n - 1].classList.add('active');
+  }
+
+  /* ===== COMMITTEE SUB-PAGE TABS ===== */
+  function switchOcTab(n) {
+    document.querySelectorAll('.oc-subpage').forEach(s => s.classList.remove('active'));
+    document.getElementById('oc-tab-' + n).classList.add('active');
+    const tabs = document.querySelectorAll('.oc-tabs-wrap .sched-tab');
+    tabs.forEach(t => t.classList.remove('active'));
+    if (tabs[n - 1]) tabs[n - 1].classList.add('active');
+    requestAnimationFrame(observeRevealElements);
+  }
+
+  /* ===== AVATAR FALLBACK INJECTOR ===== */
+  (function injectAvatarFallbacks() {
+    const SVG = '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="35" r="22" fill="#2a4060"/><ellipse cx="50" cy="95" rx="35" ry="25" fill="#2a4060"/></svg>';
+    document.querySelectorAll('.speaker-img, .oc-img').forEach(img => {
+      const fb = document.createElement('div');
+      fb.className = 'avatar-fallback';
+      fb.style.display = 'none';
+      fb.innerHTML = SVG;
+      img.parentNode.insertBefore(fb, img.nextSibling);
+      img.onerror = function() {
+        this.style.display = 'none';
+        this.nextElementSibling.style.display = 'flex';
+      };
+    });
+  })();
+
+  document.addEventListener('DOMContentLoaded', () => {
+    observeRevealElements();
+    // Stats that may be above the fold — observe them too
+    document.querySelectorAll('.stat-num[data-target]').forEach(el => {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (e.isIntersecting) { animateCountUp(e.target); observer.unobserve(e.target); }
+        });
+      }, { threshold: 0.5 });
+      observer.observe(el);
+    });
+  });
+</script>
+
+</body>
+</html>
