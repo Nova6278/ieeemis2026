@@ -131,7 +131,7 @@
       display: flex; align-items: center; gap: 14px; flex-shrink: 0;
     }
     .nav-partner-logo {
-      height: 24px; width: auto; object-fit: contain; opacity: 1;
+      height: 28px; width: auto; object-fit: contain; opacity: 1;
       transition: opacity 0.2s; display: block;
       filter: brightness(1.15) contrast(1.05);
     }
@@ -1678,6 +1678,139 @@
       0%,100% { box-shadow: 0 4px 20px rgba(0,212,160,0.2); }
       50%      { box-shadow: 0 4px 28px rgba(0,212,160,0.5), 0 0 40px rgba(0,212,160,0.15); }
     }
+
+    /* ===== PROGRAM PAGE ===== */
+    #page-program { background: transparent; }
+    .program-content { max-width: 960px; margin: 0 auto; padding: 56px 5% 80px; }
+    .accordion-item {
+      background: #0d1f38; border: 1px solid var(--border);
+      border-radius: 14px; margin-bottom: 16px; overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .accordion-item.open { border-color: rgba(0,212,160,0.4); border-left: 3px solid var(--green); }
+    .accordion-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 28px; cursor: pointer;
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem;
+      color: var(--white); letter-spacing: 0.06em;
+      transition: color 0.2s; user-select: none;
+    }
+    .accordion-header:hover { color: var(--green); }
+    .accordion-item.open .accordion-header { color: var(--green); }
+    .accordion-arrow { color: var(--gold); transition: transform 0.3s ease; flex-shrink: 0; margin-left: 16px; }
+    .accordion-item.open .accordion-arrow { transform: rotate(180deg); }
+    .accordion-body {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      border-top: 0 solid rgba(0,212,160,0.15);
+    }
+    .accordion-item.open .accordion-body { max-height: 6000px; border-top-width: 1px; }
+    .accordion-inner { padding: 32px 28px 28px; }
+
+    .prog-overview-block {
+      background: rgba(0,212,160,0.04); border: 1px solid rgba(0,212,160,0.12);
+      border-radius: 10px; padding: 20px 24px; margin-bottom: 28px;
+    }
+    .prog-overview-block p { font-size: 15px; color: var(--gray); line-height: 1.8; }
+    .prog-sub-heading {
+      font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 0.08em;
+      color: var(--gold); margin: 28px 0 14px;
+    }
+    .prog-obj-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 12px; margin-bottom: 8px; }
+    .prog-obj-card {
+      background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px; display: flex; gap: 12px; align-items: flex-start;
+    }
+    .prog-obj-icon { font-size: 20px; flex-shrink: 0; margin-top: 1px; }
+    .prog-obj-text { font-size: 13px; color: var(--gray); line-height: 1.6; }
+    @media (max-width: 600px) { .prog-obj-grid { grid-template-columns: 1fr; } }
+
+    .prog-panel-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+    .prog-panel-card {
+      background: rgba(255,255,255,0.02); border: 1px solid var(--border);
+      border-radius: 10px; padding: 16px; text-align: center;
+    }
+    .prog-panel-tbd { opacity: 0.5; }
+    .prog-panel-photo {
+      width: 72px; height: 72px; border-radius: 50%;
+      margin: 0 auto 10px; overflow: hidden;
+      background: rgba(15,32,64,0.8); border: 2px solid rgba(245,197,24,0.15);
+      display: flex; align-items: center; justify-content: center;
+    }
+    .prog-panel-img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+    .prog-panel-name { font-size: 13px; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .prog-panel-org { font-size: 11px; color: var(--gray); margin-bottom: 8px; }
+    .prog-panel-badge { display: inline-block; font-family: 'Rajdhani', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 10px; border-radius: 10px; }
+    .prog-badge-mod { background: rgba(245,197,24,0.12); border: 1px solid rgba(245,197,24,0.35); color: var(--gold); }
+    @media (max-width: 700px) { .prog-panel-grid { grid-template-columns: repeat(2,1fr); } }
+
+    .prog-list { list-style: none; margin-bottom: 8px; }
+    .prog-list li {
+      padding: 9px 0 9px 20px; border-bottom: 1px solid var(--border);
+      font-size: 14px; color: var(--gray); line-height: 1.6; position: relative;
+    }
+    .prog-list li:last-child { border-bottom: none; }
+    .prog-list li::before {
+      content: ''; position: absolute; left: 0; top: 16px;
+      width: 6px; height: 6px; border-radius: 50%; background: var(--green);
+    }
+
+    .prog-format-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 16px; margin-bottom: 8px; }
+    .prog-format-card { background: rgba(0,212,160,0.04); border: 1px solid rgba(0,212,160,0.15); border-radius: 12px; padding: 20px; }
+    .prog-format-gold { background: rgba(245,197,24,0.04); border-color: rgba(245,197,24,0.2); }
+    .prog-format-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.06em; color: var(--white); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+    .prog-format-list { list-style: none; }
+    .prog-format-list li { padding: 7px 0 7px 16px; border-bottom: 1px solid rgba(255,255,255,0.05); font-size: 13px; color: var(--gray); line-height: 1.5; position: relative; }
+    .prog-format-list li:last-child { border-bottom: none; }
+    .prog-format-list li::before { content: ''; position: absolute; left: 0; top: 14px; width: 5px; height: 5px; border-radius: 50%; background: rgba(0,212,160,0.6); }
+    .prog-format-gold .prog-format-list li::before { background: rgba(245,197,24,0.6); }
+    @media (max-width: 600px) { .prog-format-grid { grid-template-columns: 1fr; } }
+
+    .prog-awards-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 8px; }
+    .prog-award-card { border-radius: 12px; padding: 24px 16px; text-align: center; border: 1px solid; }
+    .prog-award-gold { background: linear-gradient(180deg,rgba(245,197,24,0.1) 0%,var(--card) 100%); border-color: rgba(245,197,24,0.4); }
+    .prog-award-silver { background: linear-gradient(180deg,rgba(160,174,192,0.1) 0%,var(--card) 100%); border-color: rgba(160,174,192,0.35); }
+    .prog-award-bronze { background: linear-gradient(180deg,rgba(205,127,50,0.1) 0%,var(--card) 100%); border-color: rgba(205,127,50,0.35); }
+    .prog-award-medal { font-size: 32px; margin-bottom: 8px; }
+    .prog-award-place { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 0.06em; color: var(--white); margin-bottom: 12px; }
+    .prog-award-list { list-style: none; }
+    .prog-award-list li { font-size: 12px; color: var(--gray); padding: 4px 0; }
+    .prog-award-cash { font-size: 16px !important; font-weight: 700; }
+    .prog-award-gold .prog-award-cash { color: var(--gold) !important; }
+    .prog-award-silver .prog-award-cash { color: #a0aec0 !important; }
+    .prog-award-bronze .prog-award-cash { color: #cd7f32 !important; }
+    @media (max-width: 500px) { .prog-awards-grid { grid-template-columns: 1fr; } }
+
+    .prog-judge-block { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 10px; padding: 16px 20px; font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 8px; }
+
+    .prog-timeline-table { border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+    .prog-trow { display: grid; grid-template-columns: 1fr auto; padding: 12px 20px; border-bottom: 1px solid var(--border); font-size: 14px; transition: background 0.15s; }
+    .prog-trow:last-child { border-bottom: none; }
+    .prog-trow:hover { background: rgba(255,255,255,0.02); }
+    .prog-trow span:first-child { color: var(--white); }
+    .prog-trow span:last-child { color: var(--gold); font-weight: 600; font-family: 'Rajdhani', sans-serif; white-space: nowrap; margin-left: 16px; }
+    .prog-thead { background: rgba(245,197,24,0.06); }
+    .prog-thead span { font-family: 'Rajdhani', sans-serif !important; font-size: 12px; font-weight: 700; color: var(--gold); text-transform: uppercase; letter-spacing: 0.12em; }
+
+    .prog-tba-card { background: rgba(0,212,160,0.04); border: 1px dashed rgba(0,212,160,0.25); border-radius: 14px; padding: 48px 32px; text-align: center; animation: progTbaPulse 3s ease-in-out infinite; }
+    @keyframes progTbaPulse { 0%,100%{border-color:rgba(0,212,160,0.2)} 50%{border-color:rgba(0,212,160,0.5)} }
+    .prog-tba-icon { font-size: 40px; margin-bottom: 16px; }
+    .prog-tba-text { font-size: 15px; color: var(--gray); line-height: 1.8; max-width: 520px; margin: 0 auto; }
+
+    .prog-panel-disc-card { background: #0d1f38; border: 1px solid var(--border); border-radius: 12px; padding: 28px; overflow: hidden; position: relative; margin-bottom: 20px; }
+    .prog-panel-disc-card:last-child { margin-bottom: 0; }
+    .prog-panel-disc-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--green), transparent); }
+    .prog-disc-header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 12px; flex-wrap: wrap; }
+    .prog-disc-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.06em; color: var(--white); }
+    .prog-disc-badge { background: rgba(0,212,160,0.1); border: 1px solid rgba(0,212,160,0.25); color: var(--green); font-family: 'Rajdhani', sans-serif; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; white-space: nowrap; flex-shrink: 0; }
+    .prog-disc-brief { font-size: 14px; color: var(--gray); line-height: 1.7; margin-bottom: 20px; }
+    .prog-disc-panelists { display: grid; grid-template-columns: repeat(4,1fr); gap: 10px; }
+    .prog-tbd-card { background: rgba(255,255,255,0.02); border: 1px dashed rgba(136,146,164,0.2); border-radius: 8px; padding: 14px 10px; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .prog-tbd-card span { font-size: 11px; color: rgba(136,146,164,0.5); font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; }
+    @media (max-width: 600px) { .prog-disc-panelists { grid-template-columns: repeat(2,1fr); } }
+
+    /* ===== OC INSTITUTION LABEL ===== */
+    .oc-inst { font-size: 11px; color: rgba(136,146,164,0.55); font-family: 'Rajdhani', sans-serif; letter-spacing: 0.06em; margin-top: 4px; }
   </style>
 </head>
 <body>
@@ -1692,11 +1825,11 @@
       <span class="nav-event-name">MIS 2026</span>
       <div class="nav-divider"></div>
       <div class="nav-partner-logos">
-        <img src="images/logos/IEEE.png" alt="IEEE" class="nav-partner-logo">
-        <img src="images/logos/MTTS.png" alt="IEEE MTT-S" class="nav-partner-logo">
-        <img src="images/logos/APS-MTTS%20BBSR.png" alt="AP-MTT-S Bhubaneswar Section" class="nav-partner-logo">
-        <img src="images/logos/IEEE%20BBSR.png" alt="IEEE Bhubaneswar Section" class="nav-partner-logo">
-        <img src="images/logos/KIIT.png" alt="KIIT University" class="nav-partner-logo">
+        <a href="https://www.ieee.org/" target="_blank" rel="noopener"><img src="images/logos/IEEE.png" alt="IEEE" class="nav-partner-logo"></a>
+        <a href="https://mtt.org/" target="_blank" rel="noopener"><img src="images/logos/MTTS.png" alt="IEEE MTT-S" class="nav-partner-logo"></a>
+        <a href="https://ieeebhubaneswarorg.web.app/" target="_blank" rel="noopener"><img src="images/logos/APS-MTTS%20BBSR.png" alt="AP-MTT-S Bhubaneswar Section" class="nav-partner-logo"></a>
+        <a href="https://site.ieee.org/bhubaneswar/" target="_blank" rel="noopener"><img src="images/logos/IEEE%20BBSR.png" alt="IEEE Bhubaneswar Section" class="nav-partner-logo"></a>
+        <a href="http://kiit.ac.in/" target="_blank" rel="noopener"><img src="images/logos/KIIT.png" alt="KIIT University" class="nav-partner-logo"></a>
       </div>
       <div class="nav-divider"></div>
     </div>
@@ -1706,6 +1839,7 @@
       <li><a href="#" data-page="speakers" onclick="showPage('speakers');return false;">Speakers</a></li>
       <li><a href="#" data-page="schedule" onclick="showPage('schedule');return false;">Schedule</a></li>
       <li><a href="#" data-page="committee" onclick="showPage('committee');return false;">Committee</a></li>
+      <li><a href="#" data-page="program" onclick="showPage('program');return false;">Program</a></li>
       <li><a href="#" data-page="sponsors" onclick="showPage('sponsors');return false;">Sponsors</a></li>
       <li><a href="#" data-page="registration" onclick="showPage('registration');return false;">Register</a></li>
     </ul>
@@ -1865,9 +1999,8 @@
 
       <!-- TRUST BADGES -->
       <div class="trust-badges">
-        <span class="trust-pill">🎖 IEEE MTT-S Sanctioned</span>
+        <span class="trust-pill">📍 Bhubaneswar, India</span>
         <span class="trust-pill">🏛 KIIT University</span>
-        <span class="trust-pill">🇮🇳 Bhubaneswar, India</span>
         <span class="trust-pill">📅 Aug 8–9, 2026</span>
       </div>
     </div>
@@ -1883,7 +2016,7 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item reveal">
-        <div class="stat-num" data-target="16" data-suffix="+">0</div>
+        <div class="stat-num" data-target="20" data-suffix="+">0</div>
         <div class="stat-label">Distinguished Speakers</div>
       </div>
       <div class="stat-divider"></div>
@@ -1962,6 +2095,40 @@
         <span class="rep-pill">SAMEER</span>
         <span class="rep-pill">Leading Academia</span>
         <span class="rep-pill">Startups</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-glow-divider"></div>
+
+  <!-- ABOUT IEEE MTT-S -->
+  <section id="about-mttss" class="section">
+    <div class="section-inner">
+      <span class="section-tag reveal">About IEEE MTT-S</span>
+      <h2 class="section-title reveal">About IEEE MTT-S</h2>
+      <div class="divider reveal"></div>
+      <div class="kiit-card kiit-card-premium reveal">
+        <div class="kiit-logo-box" style="width:120px;height:160px;flex-shrink:0;align-self:center;">
+          <img src="images/logos/MTTS-vertical.png" alt="IEEE MTT-S" style="max-height:220px;width:auto;object-fit:contain;display:block;margin:0 auto;">
+        </div>
+        <div class="kiit-text">
+          <p>
+            The IEEE Microwave Theory and Technology Society (MTT-S) is one of the largest and most active technical societies within the IEEE, with over 11,000 members worldwide. Founded in 1952, MTT-S is dedicated to advancing the theory and applications of RF, microwave, millimeter-wave, and terahertz technologies across fields including communications, sensing, medical applications, defense, and space.
+          </p>
+          <p>
+            MTT-S publishes premier journals, organizes flagship conferences such as IMS and MWC, and supports a global network of chapters, student branches, and technical committees. Through its Members and Geographic Activities (MGA) programs, MTT-S actively fosters regional communities of engineers and researchers across Asia-Pacific, Europe, and the Americas.
+          </p>
+          <p>
+            IEEE MTT-S Region 10 represents the Asia-Pacific region, and India is one of the most vibrant and growing hubs within this network — making Bhubaneswar the ideal host city for the inaugural Microwave India Summit.
+          </p>
+          <div class="kiit-tags">
+            <span class="kiit-tag">👥 11,000+ Global Members</span>
+            <span class="kiit-tag">📅 Founded 1952</span>
+            <span class="kiit-tag">🔬 IEEE Technical Society</span>
+            <span class="kiit-tag">🌏 Region 10 Asia-Pacific</span>
+            <span class="kiit-tag">📡 RF &amp; Microwave</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -2288,18 +2455,18 @@
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/BK_Das.png" alt="Dr. B.K. Das" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/BK_Das.png" alt="B.K. Das" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. B.K. Das</div>
+        <div class="speaker-name">B.K. Das</div>
         <div class="speaker-title">DS &amp; DG (ECS), DRDO</div>
         <span class="speaker-org">DRDO</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/k-suchendar.jpg" alt="Dr. K. Suchendar" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/k-suchendar.jpg" alt="K. Suchendar" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. K. Suchendar</div>
+        <div class="speaker-name">K. Suchendar</div>
         <div class="speaker-title">Director, Integrated Test Range (ITR), DRDO</div>
         <span class="speaker-org">DRDO</span>
       </div>
@@ -2315,117 +2482,117 @@
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Anding.png" alt="Prof. Anding Zhu" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Anding.png" alt="Anding Zhu" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Prof. Anding Zhu</div>
-        <div class="speaker-title">2026 President, IEEE MTT-S · Professor, University College Dublin, Ireland</div>
+        <div class="speaker-name">Anding Zhu</div>
+        <div class="speaker-title">2026 President, IEEE MTT-S<br>Professor, University College Dublin, Ireland</div>
         <span class="speaker-org">IEEE MTT-S</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Goutam.png" alt="Dr. Goutam Chattopadhyay" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Goutam.png" alt="Goutam Chattopadhyay" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. Goutam Chattopadhyay</div>
+        <div class="speaker-name">Goutam Chattopadhyay</div>
         <div class="speaker-title">2025 President, IEEE MTT-S · Senior Scientist, NASA-JPL, USA</div>
-        <span class="speaker-org">NASA-JPL</span>
+        <span class="speaker-org">IEEE MTT-S</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/CJ_Reddy.png" alt="Dr. C.J. Reddy" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/CJ_Reddy.png" alt="C.J. Reddy" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. C.J. Reddy</div>
+        <div class="speaker-name">C.J. Reddy</div>
         <div class="speaker-title">2026 President, IEEE AP-S · Siemens Fellow, USA</div>
         <span class="speaker-org">IEEE AP-S</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Chinmoy.png" alt="Prof. Chinmoy Saha" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Chinmoy.png" alt="Chinmoy Saha" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Prof. Chinmoy Saha</div>
+        <div class="speaker-name">Chinmoy Saha</div>
         <div class="speaker-title">MGA Vice-Chair/R10 Coordinator/SIGHT Chair, IEEE MTT-S · Professor, IIST Thiruvananthapuram</div>
-        <span class="speaker-org">IIST</span>
+        <span class="speaker-org">IEEE MTT-S</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Jasmin.png" alt="Prof. Jasmin Grosinger" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Jasmin.png" alt="Jasmin Grosinger" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Prof. Jasmin Grosinger</div>
+        <div class="speaker-name">Jasmin Grosinger</div>
         <div class="speaker-title">MGA Chair, IEEE MTT-S · Professor, University of Siegen, Germany</div>
         <span class="speaker-org">IEEE MTT-S</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Ashutosh.png" alt="Dr. Ashutosh Kedar" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Ashutosh.png" alt="Ashutosh Kedar" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. Ashutosh Kedar</div>
+        <div class="speaker-name">Ashutosh Kedar</div>
         <div class="speaker-title">Chair IBC, IEEE AP/MTT Bangalore · Scientist G &amp; PD, LRDE, DRDO</div>
         <span class="speaker-org">DRDO</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/AjitKumar.png" alt="Dr. Ajit Kumar Panda" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/AjitKumar.png" alt="Ajit Kumar Panda" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. Ajit Kumar Panda</div>
+        <div class="speaker-name">Ajit Kumar Panda</div>
         <div class="speaker-title">VP &amp; Director (RF), VVDN Technologies</div>
         <span class="speaker-org">VVDN</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/madhumita-chakravrti.jpg" alt="Dr. Madhumita Chakravrti" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/madhumita-chakravrti.jpg" alt="Madhumita Chakravrti" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. Madhumita Chakravrti</div>
+        <div class="speaker-name">Madhumita Chakravrti</div>
         <div class="speaker-title">Director (Retd.), CMSDS, DRDO</div>
         <span class="speaker-org">DRDO</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Satyajit.png" alt="Dr. Satyajit Chakrabarti" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Satyajit.png" alt="Satyajit Chakrabarti" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. Satyajit Chakrabarti</div>
+        <div class="speaker-name">Satyajit Chakrabarti</div>
         <div class="speaker-title">Scientist F &amp; Head Electromagnetics, SAMEER Kolkata</div>
         <span class="speaker-org">SAMEER</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Tapas.png" alt="Dr. Tapas Chakravarty" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Tapas.png" alt="Tapas Chakravarty" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. Tapas Chakravarty</div>
+        <div class="speaker-name">Tapas Chakravarty</div>
         <div class="speaker-title">Chief Scientist (Retd.), TCS Research, Kolkata</div>
         <span class="speaker-org">TCS</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/ShobhaSundar.png" alt="Prof. Shobha Sundar Ram" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/ShobhaSundar.png" alt="Shobha Sundar Ram" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Prof. Shobha Sundar Ram</div>
+        <div class="speaker-name">Shobha Sundar Ram</div>
         <div class="speaker-title">YP Chair, IEEE MTT-S · Professor, IIIT Delhi</div>
         <span class="speaker-org">IIIT Delhi</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Sujith.png" alt="Dr. Sujith Tennyson" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Sujith.png" alt="Sujith Tennyson" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. Sujith Tennyson</div>
+        <div class="speaker-name">Sujith Tennyson</div>
         <div class="speaker-title">CEO, Icon Electromatics · Member, MTT-S IBC</div>
         <span class="speaker-org">Icon</span>
       </div>
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Chandrakanta.png" alt="Dr. Chandrakanta Kumar" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Chandrakanta.png" alt="Chandrakanta Kumar" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Dr. Chandrakanta Kumar</div>
+        <div class="speaker-name">Chandrakanta Kumar</div>
         <div class="speaker-title">Scientist G &amp; PD, URSC, ISRO</div>
         <span class="speaker-org">ISRO</span>
       </div>
@@ -2736,9 +2903,9 @@
         <div class="oc-card oc-card-chief reveal">
           <span class="oc-pill pill-gold">Chief Patron</span>
           <div class="oc-photo-wrap">
-            <img src="images/oc/Anding.png" alt="Prof. Anding Zhu" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/oc/Anding.png" alt="Anding Zhu" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. Anding Zhu</div>
+          <div class="oc-name">Anding Zhu</div>
           <div class="oc-desc">2026 President, IEEE MTT-S · Professor, University College Dublin</div>
         </div>
       </div>
@@ -2753,36 +2920,36 @@
         <div class="oc-card reveal">
           <span class="oc-pill pill-silver">Co-Patron</span>
           <div class="oc-photo-wrap">
-            <img src="images/oc/Saranjit.png" alt="Prof. Saranjit Singh" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/oc/Saranjit.png" alt="Saranjit Singh" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. Saranjit Singh</div>
+          <div class="oc-name">Saranjit Singh</div>
           <div class="oc-desc">Vice Chancellor, KIIT DU</div>
         </div>
 
         <div class="oc-card reveal">
           <span class="oc-pill pill-silver">Co-Patron</span>
           <div class="oc-photo-wrap">
-            <img src="images/oc/JR-Mohanty.png" alt="Prof. J.R. Mohanty" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/oc/JR-Mohanty.png" alt="J.R. Mohanty" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. J.R. Mohanty</div>
+          <div class="oc-name">J.R. Mohanty</div>
           <div class="oc-desc">Registrar, KIIT DU</div>
         </div>
 
         <div class="oc-card reveal">
           <span class="oc-pill pill-silver">Co-Patron</span>
           <div class="oc-photo-wrap">
-            <img src="images/oc/Suprava.png" alt="Prof. Suprava Patnaik" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/oc/Suprava.png" alt="Suprava Patnaik" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. Suprava Patnaik</div>
+          <div class="oc-name">Suprava Patnaik</div>
           <div class="oc-desc">Dean, School of Electronics Engineering, KIIT DU</div>
         </div>
 
         <div class="oc-card reveal">
           <span class="oc-pill pill-silver">Co-Patron</span>
           <div class="oc-photo-wrap">
-            <img src="images/oc/Samantaray.png" alt="Prof. S.R. Samantaray" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/oc/Samantaray.png" alt="S.R. Samantaray" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. S.R. Samantaray</div>
+          <div class="oc-name">S.R. Samantaray</div>
           <div class="oc-desc">Chair, IEEE Bhubaneswar Section · Professor, IIT Bhubaneswar</div>
         </div>
 
@@ -2804,74 +2971,90 @@
         <div class="oc-card reveal">
           <span class="oc-pill pill-teal">Honorary Chair</span>
           <div class="oc-photo-wrap" style="border-color:rgba(0,212,160,0.35);">
-            <img src="images/speakers/Chinmoy.png" alt="Prof. Chinmoy Saha" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/speakers/Chinmoy.png" alt="Chinmoy Saha" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. Chinmoy Saha</div>
+          <div class="oc-name">Chinmoy Saha</div>
           <div class="oc-desc">MGA Vice-Chair/R10 Coordinator, IEEE MTT-S · Professor, IIST Thiruvananthapuram</div>
+          <div class="oc-inst">IIST Thiruvananthapuram</div>
         </div>
 
         <div class="oc-card reveal">
           <span class="oc-pill pill-teal">Honorary Chair</span>
           <div class="oc-photo-wrap" style="border-color:rgba(0,212,160,0.35);">
-            <img src="images/speakers/Ashutosh.png" alt="Dr. Ashutosh Kedar" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/speakers/Ashutosh.png" alt="Ashutosh Kedar" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Dr. Ashutosh Kedar</div>
+          <div class="oc-name">Ashutosh Kedar</div>
           <div class="oc-desc">Chair IBC, IEEE AP/MTT Bangalore · Scientist G &amp; PD, LRDE, DRDO</div>
+          <div class="oc-inst">LRDE, DRDO</div>
         </div>
 
       </div>
     </div>
 
-    <!-- CHAIRS 2×2 -->
+    <!-- GENERAL CHAIR (Row 1) -->
     <div class="oc-section">
-      <div class="oc-heading">Chairs</div>
+      <div class="oc-heading">General Chair</div>
       <div class="oc-bar oc-bar-green"></div>
-      <div class="oc-grid-2x2">
-
-        <div class="oc-card reveal">
+      <div class="oc-grid-1c">
+        <div class="oc-card reveal" style="max-width:320px;width:100%;">
           <span class="oc-pill pill-green">General Chair</span>
           <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
-            <img src="images/oc/Sudhakar.png" alt="Prof. Sudhakar Sahu" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/oc/Sudhakar.png" alt="Sudhakar Sahu" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. Sudhakar Sahu</div>
+          <div class="oc-name">Sudhakar Sahu</div>
           <div class="oc-desc">Chair, IEEE AP-S/MTT-S Jt. Chapter, Bhubaneswar Section</div>
+          <div class="oc-inst">KIIT DU</div>
         </div>
+      </div>
+    </div>
+
+    <!-- FINANCE & PUBLICITY CHAIRS (Row 2) -->
+    <div class="oc-section" style="padding-top:32px;">
+      <div class="oc-grid-2">
 
         <div class="oc-card reveal">
           <span class="oc-pill pill-green">Finance Chair</span>
           <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
-            <img src="images/oc/JR-Panda.png" alt="Prof. J.R. Panda" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/oc/JR-Panda.png" alt="J.R. Panda" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. J.R. Panda</div>
+          <div class="oc-name">J.R. Panda</div>
           <div class="oc-desc">Secretary, IEEE AP-S/MTT-S Jt. Chapter, Bhubaneswar Section</div>
+          <div class="oc-inst">KIIT DU</div>
         </div>
 
         <div class="oc-card reveal">
           <span class="oc-pill pill-green">Publicity Chair</span>
           <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
-            <img src="images/oc/Rasmita.png" alt="Prof. Rasmita Lenka" class="oc-img" onerror="this.style.display='none'">
+            <img src="images/oc/Rasmita.png" alt="Rasmita Lenka" class="oc-img" onerror="this.style.display='none'">
           </div>
-          <div class="oc-name">Prof. Rasmita Lenka</div>
+          <div class="oc-name">Rasmita Lenka</div>
           <div class="oc-desc">Associate Professor, KIIT DU</div>
+          <div class="oc-inst">KIIT DU</div>
         </div>
 
-        <div class="oc-card reveal">
+      </div>
+    </div>
+
+    <!-- ORGANIZING SECRETARY (Row 3) -->
+    <div class="oc-section" style="padding-top:32px;">
+      <div class="oc-grid-1c">
+        <div class="oc-card reveal" style="max-width:320px;width:100%;">
           <span class="oc-pill pill-green">Organizing Secretary</span>
           <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
             <img src="images/oc/Arunya.png" alt="Mr. Arunya Paul" class="oc-img" onerror="this.style.display='none'">
           </div>
           <div class="oc-name">Mr. Arunya Paul</div>
           <div class="oc-desc">Chair (DAT), IEEE MTT-S Region 10 · Member, MGA Committee R-10, IEEE MTT-S</div>
+          <div class="oc-inst">IIST Thiruvananthapuram</div>
         </div>
-
       </div>
     </div>
 
-    <!-- STUDENT COORDINATORS -->
+    <!-- STUDENT COORDINATORS (Row 4 — 3 cards) -->
     <div class="oc-section" style="padding-top:44px;">
       <div class="oc-heading">Student Coordinators</div>
       <div class="oc-bar oc-bar-blue"></div>
-      <div class="oc-grid-2">
+      <div class="oc-grid-3c">
 
         <div class="oc-card reveal">
           <span class="oc-pill pill-blue">Student Coordinator</span>
@@ -2880,6 +3063,7 @@
           </div>
           <div class="oc-name">Mr. Himadri Ghosh</div>
           <div class="oc-desc">IEEE MTT-S Student Ambassador · Member, DAT MTT-S Region 10 · Vice-Chair, IEEE MTT-S KIIT SBC</div>
+          <div class="oc-inst">KIIT DU</div>
         </div>
 
         <div class="oc-card reveal">
@@ -2889,24 +3073,19 @@
           </div>
           <div class="oc-name">Mr. Chiranjeet Bhattacharjee</div>
           <div class="oc-desc">IEEE MTT-S Student Ambassador · Member, DAT MTT-S Region 10 · Chair, IEEE MTT-S KIIT SBC</div>
+          <div class="oc-inst">KIIT DU</div>
         </div>
 
-      </div>
-    </div>
-
-    <!-- DIGITAL COORDINATOR -->
-    <div class="oc-section" style="padding-top:44px;">
-      <div class="oc-heading">Digital Coordinator</div>
-      <div class="oc-bar oc-bar-blue"></div>
-      <div class="oc-grid-1c">
-        <div class="oc-card reveal" style="max-width:280px;width:100%;">
-          <span class="oc-pill pill-blue">Digital Coordinator</span>
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-blue">Student Coordinator</span>
           <div class="oc-photo-wrap" style="border-color:rgba(74,158,255,0.3);">
             <img src="images/oc/Rajdeep.png" alt="Mr. Rajdeep Dey" class="oc-img" onerror="this.style.display='none'">
           </div>
           <div class="oc-name">Mr. Rajdeep Dey</div>
           <div class="oc-desc">Webmaster, IEEE MIS 2026</div>
+          <div class="oc-inst">KIIT DU</div>
         </div>
+
       </div>
     </div>
 
@@ -2918,6 +3097,256 @@
     </div>
   </div>
 </div><!-- /page-committee -->
+
+
+<!-- ===================================================== -->
+<!--                   PAGE: PROGRAM                       -->
+<!-- ===================================================== -->
+<div id="page-program" class="page">
+  <div class="page-header" data-title="PROGRAM">
+    <span class="section-tag">IEEE MTT-S MIS 2026</span>
+    <h1>Conference <span style="color:var(--green);">Program</span></h1>
+    <p>IEEE MTT-S Microwave India Summit 2026 — August 8–9, Bhubaneswar</p>
+  </div>
+
+  <div class="program-content">
+
+    <!-- Accordion 1: Young Professionals Session -->
+    <div class="accordion-item" id="acc-yp">
+      <div class="accordion-header" onclick="toggleAccordion('acc-yp')">
+        <span>Young Professionals Session</span>
+        <svg class="accordion-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+
+          <div class="prog-overview-block">
+            <p>The IEEE Young Professionals (YP) Session at IEEE MIS 2026 is designed to bridge the gap between academic research, industry needs, and professional development. The program fosters networking, mentorship, innovation, entrepreneurship, and academic-industry collaboration through keynote talks and interactive discussions.</p>
+          </div>
+
+          <div class="prog-sub-heading">Objectives</div>
+          <div class="prog-obj-grid">
+            <div class="prog-obj-card"><div class="prog-obj-icon">🎯</div><div class="prog-obj-text">Insights into career pathways beyond conventional academic and industrial roles</div></div>
+            <div class="prog-obj-card"><div class="prog-obj-icon">🇮🇳</div><div class="prog-obj-text">Familiarize participants with national initiatives and technological developments shaping the future of engineering and research</div></div>
+            <div class="prog-obj-card"><div class="prog-obj-icon">💡</div><div class="prog-obj-text">Encourage innovation-driven thinking through discussions on startups, intellectual property, and technology commercialization</div></div>
+            <div class="prog-obj-card"><div class="prog-obj-icon">🤝</div><div class="prog-obj-text">Facilitate meaningful interactions between young professionals and experienced leaders from diverse technical domains</div></div>
+            <div class="prog-obj-card"><div class="prog-obj-icon">🔬</div><div class="prog-obj-text">Promote awareness of research, funding, and collaboration opportunities available to young engineers and scholars</div></div>
+            <div class="prog-obj-card"><div class="prog-obj-icon">🚀</div><div class="prog-obj-text">Inspire participants to actively contribute to technological advancement and professional communities through leadership and lifelong learning</div></div>
+          </div>
+
+          <div class="prog-sub-heading">Panel Members</div>
+          <div class="prog-panel-grid">
+            <div class="prog-panel-card">
+              <div class="prog-panel-photo"><img src="images/speakers/ShobhaSundar.png" alt="Shobha Sundar Ram" class="prog-panel-img" onerror="this.style.display='none'"></div>
+              <div class="prog-panel-name">Shobha Sundar Ram</div>
+              <div class="prog-panel-org">IIIT Delhi</div>
+              <span class="prog-panel-badge prog-badge-mod">Moderator</span>
+            </div>
+            <div class="prog-panel-card">
+              <div class="prog-panel-photo"></div>
+              <div class="prog-panel-name">Keerthipriya Sathish</div>
+              <div class="prog-panel-org">Raman Research Institute</div>
+            </div>
+            <div class="prog-panel-card">
+              <div class="prog-panel-photo"></div>
+              <div class="prog-panel-name">Debaprasad Barad</div>
+              <div class="prog-panel-org">Astra Microwave</div>
+            </div>
+            <div class="prog-panel-card prog-panel-tbd">
+              <div class="prog-panel-photo"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div>
+              <div class="prog-panel-name" style="color:var(--gray);">More Panelists TBD</div>
+              <div class="prog-panel-org">To Be Announced</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion 2: 3MT Thesis Competition -->
+    <div class="accordion-item" id="acc-3mt">
+      <div class="accordion-header" onclick="toggleAccordion('acc-3mt')">
+        <span>3MT Thesis Competition</span>
+        <svg class="accordion-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+
+          <div class="prog-overview-block">
+            <p>The 3 Minute Thesis (3MT) Competition provides MTech and PhD researchers the opportunity to communicate the significance of their research to a non-specialist audience in just three minutes — enhancing communication skills, encouraging interdisciplinary engagement, and showcasing innovative work.</p>
+          </div>
+
+          <div class="prog-sub-heading">Eligibility</div>
+          <ul class="prog-list">
+            <li>Open to MTech and PhD students at recognized universities/institutions</li>
+            <li>Research must relate to: Microwave Engineering · RF and Communication Systems · Antennas and Propagation · Radar Systems · Aerospace and Defense Electronics · Semiconductor Technologies · Signal Processing and AI for RF/Microwave · Emerging Deep-Tech Areas</li>
+            <li>Participants must submit abstract (<a href="FORM_LINK_HERE" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">Google Form</a>) and proof of affiliation</li>
+          </ul>
+
+          <div class="prog-sub-heading">Competition Format</div>
+          <div class="prog-format-grid">
+            <div class="prog-format-card">
+              <div class="prog-format-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--green);flex-shrink:0;"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+                Preliminary Round <span style="color:var(--gray);font-size:11px;font-family:'Rajdhani',sans-serif;letter-spacing:.06em;">(Online)</span>
+              </div>
+              <ul class="prog-format-list">
+                <li>250-word research abstract</li>
+                <li>Single presentation slide</li>
+                <li>Short biography (100 words)</li>
+                <li>Evaluated on novelty, impact, and clarity</li>
+                <li>Top participants shortlisted for final round</li>
+              </ul>
+            </div>
+            <div class="prog-format-card prog-format-gold">
+              <div class="prog-format-title">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold);flex-shrink:0;"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+                Final Round <span style="color:rgba(245,197,24,0.6);font-size:11px;font-family:'Rajdhani',sans-serif;letter-spacing:.06em;">(At MIS 2026 — Aug 9)</span>
+              </div>
+              <ul class="prog-format-list">
+                <li>3-minute presentation or less</li>
+                <li>One static slide only</li>
+                <li>No animations, videos, or props</li>
+                <li>Mixed audience: academia, industry, students</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="prog-sub-heading">Rules</div>
+          <ul class="prog-list">
+            <li>Max presentation time: 3 minutes (exceeding = disqualification)</li>
+            <li>One static slide allowed</li>
+            <li>Language: English</li>
+            <li>Must cover: Research problem · Methodology · Key findings · Societal/industrial relevance</li>
+          </ul>
+
+          <div class="prog-sub-heading">Awards</div>
+          <div class="prog-awards-grid">
+            <div class="prog-award-card prog-award-gold">
+              <div class="prog-award-medal">🥇</div>
+              <div class="prog-award-place">Winner</div>
+              <ul class="prog-award-list">
+                <li>Certificate of Excellence</li>
+                <li>Trophy / Memento</li>
+                <li class="prog-award-cash">₹20,000</li>
+              </ul>
+            </div>
+            <div class="prog-award-card prog-award-silver">
+              <div class="prog-award-medal">🥈</div>
+              <div class="prog-award-place">First Runner-Up</div>
+              <ul class="prog-award-list">
+                <li>Certificate</li>
+                <li>Trophy / Memento</li>
+                <li class="prog-award-cash">₹15,000</li>
+              </ul>
+            </div>
+            <div class="prog-award-card prog-award-bronze">
+              <div class="prog-award-medal">🥉</div>
+              <div class="prog-award-place">Second Runner-Up</div>
+              <ul class="prog-award-list">
+                <li>Certificate</li>
+                <li>Trophy / Memento</li>
+                <li class="prog-award-cash">₹10,000</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="prog-sub-heading">Judging Panel</div>
+          <div class="prog-judge-block">A panel of 3–5 experts comprising Distinguished IEEE MTT-S Members, Industry Leaders, DRDO/ISRO/SAMEER Scientists, and Senior Faculty Members.</div>
+
+          <div class="prog-sub-heading">Timeline</div>
+          <div class="prog-timeline-table">
+            <div class="prog-trow prog-thead"><span>Activity</span><span>Date</span></div>
+            <div class="prog-trow"><span>Call for Entries</span><span>10 June 2026</span></div>
+            <div class="prog-trow"><span>Submission Deadline</span><span>5 July 2026</span></div>
+            <div class="prog-trow"><span>Shortlisting Announcement</span><span>15 July 2026</span></div>
+            <div class="prog-trow"><span>Final Competition</span><span>9 August 2026</span></div>
+            <div class="prog-trow"><span>Awards Ceremony</span><span>During Valedictory Session</span></div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion 3: Industry Exhibition -->
+    <div class="accordion-item" id="acc-exhibition">
+      <div class="accordion-header" onclick="toggleAccordion('acc-exhibition')">
+        <span>Industry Exhibition</span>
+        <svg class="accordion-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+          <div class="prog-tba-card">
+            <div class="prog-tba-icon">🏢</div>
+            <div class="prog-tba-text">Details for the Industry Exhibition session will be announced soon. Stay tuned for updates on exhibitor profiles, demonstration schedules, and stall layouts.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion 4: Industry Panel Discussions -->
+    <div class="accordion-item" id="acc-panel">
+      <div class="accordion-header" onclick="toggleAccordion('acc-panel')">
+        <span>Industry Panel Discussions</span>
+        <svg class="accordion-arrow" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+      </div>
+      <div class="accordion-body">
+        <div class="accordion-inner">
+
+          <div class="prog-panel-disc-card">
+            <div class="prog-disc-header">
+              <div class="prog-disc-title">RF &amp; Microwave in Space &amp; Defence Technologies</div>
+              <span class="prog-disc-badge">Day 1 · 12:45 PM – 1:30 PM</span>
+            </div>
+            <p class="prog-disc-brief">An expert panel exploring the frontiers of RF and microwave technologies in space exploration, satellite communications, defense systems, and aerospace electronics.</p>
+            <div class="prog-disc-panelists">
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+            </div>
+          </div>
+
+          <div class="prog-panel-disc-card">
+            <div class="prog-disc-header">
+              <div class="prog-disc-title">Microwave Semiconductor Technologies</div>
+              <span class="prog-disc-badge">Day 1 · 4:30 PM – 5:15 PM</span>
+            </div>
+            <p class="prog-disc-brief">A focused discussion on indigenous semiconductor development, GaN/GaAs technologies, chip design ecosystems, and the future of India's semiconductor manufacturing landscape.</p>
+            <div class="prog-disc-panelists">
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+            </div>
+          </div>
+
+          <div class="prog-panel-disc-card">
+            <div class="prog-disc-header">
+              <div class="prog-disc-title">AI Advances in RF &amp; Microwave</div>
+              <span class="prog-disc-badge">Day 2 · 11:15 AM – 12:00 PM</span>
+            </div>
+            <p class="prog-disc-brief">Exploring how artificial intelligence and machine learning are transforming RF system design, signal processing, spectrum management, and next-generation wireless communications.</p>
+            <div class="prog-disc-panelists">
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /program-content -->
+
+  <div class="mini-footer" style="margin-top:40px;">
+    <div class="mini-footer-inner">
+      © 2026 IEEE MTT-S MIS 2026. All rights reserved. — Hosted by <a href="https://kiit.ac.in" target="_blank" rel="noopener">KIIT University</a>, Bhubaneswar, Odisha, India
+    </div>
+  </div>
+</div><!-- /page-program -->
 
 
 <!-- ===================================================== -->
@@ -3459,6 +3888,14 @@
       draw();
     });
   })();
+
+  /* ===== ACCORDION ===== */
+  function toggleAccordion(id) {
+    const item = document.getElementById(id);
+    const isOpen = item.classList.contains('open');
+    document.querySelectorAll('.accordion-item.open').forEach(el => el.classList.remove('open'));
+    if (!isOpen) item.classList.add('open');
+  }
 
   /* ===== SCHEDULE DAY TABS ===== */
   function switchDay(n) {
