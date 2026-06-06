@@ -94,10 +94,11 @@
     /* ===== NAVBAR ===== */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
-      background: rgba(4,13,26,0.85);
-      backdrop-filter: blur(20px) saturate(180%);
-      -webkit-backdrop-filter: blur(20px) saturate(180%);
-      border-bottom: 1px solid rgba(0,212,160,0.15);
+      background: linear-gradient(135deg, rgba(255,255,255,0.95) 0%, rgba(220,235,255,0.97) 50%, rgba(210,245,240,0.95) 100%);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,180,160,0.2);
+      box-shadow: 0 2px 20px rgba(0,100,150,0.1);
       height: 68px;
       display: flex; align-items: center;
       padding: 0 5%;
@@ -119,7 +120,7 @@
     }
     .nav-mis-logo { height: 64px; width: auto; object-fit: contain; flex-shrink: 0; display: block; }
     .nav-event-name {
-      font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: var(--gold);
+      font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #0a3d5c;
       letter-spacing: 0.1em; line-height: 1; white-space: nowrap; flex-shrink: 0;
       margin-left: 8px;
     }
@@ -128,10 +129,10 @@
       margin: 0 18px; flex-shrink: 0;
     }
     .nav-partner-logos {
-      display: flex; align-items: center; gap: 14px; flex-shrink: 0;
+      display: flex; align-items: center; gap: 18px; flex-shrink: 0;
     }
     .nav-partner-logo {
-      height: 28px; width: auto; object-fit: contain; opacity: 1;
+      height: 38px; width: auto; object-fit: contain; opacity: 1;
       transition: opacity 0.2s; display: block;
       filter: brightness(1.15) contrast(1.05);
     }
@@ -150,19 +151,19 @@
       content: ''; position: absolute;
       top: -2px; left: 50%; transform: translateX(-50%);
       width: 5px; height: 5px; border-radius: 50%;
-      background: var(--green);
-      box-shadow: 0 0 6px rgba(0,212,160,0.8);
+      background: #00a080;
+      box-shadow: 0 0 6px rgba(0,160,128,0.8);
     }
     .nav-links li a {
       padding: 6px 12px; border-radius: 6px;
       font-family: 'Rajdhani', sans-serif;
-      font-size: 14px; font-weight: 600; color: var(--gray);
+      font-size: 14px; font-weight: 600; color: #0a2a3a;
       letter-spacing: 0.06em;
       transition: color 0.2s, background 0.2s;
       cursor: pointer; display: block; position: relative;
     }
-    .nav-links li a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
-    .nav-links li a.active { color: var(--green); }
+    .nav-links li a:hover { color: #0a3d5c; background: rgba(0,160,128,0.08); }
+    .nav-links li a.active { color: #00a080; }
     .nav-cta {
       background: var(--gold); color: var(--navy);
       padding: 8px 18px; border-radius: 6px;
@@ -301,6 +302,16 @@
       background: var(--green); animation: pulse 1.5s infinite;
     }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.5;transform:scale(1.4)} }
+    @keyframes heroLogoPulse {
+      0%, 100% {
+        filter: drop-shadow(0 0 40px rgba(0, 212, 160, 0.5)) drop-shadow(0 0 80px rgba(0, 212, 160, 0.25));
+        transform: scale(1);
+      }
+      50% {
+        filter: drop-shadow(0 0 60px rgba(0, 212, 160, 0.8)) drop-shadow(0 0 120px rgba(0, 212, 160, 0.4)) drop-shadow(0 0 160px rgba(245, 197, 24, 0.2));
+        transform: scale(1.03);
+      }
+    }
     .hero-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(3rem, 9vw, 7.5rem);
@@ -1822,7 +1833,6 @@
 <nav>
   <div class="nav-inner">
     <div class="nav-logo" onclick="showPage('home')">
-      <img src="images/logos/MIS.png?v=2" alt="MIS 2026 Logo" class="nav-mis-logo">
       <span class="nav-event-name">MIS 2026</span>
       <div class="nav-divider"></div>
       <div class="nav-partner-logos">
@@ -1954,11 +1964,7 @@
     <div class="hero-content">
       <div class="hero-badge">BHUBANESWAR · ODISHA · INDIA</div>
 
-      <h1 class="hero-title">
-        IEEE MTT-S<br/>
-        <span class="highlight">MICROWAVE INDIA</span><br/>
-        <span class="gold">SUMMIT</span> 2026
-      </h1>
+      <img src="images/logos/MIS.png?v=2" alt="IEEE MTT-S Microwave India Summit 2026" style="width:620px;max-width:95vw;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 0 40px rgba(0,212,160,0.5)) drop-shadow(0 0 80px rgba(0,212,160,0.25));animation:heroLogoPulse 3s ease-in-out infinite;">
 
       <p class="hero-subtitle">8th &amp; 9th August 2026 · KIIT Convention Centre, Bhubaneswar</p>
 
@@ -2105,8 +2111,8 @@
   <!-- ABOUT IEEE MTT-S -->
   <section id="about-mttss" class="section">
     <div class="section-inner">
-      <span class="section-tag reveal">IEEE MTT-S Background</span>
-      <h2 class="section-title reveal">IEEE MTT-S Background</h2>
+      <span class="section-tag reveal">Organising Society</span>
+      <h2 class="section-title reveal">About IEEE MTT-S</h2>
       <div class="divider reveal"></div>
       <div class="kiit-card kiit-card-premium reveal">
         <div class="kiit-logo-box" style="width:160px;height:210px;flex-shrink:0;align-self:center;">
@@ -2875,18 +2881,18 @@
 <div id="page-committee" class="page">
   <div class="page-header">
     <span class="section-tag">IEEE MTT-S MIS 2026</span>
-    <h1>Organizing <span style="color:var(--gold);">Committee</span></h1>
+    <h1>ABOUT</h1>
     <p>The dedicated professionals steering the IEEE MTT-S Microwave India Summit 2026.</p>
   </div>
 
   <!-- COMMITTEE TABS -->
   <div class="oc-tabs-wrap">
-    <button class="sched-tab active" onclick="switchOcTab(1)">Patrons &amp; Advisors</button>
-    <button class="sched-tab" onclick="switchOcTab(2)">Organizing Team</button>
+    <button class="sched-tab active" onclick="switchOcTab(1)">Organising Committee</button>
+    <button class="sched-tab" onclick="switchOcTab(2)">Patrons &amp; Advisors</button>
   </div>
 
   <!-- TAB 1: LEADERSHIP & PATRONS -->
-  <div id="oc-tab-1" class="oc-subpage active">
+  <div id="oc-tab-2" class="oc-subpage">
 
     <!-- CHIEF PATRON -->
     <div class="oc-section">
@@ -2931,6 +2937,42 @@
       </div>
     </div>
 
+    <!-- ADVISORS -->
+    <div class="oc-section" style="padding-top:44px;">
+      <div class="oc-heading">Advisors</div>
+      <div class="oc-bar oc-bar-teal"></div>
+      <div class="oc-grid-2" style="justify-content:center;">
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-teal">Advisor</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/AK-Tripathy.png" alt="A.K. Tripathy" class="oc-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2235%22 r=%2225%22 fill=%22%23334%22/%3E%3Cellipse cx=%2250%22 cy=%2285%22 rx=%2235%22 ry=%2225%22 fill=%22%23334%22/%3E%3C/svg%3E'">
+          </div>
+          <div class="oc-name">A.K. Tripathy</div>
+          <div class="oc-desc">Advisor, IEEE Bhubaneswar Section</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-teal">Advisor</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/HK-Ratha.png" alt="Hare Krishna Ratha" class="oc-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2235%22 r=%2225%22 fill=%22%23334%22/%3E%3Cellipse cx=%2250%22 cy=%2285%22 rx=%2235%22 ry=%2225%22 fill=%22%23334%22/%3E%3C/svg%3E'">
+          </div>
+          <div class="oc-name">Hare Krishna Ratha</div>
+          <div class="oc-desc">Advisor, IEEE Bhubaneswar Section</div>
+        </div>
+
+        <div class="oc-card reveal">
+          <span class="oc-pill pill-teal">Advisor</span>
+          <div class="oc-photo-wrap">
+            <img src="images/oc/Chinmoy.png" alt="Chinmoy Panigrahi" class="oc-img" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22%3E%3Ccircle cx=%2250%22 cy=%2235%22 r=%2225%22 fill=%22%23334%22/%3E%3Cellipse cx=%2250%22 cy=%2285%22 rx=%2235%22 ry=%2225%22 fill=%22%23334%22/%3E%3C/svg%3E'">
+          </div>
+          <div class="oc-name">Chinmoy Panigrahi</div>
+          <div class="oc-desc">Vice-Chair, IEEE Bhubaneswar Section · Director, School of Electrical Engineering, KIIT DU</div>
+        </div>
+
+      </div>
+    </div>
+
     <!-- CO-PATRONS -->
     <div class="oc-section" style="padding-top:44px;">
       <div class="oc-heading">Co-Patron</div>
@@ -2959,10 +3001,10 @@
     </div>
 
 
-  </div><!-- /oc-tab-1 -->
+  </div><!-- /oc-tab-2 -->
 
-  <!-- TAB 2: ORGANIZING TEAM -->
-  <div id="oc-tab-2" class="oc-subpage">
+  <!-- TAB 1: ORGANIZING TEAM -->
+  <div id="oc-tab-1" class="oc-subpage active">
 
     <!-- HONORARY CHAIRS -->
     <div class="oc-section">
@@ -3082,7 +3124,7 @@
       </div>
     </div>
 
-  </div><!-- /oc-tab-2 -->
+  </div><!-- /oc-tab-1 -->
 
   <div class="mini-footer" style="margin-top:60px;">
     <div class="mini-footer-inner">
@@ -3653,13 +3695,7 @@
 <!--                  JAVASCRIPT                           -->
 <!-- ===================================================== -->
 <script>
-  /* ===== NAVBAR SCROLL SHRINK ===== */
-  (function initNavScroll() {
-    const nav = document.querySelector('nav');
-    window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 50);
-    }, { passive: true });
-  })();
+  /* ===== NAVBAR SCROLL SHRINK — disabled ===== */
 
   /* ===== COUNTDOWN TIMER ===== */
   (function initCountdown() {
