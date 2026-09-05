@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>IEEE MTT-S Microwave India Summit (MIS) 2026 — KIIT University</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />  
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,22 +117,23 @@
     }
     .nav-logo {
       display: flex; align-items: center; gap: 0; cursor: pointer; flex-shrink: 0;
+      margin-left: -12px;
     }
     .nav-mis-logo { height: 64px; width: auto; object-fit: contain; flex-shrink: 0; display: block; }
     .nav-event-name {
-      font-family: 'Bebas Neue', sans-serif; font-size: 28px; color: #0a3d5c;
+      font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: #0a3d5c;
       letter-spacing: 0.1em; line-height: 1; white-space: nowrap; flex-shrink: 0;
       margin-left: 8px;
     }
     .nav-divider {
-      width: 1px; height: 40px; background: rgba(0,212,160,0.35);
-      margin: 0 18px; flex-shrink: 0;
+      width: 1px; height: 32px; background: rgba(0,212,160,0.35);
+      margin: 0 8px; flex-shrink: 0;
     }
     .nav-partner-logos {
-      display: flex; align-items: center; gap: 18px; flex-shrink: 0;
+      display: flex; align-items: center; gap: 12px; flex-shrink: 0;
     }
     .nav-partner-logo {
-      height: 38px; width: auto; object-fit: contain; opacity: 1;
+      height: 32px; width: auto; object-fit: contain; opacity: 1;
       transition: opacity 0.2s; display: block;
       filter: brightness(1.15) contrast(1.05);
     }
@@ -143,7 +144,7 @@
       .nav-event-name { font-size: 22px; }
     }
     .nav-links {
-      display: flex; align-items: center; gap: 2px; list-style: none;
+      display: flex; align-items: center; gap: 0; list-style: none;
     }
     .nav-links li { position: relative; }
     /* Active green dot above link */
@@ -155,7 +156,7 @@
       box-shadow: 0 0 6px rgba(0,160,128,0.8);
     }
     .nav-links li a {
-      padding: 6px 12px; border-radius: 6px;
+      padding: 6px 8px; border-radius: 6px;
       font-family: 'Rajdhani', sans-serif;
       font-size: 14px; font-weight: 600; color: #0a2a3a;
       letter-spacing: 0.06em;
@@ -1841,6 +1842,9 @@
         <a href="https://ieeebhubaneswarorg.web.app/" target="_blank" rel="noopener"><img src="images/logos/APS-MTTS-BBSR.png" alt="AP-MTT-S Bhubaneswar Section" class="nav-partner-logo"></a>
         <a href="https://site.ieee.org/bhubaneswar/" target="_blank" rel="noopener"><img src="images/logos/IEEE%20BBSR.png" alt="IEEE Bhubaneswar Section" class="nav-partner-logo"></a>
         <a href="http://kiit.ac.in/" target="_blank" rel="noopener"><img src="images/logos/KIIT.png" alt="KIIT University" class="nav-partner-logo"></a>
+        <a href="https://sscs.ieee.org/" target="_blank" rel="noopener"><img src="images/logos/SSCS.png" alt="IEEE Solid-State Circuits Society" class="nav-partner-logo"></a>
+        <a href="https://ieee-aess.org/" target="_blank" rel="noopener"><img src="images/logos/AESS.png" alt="IEEE Aerospace and Electronic Systems Society" class="nav-partner-logo"></a>
+        <a href="https://site.ieee.org/sb-kiit/" target="_blank" rel="noopener"><img src="images/logos/KIIT-SB.png" alt="IEEE KIIT Student Branch" class="nav-partner-logo"></a>
       </div>
       <div class="nav-divider"></div>
     </div>
@@ -1856,8 +1860,6 @@
     </ul>
 
     <div style="display:flex;align-items:center;gap:16px;">
-      <!-- REGISTRATION LINK: Replace REGISTRATION_FORM_LINK_HERE with Google Form / Konfhub / EventBrite link when ready -->
-      <a href="REGISTRATION_FORM_LINK_HERE" target="_blank" rel="noopener" class="nav-cta">Register Now</a>
       <div class="hamburger" id="hamburger" onclick="toggleMenu()">
         <span></span><span></span><span></span>
       </div>
@@ -1966,7 +1968,8 @@
 
       <img src="images/logos/MIS.png?v=2" alt="IEEE MTT-S Microwave India Summit 2026" style="width:620px;max-width:95vw;height:auto;display:block;margin:0 auto;filter:drop-shadow(0 0 40px rgba(0,212,160,0.5)) drop-shadow(0 0 80px rgba(0,212,160,0.25));animation:heroLogoPulse 3s ease-in-out infinite;">
 
-      <p class="hero-subtitle">8th &amp; 9th August 2026 · KIIT Convention Centre, Bhubaneswar</p>
+      <p class="hero-subtitle" style="color:rgba(255,255,255,0.82);font-weight:500;">Solid-State, Microwave, and Antenna Technologies for Next-Generation Space and Defense Systems</p>
+      <p class="hero-subtitle" style="margin-top:6px;">Saturday, 26 September 2026 · KIIT, Bhubaneswar</p>
 
       <!-- COUNTDOWN TIMER -->
       <div class="countdown-wrap">
@@ -1993,12 +1996,12 @@
 
       <div class="hero-btns">
         <!-- BROCHURE LINK: Replace BROCHURE_LINK_HERE with the actual PDF/Drive link when ready -->
-        <a href="BROCHURE_LINK_HERE" target="_blank" rel="noopener" class="btn-outline">
+        <a href="#" target="_blank" rel="noopener" class="btn-outline">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M12 15V3m0 12l-4-4m4 4l4-4M2 17l.621 2.485A2 2 0 004.561 21h14.878a2 2 0 001.94-1.515L22 17"/></svg>
           Download Brochure
         </a>
         <!-- REGISTRATION LINK: Replace REGISTRATION_FORM_LINK_HERE with Google Form / Konfhub / EventBrite link when ready -->
-        <a href="REGISTRATION_FORM_LINK_HERE" target="_blank" rel="noopener" class="btn-primary">
+        <a href="#" target="_blank" rel="noopener" class="btn-primary">
           Register Now
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>
@@ -2008,7 +2011,7 @@
       <div class="trust-badges">
         <span class="trust-pill">📍 Bhubaneswar, India</span>
         <span class="trust-pill">🏛 KIIT University</span>
-        <span class="trust-pill">📅 Aug 8–9, 2026</span>
+        <span class="trust-pill">📅 Sep 26, 2026</span>
       </div>
     </div>
     <div class="hero-scroll"></div>
@@ -2028,8 +2031,8 @@
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item reveal">
-        <div class="stat-num" data-target="2" data-suffix="">0</div>
-        <div class="stat-label">Conference Days</div>
+        <div class="stat-num" data-target="1" data-suffix="">0</div>
+        <div class="stat-label">Conference Day</div>
       </div>
       <div class="stat-divider"></div>
       <div class="stat-item reveal">
@@ -2051,7 +2054,10 @@
         The IEEE MTT-S Microwave India Summit (MIS) 2026 is a landmark high-impact event bringing together visionaries from industry, academia, defense, and research to advance India's RF and microwave ecosystem.
       </p>
       <p class="section-sub reveal" style="margin-top:14px;max-width:760px;">
-        Hosted at the iconic KIIT Convention Centre in Bhubaneswar, Odisha, this two-day summit serves as India's premier platform for microwave and RF technology exchange, featuring 16+ distinguished keynote speakers, 3 expert panel discussions, and 20+ industry exhibition stalls.
+        Hosted at KIIT, Bhubaneswar, Odisha, this single-day summit serves as India's premier platform for microwave and RF technology exchange, featuring distinguished keynote speakers, presidential addresses from four IEEE Societies, an industry panel discussion, and industry exhibition stalls.
+      </p>
+      <p class="section-sub reveal" style="margin-top:14px;max-width:760px;">
+        <strong style="color:var(--green);">Aim:</strong> The Conclave aims to establish a strong platform for interaction and collaboration between academia, industry, researchers, and students in emerging areas of RF, microwave, semiconductor, and antenna technologies.
       </p>
 
       <!-- FOCUS AREAS GRID -->
@@ -2060,37 +2066,37 @@
           <div class="focus-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 007.54.54l3-3a5 5 0 00-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 00-7.54-.54l-3 3a5 5 0 007.07 7.07l1.71-1.71"/></svg>
           </div>
-          <div class="focus-label">Industry–Academia Collaboration</div>
+          <div class="focus-label">Knowledge Exchange &amp; Bridging the Academia–Industry Gap</div>
         </div>
         <div class="focus-card reveal">
           <div class="focus-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.55a11 11 0 0114.08 0"/><path d="M1.42 9a16 16 0 0121.16 0"/><path d="M8.53 16.11a6 6 0 016.95 0"/><line x1="12" y1="20" x2="12.01" y2="20"/></svg>
           </div>
-          <div class="focus-label">Emerging RF &amp; Microwave Technologies</div>
+          <div class="focus-label">Next-Gen Tech: Semiconductors, RFIC/MMIC, 5G/6G, Radar &amp; Smart Antennas</div>
         </div>
         <div class="focus-card reveal">
           <div class="focus-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
-          <div class="focus-label">Defense, Space &amp; Aerospace Innovation</div>
+          <div class="focus-label">Collaboration in Research, Innovation &amp; Commercialization</div>
         </div>
         <div class="focus-card reveal">
           <div class="focus-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/></svg>
           </div>
-          <div class="focus-label">Indigenous Semiconductor Ecosystem</div>
+          <div class="focus-label">Joint Projects, Internships, Consultancy &amp; Technology Transfer</div>
         </div>
         <div class="focus-card reveal">
           <div class="focus-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
           </div>
-          <div class="focus-label">Startup &amp; Manufacturing Opportunities</div>
+          <div class="focus-label">Student &amp; Faculty Engagement with Industry Experts</div>
         </div>
         <div class="focus-card reveal">
           <div class="focus-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
-          <div class="focus-label">Future Workforce Development</div>
+          <div class="focus-label">A Sustainable Academic–Industry Ecosystem &amp; Industry-Ready Talent</div>
         </div>
       </div>
 
@@ -2155,7 +2161,7 @@
             Kalinga Institute of Industrial Technology (KIIT) is a Deemed-to-be University located in Bhubaneswar, Odisha, India. Established in 1992 by Dr. Achyuta Samanta, KIIT has grown into one of India's premier technical and research institutions, recognized by NAAC with an 'A++' grade and ranked consistently among the top engineering universities in India.
           </p>
           <p>
-            With state-of-the-art infrastructure, over 30,000 students, and a strong focus on research and innovation, KIIT provides an ideal setting for international academic conferences. The KIIT Convention Centre offers world-class facilities for hosting MIS 2026, supported by the university's School of Electronics Engineering — a hub of research in embedded systems, signal processing, and communication technologies.
+            With state-of-the-art infrastructure, over 30,000 students, and a strong focus on research and innovation, KIIT provides an ideal setting for international academic conferences. Its Campus-12, Campus-6, and Central Library venues offer world-class facilities for hosting MIS 2026, supported by the university's School of Electronics Engineering — a hub of research in embedded systems, signal processing, and communication technologies.
           </p>
           <div class="kiit-tags">
             <span class="kiit-tag">🏆 NAAC A++</span>
@@ -2163,7 +2169,7 @@
             <span class="kiit-tag">📅 Est. 1992</span>
             <span class="kiit-tag">📍 Bhubaneswar, Odisha</span>
             <span class="kiit-tag">👥 30,000+ Students</span>
-            <span class="kiit-tag">🏛 Convention Centre Venue</span>
+            <span class="kiit-tag">🏛 KIIT Campus Venue</span>
           </div>
         </div>
       </div>
@@ -2186,7 +2192,7 @@
             </div>
             <div>
               <div class="venue-info-label">Venue</div>
-              <div class="venue-info-val">KIIT Convention Centre, KIIT University</div>
+              <div class="venue-info-val">Auditorium/Conference Hall, Campus-12 · Conference Hall, Campus-6 · Conference Hall, KIIT Central Library — KIIT</div>
             </div>
           </div>
           <div class="venue-info-row">
@@ -2203,8 +2209,8 @@
               <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             </div>
             <div>
-              <div class="venue-info-label">Conference Dates</div>
-              <div class="venue-info-val">8th &amp; 9th August 2026 (Saturday &amp; Sunday)</div>
+              <div class="venue-info-label">Conference Date</div>
+              <div class="venue-info-val">Saturday, 26 September 2026 (09:00 – 17:00)</div>
             </div>
           </div>
           <div class="venue-info-row">
@@ -2242,27 +2248,27 @@
       <div class="venue-info-strip reveal">
         <div class="vis-item">
           <span class="vis-icon">📍</span>
-          <span>KIIT Convention Centre, KIIT University, Bhubaneswar, Odisha 751024</span>
+          <span>KIIT, Patia, Bhubaneswar, Odisha 751024</span>
         </div>
         <div class="vis-sep"></div>
         <div class="vis-item">
           <span class="vis-icon">📅</span>
-          <span>August 8–9, 2026 (Saturday &amp; Sunday)</span>
+          <span>Saturday, 26 September 2026 (09:00 – 17:00)</span>
         </div>
         <div class="vis-sep"></div>
         <div class="vis-item">
           <span class="vis-icon">🎤</span>
-          <span>Inauguration &amp; Technical Sessions: Main Auditorium</span>
+          <span>Inauguration &amp; Technical Sessions: Auditorium, Campus-12</span>
         </div>
         <div class="vis-sep"></div>
         <div class="vis-item">
           <span class="vis-icon">🏢</span>
-          <span>Exhibition: Open Space around Main Auditorium</span>
+          <span>Additional Halls: Campus-6 &amp; KIIT Central Library</span>
         </div>
         <div class="vis-sep"></div>
         <div class="vis-item">
           <span class="vis-icon">🗣</span>
-          <span>Panel Discussions: Conference Halls within the Centre</span>
+          <span>Panel Discussion &amp; Exhibition: Campus-12 Auditorium</span>
         </div>
       </div>
     </div>
@@ -2425,7 +2431,7 @@
             <li><a href="mailto:ieeemis2026@gmail.com" style="color:var(--green);">📧 ieeemis2026@gmail.com</a></li>
           </ul>
           <p style="color:var(--gray);font-size:13px;margin-top:12px;line-height:1.6;">
-            KIIT Convention Centre<br/>KIIT University, Patia<br/>Bhubaneswar, Odisha 751024<br/>India
+KIIT (Deemed to be University)<br/>Patia, Bhubaneswar<br/>Odisha 751024<br/>India
           </p>
         </div>
       </div>
@@ -2561,9 +2567,9 @@
 
       <div class="speaker-card reveal">
         <div class="speaker-photo-wrap">
-          <img src="images/speakers/Satyajit.png" alt="Satyajit Chakrabarti" class="speaker-img" onerror="this.style.display='none'">
+          <img src="images/speakers/Satyajit.png" alt="Satyajeet Chakroborty" class="speaker-img" onerror="this.style.display='none'">
         </div>
-        <div class="speaker-name">Satyajit Chakrabarti</div>
+        <div class="speaker-name">Satyajeet Chakroborty</div>
         <div class="speaker-title">Scientist F &amp; Head Electromagnetics, SAMEER Kolkata</div>
         <span class="speaker-org">SAMEER</span>
       </div>
@@ -2602,6 +2608,78 @@
         <div class="speaker-name">Chandrakanta Kumar</div>
         <div class="speaker-title">Scientist G &amp; PD, URSC, ISRO</div>
         <span class="speaker-org">ISRO</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Daniel-Friedman.png" alt="Daniel J. Friedman" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Daniel J. Friedman</div>
+        <div class="speaker-title">2026 President, IEEE SSCS</div>
+        <span class="speaker-org">IEEE SSCS</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Braham-Himed.png" alt="Braham Himed" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Braham Himed</div>
+        <div class="speaker-title">2026 President, IEEE AESS</div>
+        <span class="speaker-org">IEEE AESS</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Arijit-Majumdar.png" alt="Arijit Majumdar" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Arijit Majumdar</div>
+        <div class="speaker-title">SAMEER, Kolkata</div>
+        <span class="speaker-org">SAMEER</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Puneet-Kumar-Mishra.png" alt="Puneet Kumar Mishra" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Puneet Kumar Mishra</div>
+        <div class="speaker-title">URSC, ISRO, Bangalore</div>
+        <span class="speaker-org">ISRO</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Mahesh-Abegaonkar.png" alt="Mahesh Abegaonkar" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Mahesh Abegaonkar</div>
+        <div class="speaker-title">Professor, IIT Delhi</div>
+        <span class="speaker-org">IIT Delhi</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Balamati-Choudhury.png" alt="Balamati Choudhury" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Balamati Choudhury</div>
+        <div class="speaker-title">CSIR-NAL, Bengaluru</div>
+        <span class="speaker-org">CSIR-NAL</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Surendra-Pal.png" alt="Surendra Pal" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Surendra Pal</div>
+        <div class="speaker-title">ISRO, Bengaluru</div>
+        <span class="speaker-org">ISRO</span>
+      </div>
+
+      <div class="speaker-card reveal">
+        <div class="speaker-photo-wrap">
+          <img src="images/speakers/Debaprasad-Barad.png" alt="Debaprasad Barad" class="speaker-img" onerror="this.style.display='none'">
+        </div>
+        <div class="speaker-name">Debaprasad Barad</div>
+        <div class="speaker-title">Astra Microwave, Hyderabad</div>
+        <span class="speaker-org">Astra Microwave</span>
       </div>
 
     </div>
@@ -2649,24 +2727,6 @@
         <span class="speaker-org">Sponsor Company</span>
       </div>
 
-      <div class="speaker-card panel-card reveal">
-        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
-          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">TBD</div>
-        <div class="speaker-title">To Be Announced</div>
-        <span class="speaker-org">Sponsor Company</span>
-      </div>
-
-      <div class="speaker-card panel-card reveal">
-        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
-          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">TBD</div>
-        <div class="speaker-title">To Be Announced</div>
-        <span class="speaker-org">Sponsor Company</span>
-      </div>
-
     </div>
   </div>
 
@@ -2685,175 +2745,167 @@
   <div class="page-header">
     <span class="section-tag">IEEE MTT-S MIS 2026</span>
     <h1>Program <span style="color:var(--green);">Schedule</span></h1>
-    <p>IEEE MTT-S MIS 2026 — August 8–9, Bhubaneswar</p>
-  </div>
-
-  <!-- DAY TABS -->
-  <div class="schedule-tabs-wrap">
-    <button class="sched-tab active" onclick="switchDay(1)">Day 1 — Aug 8</button>
-    <button class="sched-tab" onclick="switchDay(2)">Day 2 — Aug 9</button>
+    <p>IEEE MTT-S MIS 2026 — Saturday, 26 September 2026 · Bhubaneswar</p>
   </div>
 
   <!-- DAY 1 -->
   <div class="sched-day active" id="sched-day1">
     <div class="schedule-content">
       <div class="schedule-day-title">
-        <span class="day-badge">Day 1</span>
-        August 8, 2026 — Saturday
+        <span class="day-badge">26 Sep</span>
+        Saturday, 26 September 2026 · 09:00 – 17:00
       </div>
-      <div class="schedule-day-venue">📍 Auditorium, KIIT Convention Centre</div>
+      <div class="schedule-day-venue">📍 Auditorium/Conference Hall, Campus-12 · Conference Hall, Campus-6 · Conference Hall, KIIT Central Library — KIIT</div>
       <div class="sched-table">
 
+        <div class="srow2-break">📋 Registration &amp; Welcome Tea <span class="break-time">08:30 – 09:00</span></div>
         <div class="srow2">
-          <div class="srow2-time">08:30 – 09:30</div>
-          <div class="srow2-event"><div class="srow2-title">Grand Inauguration</div></div>
+          <div class="srow2-time">09:00 – 09:10</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Welcome Address, Lamp Lighting &amp; Introduction to IEEE Microwave India Summit 2026</div>
+            <div class="srow2-subtitle">Sudhakar Sahu, General Chair &amp; Dean, SoEE · Chinmoy Saha, MGA Vice-Chair, IEEE MTT-S · Ashutosh Kedar, IBC Chair, IEEE MTT-S</div>
+          </div>
           <div class="srow2-badge-wrap"><span class="srow2-badge badge-special">Special</span></div>
         </div>
         <div class="srow2">
-          <div class="srow2-time">09:30 – 10:00</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 1</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">10:00 – 10:30</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 2</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">10:30 – 11:00</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 3</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2-break">☕ TEA BREAK <span class="break-time">11:00 – 11:15</span></div>
-        <div class="srow2">
-          <div class="srow2-time">11:15 – 11:45</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 4</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">11:45 – 12:15</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 5</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">12:15 – 12:45</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 6</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">12:45 – 01:30</div>
+          <div class="srow2-time">09:10 – 09:20</div>
           <div class="srow2-event">
-            <div class="srow2-title">Panel Discussion 1</div>
-            <div class="srow2-subtitle">"RF &amp; Microwave in Space &amp; Defence Technologies"</div>
+            <div class="srow2-title">Presidential Address, IEEE MTT-S</div>
+            <div class="srow2-subtitle">Anding Zhu, President, IEEE MTT-S (Online)</div>
           </div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-panel">Panel</span></div>
-        </div>
-        <div class="srow2-break">🍽️ LUNCH BREAK <span class="break-time">01:30 – 02:30</span></div>
-        <div class="srow2">
-          <div class="srow2-time">02:30 – 03:00</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 7</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">03:00 – 03:30</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 8</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">03:30 – 04:00</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 9</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">04:00 – 04:30</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 10</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">04:30 – 05:15</div>
-          <div class="srow2-event">
-            <div class="srow2-title">Panel Discussion 2</div>
-            <div class="srow2-subtitle">"Microwave Semiconductor Technologies"</div>
-          </div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-panel">Panel</span></div>
-        </div>
-        <div class="srow2-break">☕ TEA BREAK <span class="break-time">05:15 – 05:30</span></div>
-        <div class="srow2">
-          <div class="srow2-time">05:30 – 07:00</div>
-          <div class="srow2-event"><div class="srow2-title">Campus Tour of KIIT &amp; KIMS</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-social">Social</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">07:00 PM+</div>
-          <div class="srow2-event"><div class="srow2-title">🎉 Gala Dinner</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-social">Social</span></div>
-        </div>
-
-      </div>
-    </div>
-  </div>
-
-  <!-- DAY 2 -->
-  <div class="sched-day" id="sched-day2">
-    <div class="schedule-content">
-      <div class="schedule-day-title">
-        <span class="day-badge day-badge-gold">Day 2</span>
-        August 9, 2026 — Sunday
-      </div>
-      <div class="schedule-day-venue">📍 Convention Hall, KIIT Convention Centre</div>
-      <div class="sched-table">
-
-        <div class="srow2">
-          <div class="srow2-time">08:30 – 09:00</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 11</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">09:00 – 09:30</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 12</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">09:30 – 10:00</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 13</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">10:00 – 10:30</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 14</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">10:30 – 11:00</div>
-          <div class="srow2-event"><div class="srow2-title">Keynote Session 15</div></div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
-        </div>
-        <div class="srow2-break">☕ TEA BREAK <span class="break-time">11:00 – 11:15</span></div>
-        <div class="srow2">
-          <div class="srow2-time">11:15 – 12:00</div>
-          <div class="srow2-event">
-            <div class="srow2-title">Panel Discussion 3</div>
-            <div class="srow2-subtitle">"AI Advances in RF &amp; Microwave"</div>
-          </div>
-          <div class="srow2-badge-wrap"><span class="srow2-badge badge-panel">Panel</span></div>
-        </div>
-        <div class="srow2">
-          <div class="srow2-time">12:00 – 12:30</div>
-          <div class="srow2-event"><div class="srow2-title">Valedictory Session</div></div>
           <div class="srow2-badge-wrap"><span class="srow2-badge badge-special">Special</span></div>
         </div>
-        <div class="srow2-break">🍽️ LUNCH BREAK <span class="break-time">12:30 – 01:00</span></div>
         <div class="srow2">
-          <div class="srow2-time">12:30 PM+</div>
-          <div class="srow2-event"><div class="srow2-title">Visit to Konark Sun Temple &amp; Chandrabhaga Sea Beach</div></div>
+          <div class="srow2-time">09:20 – 09:30</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Presidential Address, IEEE AP-S</div>
+            <div class="srow2-subtitle">C.J. Reddy, President, IEEE AP-S (Online)</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-special">Special</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">09:30 – 09:40</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Presidential Address, IEEE SSCS</div>
+            <div class="srow2-subtitle">Daniel J. Friedman, President, IEEE SSCS (Online)</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-special">Special</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">09:40 – 09:50</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Presidential Address, IEEE AESS</div>
+            <div class="srow2-subtitle">Braham Himed, President, IEEE AESS (Online)</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-special">Special</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">09:50 – 10:25</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Distinguished Technical Talk 1</div>
+            <div class="srow2-subtitle">Arijit Majumdar, SAMEER, Kolkata</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">10:25 – 11:00</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Distinguished Technical Talk 2</div>
+            <div class="srow2-subtitle">Satyajeet Chakroborty, SAMEER, Kolkata</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2-break">☕ Tea &amp; Networking Break <span class="break-time">11:00 – 11:15</span></div>
+        <div class="srow2">
+          <div class="srow2-time">11:15 – 11:50</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Distinguished Technical Talk 3</div>
+            <div class="srow2-subtitle">Ashutosh Kedar, LRDE, DRDO, Bangalore</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">11:50 – 12:25</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Distinguished Technical Talk 4</div>
+            <div class="srow2-subtitle">Chinmoy Saha, IIST, Thiruvananthapuram</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">12:25 – 13:00</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Distinguished Technical Talk 5</div>
+            <div class="srow2-subtitle">Puneet Kumar Mishra, URSC, ISRO, Bangalore</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2-break">🍽️ Lunch &amp; Industry–Academia Networking <span class="break-time">13:00 – 14:00</span></div>
+        <div class="srow2">
+          <div class="srow2-time">14:00 – 14:35</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Distinguished Technical Talk 6</div>
+            <div class="srow2-subtitle">Debaprasad Barad, Astra Microwave, Hyderabad / Mahesh Abegaonkar, IIT Delhi</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">14:35 – 15:10</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Distinguished Technical Talk 7</div>
+            <div class="srow2-subtitle">Balamati Choudhury, CSIR-NAL, Bengaluru</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2-break">☕ Tea &amp; Networking Break <span class="break-time">15:10 – 15:25</span></div>
+        <div class="srow2">
+          <div class="srow2-time">15:25 – 16:00</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Distinguished Technical Talk 8</div>
+            <div class="srow2-subtitle">Surendra Pal, ISRO, Bengaluru</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-keynote">Keynote</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">16:00 – 16:50</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Industry Panel Discussion</div>
+            <div class="srow2-subtitle">"From Solid-State to Space: Building India's Next-Generation RF, Microwave and Aerospace Technology Ecosystem"</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-panel">Panel</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">16:50 – 17:00</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Valedictory Session &amp; Vote of Thanks</div>
+            <div class="srow2-subtitle">Organizing Committee</div>
+          </div>
+          <div class="srow2-badge-wrap"><span class="srow2-badge badge-special">Special</span></div>
+        </div>
+        <div class="srow2">
+          <div class="srow2-time">17:00 onwards</div>
+          <div class="srow2-event">
+            <div class="srow2-title">Visit to KIIT and KISS Campus</div>
+            <div class="srow2-subtitle">Organizing Committee and Invited Guests</div>
+          </div>
           <div class="srow2-badge-wrap"><span class="srow2-badge badge-social">Social</span></div>
         </div>
         <div class="srow2">
-          <div class="srow2-time">04:00 PM+</div>
-          <div class="srow2-event"><div class="srow2-title">Visit to Puri Sea Beach</div></div>
+          <div class="srow2-time">19:30 onwards</div>
+          <div class="srow2-event">
+            <div class="srow2-title">🎉 Gala Dinner</div>
+            <div class="srow2-subtitle">Organizing Committee and Invited Guests</div>
+          </div>
           <div class="srow2-badge-wrap"><span class="srow2-badge badge-social">Social</span></div>
         </div>
 
+      </div>
+
+      <div class="reg-note-new reveal" style="margin-top:20px;">
+        <strong>Note:</strong> Presidential Addresses are included within the Inaugural Session; each address is allocated 10 minutes.
+      </div>
+      <div class="reg-note-new reveal" style="margin-top:12px;">
+        <strong>Proposed Visit:</strong> Local sightseeing may be planned on the morning of Sunday, 27 September 2026, in Bhubaneswar or Puri/Konark.
       </div>
     </div>
   </div>
@@ -3044,25 +3096,29 @@
             <img src="images/oc/Sudhakar.png" alt="Sudhakar Sahu" class="oc-img" onerror="this.style.display='none'">
           </div>
           <div class="oc-name">Sudhakar Sahu</div>
-          <div class="oc-inst">KIIT DU</div>
+          <div class="oc-inst">KIIT DU · Dean, School of Electronics Engineering</div>
         </div>
       </div>
     </div>
 
-    <!-- PUBLICITY CHAIRS (Row 2) -->
+    <!-- ORGANIZING CHAIR (Row 2) -->
     <div class="oc-section" style="padding-top:32px;">
-      <div class="oc-grid-2">
-
-        <div class="oc-card reveal">
-          <span class="oc-pill pill-green">Publicity Chair</span>
+      <div class="oc-grid-1c">
+        <div class="oc-card reveal" style="max-width:320px;width:100%;">
+          <span class="oc-pill pill-green">Organizing Chair</span>
           <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
             <img src="images/oc/JR-Panda.png" alt="J.R. Panda" class="oc-img" onerror="this.style.display='none'">
           </div>
           <div class="oc-name">J.R. Panda</div>
           <div class="oc-inst">KIIT DU</div>
         </div>
+      </div>
+    </div>
 
-        <div class="oc-card reveal">
+    <!-- PUBLICITY CHAIR (Row 3) -->
+    <div class="oc-section" style="padding-top:32px;">
+      <div class="oc-grid-1c">
+        <div class="oc-card reveal" style="max-width:320px;width:100%;">
           <span class="oc-pill pill-green">Publicity Chair</span>
           <div class="oc-photo-wrap" style="border-color:rgba(0,200,100,0.3);">
             <img src="images/oc/Rasmita.png" alt="Rasmita Lenka" class="oc-img" onerror="this.style.display='none'">
@@ -3070,7 +3126,6 @@
           <div class="oc-name">Rasmita Lenka</div>
           <div class="oc-inst">KIIT DU</div>
         </div>
-
       </div>
     </div>
 
@@ -3141,7 +3196,7 @@
   <div class="page-header" data-title="PROGRAM">
     <span class="section-tag">IEEE MTT-S MIS 2026</span>
     <h1>Conference <span style="color:var(--green);">Program</span></h1>
-    <p>IEEE MTT-S Microwave India Summit 2026 — August 8–9, Bhubaneswar</p>
+    <p>IEEE MTT-S Microwave India Summit 2026 — 26 September 2026, Bhubaneswar</p>
   </div>
 
   <div class="program-content">
@@ -3215,7 +3270,7 @@
           <ul class="prog-list">
             <li>Open to MTech and PhD students at recognized universities/institutions</li>
             <li>Research must relate to: Microwave Engineering · RF and Communication Systems · Antennas and Propagation · Radar Systems · Aerospace and Defense Electronics · Semiconductor Technologies · Signal Processing and AI for RF/Microwave · Emerging Deep-Tech Areas</li>
-            <li>Participants must submit abstract (<a href="FORM_LINK_HERE" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">Google Form</a>) and proof of affiliation</li>
+            <li>Participants must submit abstract (<a href="#" target="_blank" rel="noopener" style="color:var(--green);font-weight:600;">Google Form</a>) and proof of affiliation</li>
           </ul>
 
           <div class="prog-sub-heading">Competition Format</div>
@@ -3236,7 +3291,7 @@
             <div class="prog-format-card prog-format-gold">
               <div class="prog-format-title">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--gold);flex-shrink:0;"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
-                Final Round <span style="color:rgba(245,197,24,0.6);font-size:11px;font-family:'Rajdhani',sans-serif;letter-spacing:.06em;">(At MIS 2026 — Aug 9)</span>
+                Final Round <span style="color:rgba(245,197,24,0.6);font-size:11px;font-family:'Rajdhani',sans-serif;letter-spacing:.06em;">(At MIS 2026 — 26 Sep)</span>
               </div>
               <ul class="prog-format-list">
                 <li>3-minute presentation or less</li>
@@ -3295,7 +3350,7 @@
             <div class="prog-trow"><span>Call for Entries</span><span>10 June 2026</span></div>
             <div class="prog-trow"><span>Submission Deadline</span><span>5 July 2026</span></div>
             <div class="prog-trow"><span>Shortlisting Announcement</span><span>15 July 2026</span></div>
-            <div class="prog-trow"><span>Final Competition</span><span>9 August 2026</span></div>
+            <div class="prog-trow"><span>Final Competition</span><span>26 September 2026</span></div>
             <div class="prog-trow"><span>Awards Ceremony</span><span>During Valedictory Session</span></div>
           </div>
 
@@ -3330,38 +3385,10 @@
 
           <div class="prog-panel-disc-card">
             <div class="prog-disc-header">
-              <div class="prog-disc-title">RF &amp; Microwave in Space &amp; Defence Technologies</div>
-              <span class="prog-disc-badge">Day 1 · 12:45 PM – 1:30 PM</span>
+              <div class="prog-disc-title">From Solid-State to Space: Building India's Next-Generation RF, Microwave and Aerospace Technology Ecosystem</div>
+              <span class="prog-disc-badge">16:00 – 16:50</span>
             </div>
-            <p class="prog-disc-brief">An expert panel exploring the frontiers of RF and microwave technologies in space exploration, satellite communications, defense systems, and aerospace electronics.</p>
-            <div class="prog-disc-panelists">
-              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
-              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
-              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
-              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
-            </div>
-          </div>
-
-          <div class="prog-panel-disc-card">
-            <div class="prog-disc-header">
-              <div class="prog-disc-title">Microwave Semiconductor Technologies</div>
-              <span class="prog-disc-badge">Day 1 · 4:30 PM – 5:15 PM</span>
-            </div>
-            <p class="prog-disc-brief">A focused discussion on indigenous semiconductor development, GaN/GaAs technologies, chip design ecosystems, and the future of India's semiconductor manufacturing landscape.</p>
-            <div class="prog-disc-panelists">
-              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
-              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
-              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
-              <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
-            </div>
-          </div>
-
-          <div class="prog-panel-disc-card">
-            <div class="prog-disc-header">
-              <div class="prog-disc-title">AI Advances in RF &amp; Microwave</div>
-              <span class="prog-disc-badge">Day 2 · 11:15 AM – 12:00 PM</span>
-            </div>
-            <p class="prog-disc-brief">Exploring how artificial intelligence and machine learning are transforming RF system design, signal processing, spectrum management, and next-generation wireless communications.</p>
+            <p class="prog-disc-brief">A flagship panel bringing together leaders from defense, space, semiconductor, and industry to chart India's path across the full stack — from indigenous solid-state devices and microwave circuits to satellite and aerospace systems.</p>
             <div class="prog-disc-panelists">
               <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
               <div class="prog-tbd-card"><svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="rgba(136,146,164,0.3)" stroke-width="1.5"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg><span>Panelist TBD</span></div>
@@ -3604,7 +3631,7 @@
   <div class="page-header">
     <span class="section-tag">IEEE MTT-S MIS 2026</span>
     <h1>Registration <span style="color:var(--green);">Fees</span></h1>
-    <p>IEEE MTT-S MIS 2026 — August 8–9, 2026 · Bhubaneswar</p>
+    <p>IEEE MTT-S MIS 2026 — 26 September 2026 · Bhubaneswar</p>
   </div>
 
   <div class="reg-content">
@@ -3699,8 +3726,8 @@
 
   /* ===== COUNTDOWN TIMER ===== */
   (function initCountdown() {
-    // Target: August 8, 2026, 08:00 AM IST (UTC+5:30 = UTC+330 min)
-    const target = new Date('2026-08-08T02:30:00Z').getTime(); // 08:00 IST = 02:30 UTC
+    // Target: September 26, 2026, 09:00 AM IST (UTC+5:30 = UTC+330 min)
+    const target = new Date('2026-09-26T03:30:00Z').getTime(); // 09:00 IST = 03:30 UTC
     function pad(n) { return String(n).padStart(2, '0'); }
     function tick() {
       const now = Date.now();
