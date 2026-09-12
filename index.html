@@ -754,6 +754,22 @@
 
     /* ===== SPEAKERS PAGE ===== */
     #page-speakers { background: transparent; }
+    .speakers-coming-soon {
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; min-height: 55vh; padding: 80px 5%;
+    }
+    .speakers-coming-soon .cs-big {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3.5rem, 14vw, 12rem); line-height: 0.95;
+      letter-spacing: 0.04em;
+      background: linear-gradient(90deg, var(--green), var(--gold));
+      -webkit-background-clip: text; background-clip: text;
+      -webkit-text-fill-color: transparent; color: transparent;
+    }
+    .speakers-coming-soon .cs-sub {
+      margin-top: 18px; color: var(--white); opacity: 0.7;
+      font-size: clamp(1rem, 2vw, 1.35rem); letter-spacing: 0.02em;
+    }
     .speakers-section {
       max-width: 1280px; margin: 0 auto; padding: 56px 5% 24px;
     }
@@ -2460,274 +2476,10 @@ KIIT (Deemed to be University)<br/>Patia, Bhubaneswar<br/>Odisha 751024<br/>Indi
     <p>IEEE MTT-S Microwave India Summit 2026</p>
   </div>
 
-  <!-- KEYNOTE SPEAKERS -->
-  <div class="speakers-section">
-    <div class="speakers-section-heading">Keynote <span class="hl-green">Speakers</span></div>
-    <div class="ssec-bar ssec-bar-green"></div>
-    <div class="speakers-grid">
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/BK_Das.png" alt="B.K. Das" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">B.K. Das</div>
-        <div class="speaker-title">DS &amp; DG (ECS), DRDO</div>
-        <span class="speaker-org">DRDO</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/k-suchendar.jpg" alt="K. Suchendar" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">K. Suchendar</div>
-        <div class="speaker-title">Director, Integrated Test Range (ITR), DRDO</div>
-        <span class="speaker-org">DRDO</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/SK_Nayak.png" alt="S.K. Nayak" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">S.K. Nayak</div>
-        <div class="speaker-title">Director, Proof &amp; Experimental Establishment (PXE), DRDO</div>
-        <span class="speaker-org">DRDO</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Anding.png" alt="Anding Zhu" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Anding Zhu</div>
-        <div class="speaker-title">2026 President, IEEE MTT-S<br>Professor, University College Dublin, Ireland</div>
-        <span class="speaker-org">IEEE MTT-S</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Goutam.png" alt="Goutam Chattopadhyay" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Goutam Chattopadhyay</div>
-        <div class="speaker-title">2025 President, IEEE MTT-S · Senior Scientist, NASA-JPL, USA</div>
-        <span class="speaker-org">IEEE MTT-S</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/CJ_Reddy.png" alt="C.J. Reddy" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">C.J. Reddy</div>
-        <div class="speaker-title">2026 President, IEEE AP-S · Siemens Fellow, USA</div>
-        <span class="speaker-org">IEEE AP-S</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Chinmoy.png" alt="Chinmoy Saha" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Chinmoy Saha</div>
-        <div class="speaker-title">MGA Vice-Chair/R10 Coordinator/SIGHT Chair, IEEE MTT-S · Professor, IIST Thiruvananthapuram</div>
-        <span class="speaker-org">IEEE MTT-S</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Jasmin.png" alt="Jasmin Grosinger" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Jasmin Grosinger</div>
-        <div class="speaker-title">MGA Chair, IEEE MTT-S · Professor, University of Siegen, Germany</div>
-        <span class="speaker-org">IEEE MTT-S</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Ashutosh.png" alt="Ashutosh Kedar" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Ashutosh Kedar</div>
-        <div class="speaker-title">Chair IBC, IEEE AP/MTT Bangalore · Scientist G &amp; PD, LRDE, DRDO</div>
-        <span class="speaker-org">DRDO</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/AjitKumar.png" alt="Ajit Kumar Panda" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Ajit Kumar Panda</div>
-        <div class="speaker-title">VP &amp; Director (RF), VVDN Technologies</div>
-        <span class="speaker-org">VVDN</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/madhumita-chakravrti.jpg" alt="Madhumita Chakravrti" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Madhumita Chakravrti</div>
-        <div class="speaker-title">Director (Retd.), CMSDS, DRDO</div>
-        <span class="speaker-org">DRDO</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Satyajit.png" alt="Satyajeet Chakroborty" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Satyajeet Chakroborty</div>
-        <div class="speaker-title">Scientist F &amp; Head Electromagnetics, SAMEER Kolkata</div>
-        <span class="speaker-org">SAMEER</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Tapas.png" alt="Tapas Chakravarty" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Tapas Chakravarty</div>
-        <div class="speaker-title">Chief Scientist (Retd.), TCS Research, Kolkata</div>
-        <span class="speaker-org">TCS</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/ShobhaSundar.png" alt="Shobha Sundar Ram" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Shobha Sundar Ram</div>
-        <div class="speaker-title">YP Chair, IEEE MTT-S · Professor, IIIT Delhi</div>
-        <span class="speaker-org">IIIT Delhi</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Sujith.png" alt="Sujith Tennyson" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Sujith Tennyson</div>
-        <div class="speaker-title">CEO, Icon Electromatics · Member, MTT-S IBC</div>
-        <span class="speaker-org">Icon</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Chandrakanta.png" alt="Chandrakanta Kumar" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Chandrakanta Kumar</div>
-        <div class="speaker-title">Scientist G &amp; PD, URSC, ISRO</div>
-        <span class="speaker-org">ISRO</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Daniel-Friedman.png" alt="Daniel J. Friedman" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Daniel J. Friedman</div>
-        <div class="speaker-title">2026 President, IEEE SSCS</div>
-        <span class="speaker-org">IEEE SSCS</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Braham-Himed.png" alt="Braham Himed" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Braham Himed</div>
-        <div class="speaker-title">2026 President, IEEE AESS</div>
-        <span class="speaker-org">IEEE AESS</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Arijit-Majumdar.png" alt="Arijit Majumdar" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Arijit Majumdar</div>
-        <div class="speaker-title">SAMEER, Kolkata</div>
-        <span class="speaker-org">SAMEER</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Puneet-Kumar-Mishra.png" alt="Puneet Kumar Mishra" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Puneet Kumar Mishra</div>
-        <div class="speaker-title">URSC, ISRO, Bangalore</div>
-        <span class="speaker-org">ISRO</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Mahesh-Abegaonkar.png" alt="Mahesh Abegaonkar" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Mahesh Abegaonkar</div>
-        <div class="speaker-title">Professor, IIT Delhi</div>
-        <span class="speaker-org">IIT Delhi</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Balamati-Choudhury.png" alt="Balamati Choudhury" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Balamati Choudhury</div>
-        <div class="speaker-title">CSIR-NAL, Bengaluru</div>
-        <span class="speaker-org">CSIR-NAL</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Surendra-Pal.png" alt="Surendra Pal" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Surendra Pal</div>
-        <div class="speaker-title">ISRO, Bengaluru</div>
-        <span class="speaker-org">ISRO</span>
-      </div>
-
-      <div class="speaker-card reveal">
-        <div class="speaker-photo-wrap">
-          <img src="images/speakers/Debaprasad-Barad.png" alt="Debaprasad Barad" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">Debaprasad Barad</div>
-        <div class="speaker-title">Astra Microwave, Hyderabad</div>
-        <span class="speaker-org">Astra Microwave</span>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- PANEL SPEAKERS -->
-  <div class="speakers-section" style="padding-top:48px;">
-    <div class="speakers-section-heading">Panel <span class="hl-gold">Speakers</span></div>
-    <div class="ssec-bar ssec-bar-gold"></div>
-    <div class="panel-grid">
-
-      <div class="speaker-card panel-card reveal">
-        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
-          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">TBD</div>
-        <div class="speaker-title">To Be Announced</div>
-        <span class="speaker-org">DRDO</span>
-      </div>
-
-      <div class="speaker-card panel-card reveal">
-        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
-          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">TBD</div>
-        <div class="speaker-title">To Be Announced</div>
-        <span class="speaker-org">ISRO</span>
-      </div>
-
-      <div class="speaker-card panel-card reveal">
-        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
-          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">TBD</div>
-        <div class="speaker-title">To Be Announced</div>
-        <span class="speaker-org">KIIT</span>
-      </div>
-
-      <div class="speaker-card panel-card reveal">
-        <div class="speaker-photo-wrap" style="border-color:rgba(245,197,24,0.2);">
-          <img src="images/speakers/tbd.jpg" alt="TBD" class="speaker-img" onerror="this.style.display='none'">
-        </div>
-        <div class="speaker-name">TBD</div>
-        <div class="speaker-title">To Be Announced</div>
-        <span class="speaker-org">Sponsor Company</span>
-      </div>
-
-    </div>
+  <!-- COMING SOON -->
+  <div class="speakers-coming-soon">
+    <div class="cs-big">COMING&nbsp;SOON</div>
+    <p class="cs-sub">Speaker lineup is being finalized. Check back soon.</p>
   </div>
 
   <div class="mini-footer" style="margin-top:40px;">
